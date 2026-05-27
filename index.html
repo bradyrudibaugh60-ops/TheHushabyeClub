@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hushabye Club</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #10163a, #050816);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .logo {
+      font-size: 64px;
+      font-weight: bold;
+      color: #d9ddff;
+      text-shadow: 0 0 20px rgba(255,255,255,0.4);
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #b5c2ff;
+    }
+
+    .moon {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top left, #fff7b3, #d1b75f);
+      margin: 0 auto 40px;
+      box-shadow: 0 0 40px rgba(255,255,180,0.6);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      background: rgba(255,255,255,0.08);
+      padding: 12px 24px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 100px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(6px);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      color: #d6dcff;
+    }
+
+    .hidden-message {
+      opacity: 0.02;
+      font-size: 12px;
+      margin-top: 40px;
+      user-select: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 4s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <header>
+    <div class="moon"></div>
+    <h1 class="logo">The Hushabye Club</h1>
+    <p class="subtitle">Sleep Tight, Little Stars.</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Characters</a>
+    <a href="#">Episodes</a>
+    <a href="#">Bedtime Stories</a>
+    <a href="#">Games</a>
+  </nav>
+
+  <section class="content">
+
+    <div class="card">
+      <h2>Welcome to the Club!</h2>
+      <p>
+        Every night, Momo and friends help children across the world drift into peaceful dreams.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Tonight's Reminder</h2>
+      <p>
+        Remember to stay in bed after the Quiet Hour begins.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Newest Episode</h2>
+      <p>
+        "Momo Counts the Stars" — Available Now!
+      </p>
+    </div>
+
+    <p class="hidden-message">
+      HE STILL SPEAKS THROUGH THE BROADCASTS.
+    </p>
+
+  </section>
+
+  <footer>
+    © 2001 The Hushabye Club Network
+  </footer>
+
+  <script>
+    const starsContainer = document.getElementById('stars');
+
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+
+      star.style.animationDelay = Math.random() * 5 + 's';
+      star.style.opacity = Math.random();
+
+      starsContainer.appendChild(star);
+    }
+
+    console.log('Quiet Hour initialized.');
+  </script>
+
+</body>
+</html>
