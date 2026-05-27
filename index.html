@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Hushabye Club</title>
 
-  <!-- CARTOONY GOOGLE FONT -->
+  <!-- CARTOONY FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -29,7 +30,7 @@
       overflow-x:hidden;
     }
 
-    /* STAR BACKGROUND */
+    /* STARS */
 
     .stars{
       position:fixed;
@@ -71,8 +72,6 @@
       margin:0 auto 35px;
       box-shadow:0 0 40px rgba(255,255,180,0.5);
     }
-
-    /* ORIGINAL TITLE RETURNED */
 
     .logo{
       font-size:68px;
@@ -160,8 +159,6 @@
       background:rgba(255,255,255,0.12);
     }
 
-    /* VIDEO HOLDER */
-
     .video-placeholder{
       width:100%;
       height:180px;
@@ -228,7 +225,7 @@
       transform:scale(1.04);
     }
 
-    /* VIDEO PLAYER POPUP */
+    /* POPUPS */
 
     .popup{
       position:fixed;
@@ -288,145 +285,154 @@
 
 <body>
 
-<div class="stars" id="stars"></div>
+  <!-- STAR BACKGROUND -->
 
-<header>
+  <div class="stars" id="stars"></div>
 
-  <div class="moon"></div>
+  <!-- HEADER -->
 
-  <!-- ORIGINAL TITLE SCREEN -->
-  <h1 class="logo">The Hushabye Club</h1>
+  <header>
 
-  <p class="subtitle">
-    Sleep Tight, Little Stars.
-  </p>
+    <div class="moon"></div>
 
-</header>
+    <h1 class="logo">The Hushabye Club</h1>
 
-<nav>
-  <a href="#">Home</a>
-  <a href="#">Characters</a>
-  <a href="#episodes">Episodes</a>
-  <a href="#">Bedtime Stories</a>
-  <a href="#">Games</a>
-</nav>
-
-<section class="content">
-
-  <div class="card">
-    <h2>Welcome to the Club!</h2>
-
-    <p>
-      Every night, Momo and friends help children across the world drift into peaceful dreams.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Tonight's Reminder</h2>
-
-    <p>
-      Remember to stay in bed after the Quiet Hour begins.
-    </p>
-  </div>
-
-  <!-- EPISODES -->
-
-  <div id="episodes" class="card">
-
-    <h2>Episode Archive</h2>
-
-    <p>
-      Some recordings may be incomplete or restricted by network administration.
+    <p class="subtitle">
+      Sleep Tight, Little Stars.
     </p>
 
-    <div class="episode-grid">
+  </header>
 
-      <!-- AVAILABLE -->
+  <!-- NAVIGATION -->
 
-      <div class="episode">
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Characters</a>
+    <a href="#episodes">Episodes</a>
+    <a href="#">Bedtime Stories</a>
+    <a href="#">Games</a>
+  </nav>
 
-        <div class="video-placeholder">
-          VIDEO PREVIEW
+  <!-- MAIN CONTENT -->
+
+  <section class="content">
+
+    <div class="card">
+      <h2>Welcome to the Club!</h2>
+
+      <p>
+        Every night, Momo and friends help children across the world drift into peaceful dreams.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Tonight's Reminder</h2>
+
+      <p>
+        Remember to stay in bed after the Quiet Hour begins.
+      </p>
+    </div>
+
+    <!-- EPISODES -->
+
+    <div id="episodes" class="card">
+
+      <h2>Episode Archive</h2>
+
+      <p>
+        Some recordings may be incomplete or restricted by network administration.
+      </p>
+
+      <div class="episode-grid">
+
+        <!-- AVAILABLE EPISODE -->
+
+        <div class="episode">
+
+          <div class="video-placeholder">
+            VIDEO PREVIEW
+          </div>
+
+          <div class="episode-content">
+
+            <h3>Momo Counts the Stars</h3>
+
+            <p>Full broadcast available.</p>
+
+            <span class="tag available">
+              AVAILABLE
+            </span>
+
+            <br>
+
+            <button class="watch-btn"
+              onclick="openVideo(
+              'https://www.youtube.com/embed/7svauTetPjM'
+              )">
+              Watch Episode
+            </button>
+
+          </div>
+
         </div>
 
-        <div class="episode-content">
+        <!-- MISSING SEGMENTS -->
 
-          <h3>Momo Counts the Stars</h3>
+        <div class="episode">
 
-          <p>Full broadcast available.</p>
+          <div class="video-placeholder">
+            VIDEO PREVIEW
+          </div>
 
-          <span class="tag available">
-            AVAILABLE
-          </span>
+          <div class="episode-content">
 
-          <br>
+            <h3>Pip's Midnight Song</h3>
 
-          <button class="watch-btn"
-            onclick="openVideo(
-            'https://www.youtube.com/watch?v=7svauTetPjM'
-            )">
-            Watch Episode
-          </button>
+            <p>Some tape segments are missing.</p>
 
-        </div>
+            <span class="tag missing">
+              MISSING SEGMENTS
+            </span>
 
-      </div>
+            <br>
 
-      <!-- MISSING -->
+            <button class="watch-btn"
+              onclick="openVideo(
+              'https://www.youtube.com/embed/7svauTetPjM'
+              )">
+              View Recording
+            </button>
 
-      <div class="episode">
-
-        <div class="video-placeholder">
-          VIDEO PREVIEW
-        </div>
-
-        <div class="episode-content">
-
-          <h3>Pip's Midnight Song</h3>
-
-          <p>Some tape segments are missing.</p>
-
-          <span class="tag missing">
-            MISSING SEGMENTS
-          </span>
-
-          <br>
-
-          <button class="watch-btn"
-            onclick="openVideo(
-            'https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE'
-            )">
-            View Recording
-          </button>
+          </div>
 
         </div>
 
-      </div>
+        <!-- RESTRICTED -->
 
-      <!-- RESTRICTED -->
+        <div class="episode">
 
-      <div class="episode">
+          <div class="video-placeholder">
+            RESTRICTED FILE
+          </div>
 
-        <div class="video-placeholder">
-          RESTRICTED FILE
-        </div>
+          <div class="episode-content">
 
-        <div class="episode-content">
+            <h3>Quiet Hour Special</h3>
 
-          <h3>Quiet Hour Special</h3>
+            <p>Network Admins Only.</p>
 
-          <p>Network Admins Only.</p>
+            <span class="tag restricted">
+              RESTRICTED
+            </span>
 
-          <span class="tag restricted">
-            RESTRICTED
-          </span>
+            <br>
 
-          <br>
+            <button class="watch-btn"
+              onclick="openRestricted()">
+              Enter Password
+            </button>
 
-          <button class="watch-btn"
-            onclick="openRestricted()">
-            Enter Password
-          </button>
+          </div>
 
         </div>
 
@@ -434,149 +440,192 @@
 
     </div>
 
-  </div>
+    <!-- HIDDEN MESSAGE -->
 
-  <p class="hidden-message">
-    HE STILL SPEAKS THROUGH THE BROADCASTS.
-  </p>
-
-</section>
-
-<!-- VIDEO POPUP -->
-
-<div class="popup" id="videoPopup">
-
-  <div class="popup-content">
-
-    <h2>Broadcast Playback</h2>
-
-    <iframe
-      id="videoFrame"
-      src=""
-      allowfullscreen>
-    </iframe>
-
-    <br><br>
-
-    <button class="watch-btn" onclick="closePopup()">
-      Close
-    </button>
-
-  </div>
-
-</div>
-
-<!-- PASSWORD POPUP -->
-
-<div class="popup" id="passwordPopup">
-
-  <div class="popup-content">
-
-    <h2>NETWORK ADMIN ACCESS</h2>
-
-    <p>
-      This recording has been restricted by The Hushabye Club Network.
+    <p class="hidden-message">
+      HE STILL SPEAKS THROUGH THE BROADCASTS.
     </p>
 
-    <input
-      type="password"
-      id="passwordInput"
-      placeholder="Enter Access Password"
-    >
+    <!-- FEATURED VIDEOS -->
 
-    <br>
+    <div class="card">
 
-    <button class="watch-btn" onclick="checkPassword()">
-      Access Recording
-    </button>
+      <h2>Featured Videos</h2>
 
-    <br><br>
+      <p>
+        Watch featured broadcasts from The Hushabye Club Network.
+      </p>
 
-    <button class="watch-btn" onclick="closePasswordPopup()">
-      Cancel
-    </button>
+      <br>
+
+      <div style="
+        position:relative;
+        width:100%;
+        padding-bottom:56.25%;
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:0 0 25px rgba(140,120,255,0.25);
+      ">
+
+        <iframe
+          src="https://www.youtube.com/embed/7svauTetPjM"
+          title="Featured Hushabye Club Video"
+          allowfullscreen
+          style="
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border:none;
+          ">
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- VIDEO POPUP -->
+
+  <div class="popup" id="videoPopup">
+
+    <div class="popup-content">
+
+      <h2>Broadcast Playback</h2>
+
+      <iframe
+        id="videoFrame"
+        src=""
+        allowfullscreen>
+      </iframe>
+
+      <br><br>
+
+      <button class="watch-btn" onclick="closePopup()">
+        Close
+      </button>
+
+    </div>
 
   </div>
 
-</div>
+  <!-- PASSWORD POPUP -->
 
-<footer>
-  © 2001 The Hushabye Club Network
-</footer>
+  <div class="popup" id="passwordPopup">
 
-<script>
+    <div class="popup-content">
 
-  /* STARS */
+      <h2>NETWORK ADMIN ACCESS</h2>
 
-  const starsContainer = document.getElementById('stars');
+      <p>
+        This recording has been restricted by The Hushabye Club Network.
+      </p>
 
-  for(let i=0;i<120;i++){
+      <input
+        type="password"
+        id="passwordInput"
+        placeholder="Enter Access Password"
+      >
 
-    const star=document.createElement('div');
+      <br>
 
-    star.classList.add('star');
+      <button class="watch-btn" onclick="checkPassword()">
+        Access Recording
+      </button>
 
-    star.style.left=Math.random()*100+'vw';
-    star.style.top=Math.random()*100+'vh';
+      <br><br>
 
-    star.style.animationDelay=Math.random()*5+'s';
+      <button class="watch-btn" onclick="closePasswordPopup()">
+        Cancel
+      </button>
 
-    star.style.opacity=Math.random();
+    </div>
 
-    starsContainer.appendChild(star);
-  }
+  </div>
 
-  /* VIDEO FUNCTIONS */
+  <!-- FOOTER -->
 
-  function openVideo(videoURL){
+  <footer>
+    © 2001 The Hushabye Club Network
+  </footer>
 
-    document.getElementById('videoPopup').style.display='flex';
+  <!-- JAVASCRIPT -->
 
-    document.getElementById('videoFrame').src=videoURL;
-  }
+  <script>
 
-  function closePopup(){
+    /* STAR GENERATION */
 
-    document.getElementById('videoPopup').style.display='none';
+    const starsContainer = document.getElementById('stars');
 
-    document.getElementById('videoFrame').src='';
-  }
+    for(let i=0;i<120;i++){
 
-  /* RESTRICTED */
+      const star=document.createElement('div');
 
-  function openRestricted(){
+      star.classList.add('star');
 
-    document.getElementById('passwordPopup').style.display='flex';
-  }
+      star.style.left=Math.random()*100+'vw';
+      star.style.top=Math.random()*100+'vh';
 
-  function closePasswordPopup(){
+      star.style.animationDelay=Math.random()*5+'s';
 
-    document.getElementById('passwordPopup').style.display='none';
-  }
+      star.style.opacity=Math.random();
 
-  function checkPassword(){
-
-    const password =
-      document.getElementById('passwordInput').value;
-
-    if(password === 'STLS'){
-
-      closePasswordPopup();
-
-      openVideo(
-      'https://www.youtube.com/embed/YOUR_RESTRICTED_VIDEO_ID'
-      );
-
-    }else{
-
-      alert('ACCESS DENIED');
+      starsContainer.appendChild(star);
     }
-  }
 
-  console.log('Quiet Hour initialized.');
-  console.log('Broadcast archive online.');
+    /* VIDEO PLAYER */
 
-</script>
+    function openVideo(videoURL){
+
+      document.getElementById('videoPopup').style.display='flex';
+
+      document.getElementById('videoFrame').src=videoURL;
+    }
+
+    function closePopup(){
+
+      document.getElementById('videoPopup').style.display='none';
+
+      document.getElementById('videoFrame').src='';
+    }
+
+    /* PASSWORD SYSTEM */
+
+    function openRestricted(){
+
+      document.getElementById('passwordPopup').style.display='flex';
+    }
+
+    function closePasswordPopup(){
+
+      document.getElementById('passwordPopup').style.display='none';
+    }
+
+    function checkPassword(){
+
+      const password =
+        document.getElementById('passwordInput').value;
+
+      if(password === 'STLS'){
+
+        closePasswordPopup();
+
+        openVideo(
+          'https://www.youtube.com/embed/7svauTetPjM'
+        );
+
+      }else{
+
+        alert('ACCESS DENIED');
+      }
+    }
+
+    console.log('Quiet Hour initialized.');
+    console.log('Broadcast archive online.');
+
+  </script>
 
 </body>
 </html>
