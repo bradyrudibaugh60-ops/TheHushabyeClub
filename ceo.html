@@ -1,1 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CEO DASH — Hushabye Network</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  background:
+  radial-gradient(
+    circle at center,
+    #140d2e,
+    #050816 70%
+  );
+
+  color:white;
+
+  font-family:'Fredoka',sans-serif;
+
+  overflow-x:hidden;
+}
+
+/* ========================= */
+/* STATIC OVERLAY */
+/* ========================= */
+
+.static{
+
+  position:fixed;
+  inset:0;
+
+  pointer-events:none;
+
+  opacity:0.05;
+
+  background-image:
+  repeating-radial-gradient(
+    circle,
+    white 0px,
+    transparent 2px
+  );
+
+  animation:staticMove 0.4s infinite;
+
+  z-index:999;
+}
+
+@keyframes staticMove{
+
+  0%{
+    transform:translate(0px,0px);
+  }
+
+  50%{
+    transform:translate(2px,-2px);
+  }
+
+  100%{
+    transform:translate(-2px,2px);
+  }
+
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+
+  text-align:center;
+
+  padding:80px 20px 40px;
+}
+
+.logo{
+
+  font-size:72px;
+
+  color:#d8c6ff;
+
+  text-shadow:
+  0 0 25px rgba(216,198,255,0.5);
+}
+
+.subtitle{
+
+  margin-top:15px;
+
+  color:#ae9fff;
+
+  font-size:24px;
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.content{
+
+  width:90%;
+  max-width:1200px;
+
+  margin:auto;
+
+  padding-bottom:100px;
+}
+
+.card{
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:24px;
+
+  padding:30px;
+
+  margin-bottom:35px;
+
+  backdrop-filter:blur(8px);
+}
+
+.card h2{
+
+  margin-bottom:20px;
+
+  color:#e3dbff;
+
+  font-size:34px;
+}
+
+/* ========================= */
+/* VIDEO GRID */
+/* ========================= */
+
+.video-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:25px;
+}
+
+.video-card{
+
+  background:
+  rgba(255,255,255,0.06);
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  transition:0.3s;
+}
+
+.video-card:hover{
+
+  transform:translateY(-5px);
+}
+
+.video-thumb{
+
+  height:180px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #2a214f,
+    #10091f
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:22px;
+
+  color:#d6ccff;
+}
+
+.video-info{
+
+  padding:20px;
+}
+
+.video-info h3{
+
+  margin-bottom:10px;
+
+  color:#f1ebff;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.watch-btn{
+
+  margin-top:15px;
+
+  padding:12px 20px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#8e72ff;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-family:'Fredoka',sans-serif;
+
+  transition:0.3s;
+}
+
+.watch-btn:hover{
+
+  background:#a58dff;
+
+  transform:scale(1.04);
+}
+
+/* ========================= */
+/* POPUP */
+/* ========================= */
+
+.popup{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.9);
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  z-index:1000;
+}
+
+.popup-content{
+
+  width:90%;
+  max-width:900px;
+
+  background:#0d1024;
+
+  padding:30px;
+
+  border-radius:22px;
+
+  text-align:center;
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+}
+
+iframe{
+
+  width:100%;
+  height:450px;
+
+  border:none;
+
+  border-radius:16px;
+
+  margin-top:20px;
+}
+
+/* ========================= */
+/* BOSS */
+/* ========================= */
+
+#bossSection{
+
+  display:none;
+}
+
+#bossCanvas{
+
+  width:100%;
+  max-width:900px;
+
+  background:black;
+
+  border-radius:20px;
+
+  border:
+  2px solid rgba(255,255,255,0.1);
+
+  margin-top:20px;
+}
+
+.boss-ui{
+
+  margin-top:20px;
+
+  font-size:22px;
+}
+
+/* ========================= */
+/* ENDING */
+/* ========================= */
+
+#endingSection{
+
+  display:none;
+
+  text-align:center;
+}
+
+.freedom-title{
+
+  font-size:72px;
+
+  color:#fff4c7;
+
+  text-shadow:
+  0 0 30px rgba(255,244,199,0.6);
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+
+  text-align:center;
+
+  padding:40px;
+
+  color:rgba(255,255,255,0.4);
+}
+
+.hidden{
+
+  opacity:0.02;
+
+  text-align:center;
+
+  margin-top:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="static"></div>
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+<h1 class="logo">
+CEO DASH
+</h1>
+
+<p class="subtitle">
+MASTER NETWORK CONTROL
+</p>
+
+</header>
+
+<!-- ========================= -->
+<!-- CONTENT -->
+<!-- ========================= -->
+
+<section class="content">
+
+<!-- ========================= -->
+<!-- FINAL VIDEO -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+Executive Archives
+</h2>
+
+<div class="video-grid">
+
+<div class="video-card">
+
+<div class="video-thumb">
+FINAL TRANSFORMATION
+</div>
+
+<div class="video-info">
+
+<h3>
+Mr. Lull Becomes The Quiet King
+</h3>
+
+<p>
+Recovered executive footage documenting Subject LULL during final transformation.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(quietKingVideo)">
+
+View Footage
+
+</button>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ========================= -->
+<!-- BOSS ACTIVATION -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+Emergency Broadcast Override
+</h2>
+
+<p>
+Activating this sequence will permanently interrupt the Quiet Hour broadcast.
+</p>
+
+<button
+class="watch-btn"
+onclick="startBossFight()">
+
+INITIATE FINAL OVERRIDE
+
+</button>
+
+</div>
+
+<!-- ========================= -->
+<!-- BOSS FIGHT -->
+<!-- ========================= -->
+
+<div
+class="card"
+id="bossSection">
+
+<h2>
+MR. LULL — THE QUIET KING
+</h2>
+
+<p>
+The signal has become unstable.
+</p>
+
+<canvas
+id="bossCanvas"
+width="900"
+height="500">
+</canvas>
+
+<div class="boss-ui">
+
+Boss Health:
+<span id="bossHealth">
+300
+</span>
+
+</div>
+
+<button
+class="watch-btn"
+onclick="attackBoss()">
+
+THROW STARLIGHT
+
+</button>
+
+</div>
+
+<!-- ========================= -->
+<!-- ENDING -->
+<!-- ========================= -->
+
+<div
+class="card"
+id="endingSection">
+
+<h1 class="freedom-title">
+FREEDOM
+</h1>
+
+<p style="
+margin-top:20px;
+font-size:22px;
+">
+
+The children have been released from the broadcast.
+
+</p>
+
+<br>
+
+<button
+class="watch-btn"
+onclick="playEnding()">
+
+END THE BROADCAST
+
+</button>
+
+</div>
+
+<p class="hidden">
+HE WAS NEVER HUMAN.
+</p>
+
+</section>
+
+<!-- ========================= -->
+<!-- VIDEO POPUP -->
+<!-- ========================= -->
+
+<div class="popup" id="videoPopup">
+
+<div class="popup-content">
+
+<h2>
+Playback
+</h2>
+
+<iframe
+id="videoFrame"
+src=""
+allowfullscreen>
+</iframe>
+
+<br><br>
+
+<button
+class="watch-btn"
+onclick="closePopup()">
+
+Close
+
+</button>
+
+</div>
+</div>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+© 2001 Hushabye Executive Systems
+</footer>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script>
+
+/* ========================= */
+/* VIDEO */
+/* ========================= */
+
+const quietKingVideo =
+'https://www.youtube.com/embed/YOUR_QUIET_KING_VIDEO';
+
+function openVideo(videoURL){
+
+document.getElementById(
+'videoPopup'
+).style.display='flex';
+
+document.getElementById(
+'videoFrame'
+).src=videoURL;
+
+}
+
+function closePopup(){
+
+document.getElementById(
+'videoPopup'
+).style.display='none';
+
+document.getElementById(
+'videoFrame'
+).src='';
+
+}
+
+/* ========================= */
+/* BOSS FIGHT */
+/* ========================= */
+
+const canvas =
+document.getElementById(
+'bossCanvas'
+);
+
+const ctx =
+canvas.getContext('2d');
+
+let bossHealth = 300;
+
+let phase = 1;
+
+function startBossFight(){
+
+document.getElementById(
+'bossSection'
+).style.display='block';
+
+drawBoss();
+
+window.scrollTo({
+
+top:document.body.scrollHeight,
+
+behavior:'smooth'
+
+});
+
+}
+
+/* DRAW BOSS */
+
+function drawBoss(){
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+/* BACKGROUND */
+
+for(let i=0;i<250;i++){
+
+ctx.fillStyle =
+`rgba(255,255,255,${
+Math.random()*0.12
+})`;
+
+ctx.fillRect(
+
+Math.random()*900,
+Math.random()*500,
+2,
+2
+
+);
+
+}
+
+/* BODY */
+
+ctx.fillStyle='#090909';
+
+ctx.fillRect(
+380,
+180,
+140,
+200
+);
+
+/* ARMS */
+
+ctx.fillRect(
+250,
+220,
+130,
+25
+);
+
+ctx.fillRect(
+520,
+220,
+130,
+25
+);
+
+/* LEGS */
+
+ctx.fillRect(
+405,
+380,
+30,
+90
+);
+
+ctx.fillRect(
+465,
+380,
+30,
+90
+);
+
+/* HEAD */
+
+ctx.beginPath();
+
+ctx.arc(
+450,
+130,
+90,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+/* EYES */
+
+ctx.fillStyle='white';
+
+ctx.beginPath();
+ctx.arc(420,115,10,0,Math.PI*2);
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(480,115,10,0,Math.PI*2);
+ctx.fill();
+
+/* SMILE */
+
+ctx.strokeStyle='#d8c7ff';
+
+ctx.lineWidth=5;
+
+ctx.beginPath();
+
+ctx.arc(
+450,
+150,
+35,
+0,
+Math.PI
+);
+
+ctx.stroke();
+
+/* EXTRA EYES */
+
+for(let i=0;i<6;i++){
+
+ctx.fillStyle='white';
+
+ctx.beginPath();
+
+ctx.arc(
+390 + (i*20),
+260,
+5,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+}
+
+/* PHASE TEXT */
+
+ctx.fillStyle='#bda9ff';
+
+ctx.font='30px Fredoka';
+
+ctx.fillText(
+'PHASE ' + phase,
+30,
+50
+);
+
+}
+
+/* ATTACK */
+
+function attackBoss(){
+
+if(bossHealth <= 0){
+return;
+}
+
+bossHealth -= 10;
+
+document.getElementById(
+'bossHealth'
+).textContent = bossHealth;
+
+/* PHASE CHANGES */
+
+if(bossHealth <= 200){
+phase = 2;
+}
+
+if(bossHealth <= 100){
+phase = 3;
+}
+
+/* VISUAL CHANGES */
+
+if(phase === 2){
+
+document.body.style.background =
+'linear-gradient(to bottom,#12051f,#000000)';
+
+}
+
+if(phase === 3){
+
+document.body.style.background =
+'black';
+
+document.querySelector(
+'.logo'
+).textContent =
+'QUIET HOUR ACTIVE';
+
+}
+
+/* REDRAW */
+
+drawBoss();
+
+/* WIN */
+
+if(bossHealth <= 0){
+
+setTimeout(()=>{
+
+document.getElementById(
+'endingSection'
+).style.display='block';
+
+alert(
+'THE SIGNAL HAS BEEN BROKEN.'
+);
+
+},500);
+
+}
+
+}
+
+/* ========================= */
+/* ENDING */
+/* ========================= */
+
+function playEnding(){
+
+document.body.style.background =
+'linear-gradient(to bottom,#8ec5ff,#f6f7ff)';
+
+document.body.style.color =
+'#111';
+
+document.querySelector(
+'.logo'
+).textContent =
+'THE BROADCAST IS OVER';
+
+alert(
+'The children have finally been freed.'
+);
+
+}
+
+console.log(
+'CEO DASH INITIALIZED'
+);
+
+</script>
+
+</body>
+</html>
