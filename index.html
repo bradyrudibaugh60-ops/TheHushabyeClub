@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Hushabye Club</title>
 
-  <!-- FONT -->
+  <!-- GOOGLE FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -73,13 +73,13 @@
       box-shadow:0 0 40px rgba(255,255,180,0.5);
     }
 
-    .logo{
-      font-size:68px;
-      color:#b691ff;
-      text-shadow:
-        0 0 12px rgba(182,145,255,0.7),
-        0 0 24px rgba(182,145,255,0.4);
-      letter-spacing:2px;
+    /* CUSTOM LOGO IMAGE */
+
+    .title-logo{
+      width:500px;
+      max-width:90%;
+      margin-bottom:20px;
+      filter:drop-shadow(0 0 18px rgba(190,160,255,0.5));
     }
 
     .subtitle{
@@ -116,7 +116,7 @@
     /* CONTENT */
 
     .content{
-      max-width:1100px;
+      max-width:1200px;
       margin:auto;
       padding:20px 20px 100px;
       text-align:center;
@@ -182,6 +182,8 @@
       margin-bottom:10px;
       color:#ece6ff;
     }
+
+    /* TAGS */
 
     .tag{
       display:inline-block;
@@ -254,7 +256,7 @@
     .popup{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.8);
+      background:rgba(0,0,0,0.85);
       display:none;
       align-items:center;
       justify-content:center;
@@ -266,14 +268,14 @@
       padding:30px;
       border-radius:20px;
       width:90%;
-      max-width:800px;
+      max-width:850px;
       text-align:center;
       border:1px solid rgba(255,255,255,0.08);
     }
 
     iframe{
       width:100%;
-      height:400px;
+      height:420px;
       border:none;
       border-radius:16px;
       margin-top:20px;
@@ -304,6 +306,15 @@
       user-select:none;
     }
 
+    /* BOSS */
+
+    #bossCanvas{
+      background:black;
+      border-radius:20px;
+      border:2px solid rgba(255,255,255,0.1);
+      max-width:100%;
+    }
+
   </style>
 </head>
 
@@ -311,11 +322,19 @@
 
 <div class="stars" id="stars"></div>
 
+<!-- HEADER -->
+
 <header>
 
   <div class="moon"></div>
 
-  <h1 class="logo">The Hushabye Club</h1>
+  <!-- REPLACE THIS IMAGE -->
+
+  <img
+    src="YOUR_HUSHABYE_LOGO.png"
+    class="title-logo"
+    alt="The Hushabye Club"
+  >
 
   <p class="subtitle">
     Sleep Tight, Little Stars.
@@ -323,11 +342,28 @@
 
 </header>
 
+<!-- NAVIGATION -->
+
 <nav>
+
   <a href="#">Home</a>
-  <a href="#episodes">Episodes</a>
-  <a href="#games">Games</a>
+
+  <a href="#episodes">
+    Episodes
+  </a>
+
+  <a href="#games">
+    Games
+  </a>
+
+  <a href="javascript:void(0)"
+  onclick="openTVAdmin()">
+    TV Admin
+  </a>
+
 </nav>
+
+<!-- MAIN CONTENT -->
 
 <section class="content">
 
@@ -363,7 +399,7 @@
 
     <div class="episode-grid">
 
-      <!-- MOMO COUNTS THE STARS -->
+      <!-- MOMO -->
 
       <div class="episode">
 
@@ -375,7 +411,9 @@
 
           <h3>Momo Counts the Stars</h3>
 
-          <p>Full broadcast available.</p>
+          <p>
+            Full broadcast available.
+          </p>
 
           <span class="tag available">
             AVAILABLE
@@ -384,7 +422,7 @@
           <br>
 
           <button class="watch-btn"
-            onclick="openVideo(momoEpisode)">
+          onclick="openVideo(momoEpisode)">
             Watch Episode
           </button>
 
@@ -392,7 +430,7 @@
 
       </div>
 
-      <!-- PIP MIDNIGHT SONG -->
+      <!-- PIP -->
 
       <div class="episode">
 
@@ -404,7 +442,9 @@
 
           <h3>Pip's Midnight Song</h3>
 
-          <p>Some tape segments are missing.</p>
+          <p>
+            Some tape segments are missing.
+          </p>
 
           <span class="tag missing">
             MISSING SEGMENTS
@@ -413,7 +453,7 @@
           <br>
 
           <button class="watch-btn"
-            onclick="showMissingEpisode()">
+          onclick="showMissingEpisode()">
             View Recording
           </button>
 
@@ -433,7 +473,9 @@
 
           <h3>Quiet Hour Special</h3>
 
-          <p>Network Admins Only.</p>
+          <p>
+            Network Admins Only.
+          </p>
 
           <span class="tag restricted">
             RESTRICTED
@@ -442,7 +484,7 @@
           <br>
 
           <button class="watch-btn"
-            onclick="openRestricted()">
+          onclick="openRestricted()">
             Enter Password
           </button>
 
@@ -461,24 +503,37 @@
     <h2>Pip's Fishing Frenzy</h2>
 
     <p>
-      Help Pip catch fish before they escape!
+      Catch fish to recover the hidden network password.
     </p>
 
-    <canvas id="gameCanvas" width="800" height="450"></canvas>
+    <canvas
+      id="gameCanvas"
+      width="800"
+      height="450">
+    </canvas>
 
     <div class="game-info">
-      Score: <span id="score">0</span>
+      Score:
+      <span id="score">
+        0
+      </span>
     </div>
 
-    <div class="password-reveal" id="passwordReveal">
+    <div
+      class="password-reveal"
+      id="passwordReveal">
 
-      <h2>NETWORK ARCHIVE RECOVERED</h2>
+      <h2>
+        NETWORK ARCHIVE RECOVERED
+      </h2>
 
       <p>
         ADMIN PASSWORD:
       </p>
 
-      <h1>STLS</h1>
+      <h1>
+        STLS
+      </h1>
 
     </div>
 
@@ -497,23 +552,23 @@
     <br>
 
     <div style="
-      position:relative;
-      width:100%;
-      padding-bottom:56.25%;
-      border-radius:20px;
-      overflow:hidden;
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    border-radius:20px;
+    overflow:hidden;
     ">
 
       <iframe
-        src="https://www.youtube.com/embed/7svauTetPjM"
-        allowfullscreen
-        style="
-          position:absolute;
-          inset:0;
-          width:100%;
-          height:100%;
-          border:none;
-        ">
+      src="https://www.youtube.com/embed/7svauTetPjM"
+      allowfullscreen
+      style="
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:none;
+      ">
       </iframe>
 
     </div>
@@ -526,6 +581,255 @@
 
 </section>
 
+<!-- TV ADMIN PAGE -->
+
+<section
+id="tvAdminPage"
+class="content"
+style="display:none;">
+
+  <div class="card">
+
+    <h2>NETWORK ARCHIVE TERMINAL</h2>
+
+    <p>
+      INTERNAL USE ONLY
+    </p>
+
+  </div>
+
+  <!-- UNRELEASED -->
+
+  <div class="card">
+
+    <h2>Unreleased Episodes</h2>
+
+    <div class="episode-grid">
+
+      <div class="episode">
+
+        <div class="video-placeholder">
+          UNRELEASED
+        </div>
+
+        <div class="episode-content">
+
+          <h3>Starbell Sleeps Alone</h3>
+
+          <p>
+            Broadcast canceled before release.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="episode">
+
+        <div class="video-placeholder">
+          UNRELEASED
+        </div>
+
+        <div class="episode-content">
+
+          <h3>The Last Bedtime</h3>
+
+          <p>
+            Tape recovered from storage.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTAGE -->
+
+  <div class="card">
+
+    <h2>Recovered Network Tapes</h2>
+
+    <div class="episode-grid">
+
+      <div class="episode">
+
+        <div class="video-placeholder">
+          FOOTAGE #01
+        </div>
+
+        <div class="episode-content">
+
+          <h3>Hallway Camera</h3>
+
+          <p>
+            2:13 AM recording.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="episode">
+
+        <div class="video-placeholder">
+          FOOTAGE #02
+        </div>
+
+        <div class="episode-content">
+
+          <h3>Studio B</h3>
+
+          <p>
+            Audio distortions detected.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="episode">
+
+        <div class="video-placeholder">
+          FOOTAGE #03
+        </div>
+
+        <div class="episode-content">
+
+          <h3>Quiet Hour Test</h3>
+
+          <p>
+            Restricted experiment footage.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="episode">
+
+        <div class="video-placeholder">
+          FOOTAGE #04
+        </div>
+
+        <div class="episode-content">
+
+          <h3>Mr. Lull Observation</h3>
+
+          <p>
+            Subject no longer responding normally.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CEO DASH -->
+
+  <div class="card">
+
+    <h2>CEO'S DASH</h2>
+
+    <p>
+      Executive clearance required.
+    </p>
+
+    <input
+    type="password"
+    id="ceoPassword"
+    placeholder="Executive Password">
+
+    <button class="watch-btn"
+    onclick="checkCEOAccess()">
+      ACCESS DASH
+    </button>
+
+  </div>
+
+</section>
+
+<!-- BOSS FIGHT -->
+
+<section
+id="bossFight"
+class="content"
+style="display:none;">
+
+  <div class="card">
+
+    <h1 style="
+    font-size:60px;
+    color:#d3c1ff;
+    ">
+      MR. LULL
+    </h1>
+
+    <p>
+      THE QUIET KING
+    </p>
+
+    <br>
+
+    <canvas
+    id="bossCanvas"
+    width="900"
+    height="500">
+    </canvas>
+
+    <br><br>
+
+    <div class="game-info">
+
+      Boss Health:
+      <span id="bossHealth">
+        100
+      </span>
+
+    </div>
+
+    <br>
+
+    <button class="watch-btn"
+    onclick="attackBoss()">
+      THROW STARLIGHT
+    </button>
+
+  </div>
+
+</section>
+
+<!-- FREEDOM -->
+
+<section
+id="freedomSection"
+class="content"
+style="display:none;">
+
+  <div class="card">
+
+    <h1>Freedom</h1>
+
+    <p>
+      The broadcast can finally end.
+    </p>
+
+    <br>
+
+    <button class="watch-btn"
+    onclick="playFreedomEnding()">
+      END THE BROADCAST
+    </button>
+
+  </div>
+
+</section>
+
 <!-- VIDEO POPUP -->
 
 <div class="popup" id="videoPopup">
@@ -535,15 +839,15 @@
     <h2>Broadcast Playback</h2>
 
     <iframe
-      id="videoFrame"
-      src=""
-      allowfullscreen>
+    id="videoFrame"
+    src=""
+    allowfullscreen>
     </iframe>
 
     <br><br>
 
     <button class="watch-btn"
-      onclick="closePopup()">
+    onclick="closePopup()">
       Close
     </button>
 
@@ -564,14 +868,39 @@
     </p>
 
     <input
-      type="password"
-      id="passwordInput"
-      placeholder="Enter Password"
-    >
+    type="password"
+    id="passwordInput"
+    placeholder="Enter Password">
 
     <button class="watch-btn"
-      onclick="checkPassword()">
+    onclick="checkPassword()">
       Access Recording
+    </button>
+
+  </div>
+
+</div>
+
+<!-- TV ADMIN POPUP -->
+
+<div class="popup" id="tvAdminPopup">
+
+  <div class="popup-content">
+
+    <h2>TV ADMIN TERMINAL</h2>
+
+    <p>
+      Enter network authorization password.
+    </p>
+
+    <input
+    type="password"
+    id="tvAdminPassword"
+    placeholder="Authorization Password">
+
+    <button class="watch-btn"
+    onclick="checkTVAdminPassword()">
+      ACCESS TERMINAL
     </button>
 
   </div>
@@ -599,7 +928,7 @@
     <br>
 
     <button class="watch-btn"
-      onclick="closeMissingPopup()">
+    onclick="closeMissingPopup()">
       Close
     </button>
 
@@ -615,14 +944,11 @@
 
   /* VIDEO LINKS */
 
-  const featuredTrailer =
-    'https://www.youtube.com/embed/7svauTetPjM';
-
   const momoEpisode =
-    'https://www.youtube.com/embed/7svauTetPjM';
+    'https://www.youtube.com/embed/YOUR_MOMO_EPISODE';
 
   const restrictedEpisode =
-    'https://www.youtube.com/embed/dQw4w9WgXcQ';
+    'https://www.youtube.com/embed/YOUR_RESTRICTED_EPISODE';
 
   /* STARS */
 
@@ -631,20 +957,24 @@
 
   for(let i=0;i<120;i++){
 
-    const star=document.createElement('div');
+    const star =
+      document.createElement('div');
 
     star.classList.add('star');
 
-    star.style.left=Math.random()*100+'vw';
+    star.style.left =
+      Math.random()*100+'vw';
 
-    star.style.top=Math.random()*100+'vh';
+    star.style.top =
+      Math.random()*100+'vh';
 
-    star.style.animationDelay=Math.random()*5+'s';
+    star.style.animationDelay =
+      Math.random()*5+'s';
 
     starsContainer.appendChild(star);
   }
 
-  /* VIDEO PLAYER */
+  /* VIDEO */
 
   function openVideo(videoURL){
 
@@ -668,7 +998,7 @@
     ).src='';
   }
 
-  /* MISSING EPISODE */
+  /* MISSING */
 
   function showMissingEpisode(){
 
@@ -714,7 +1044,208 @@
     }
   }
 
-  /* GAME */
+  /* TV ADMIN */
+
+  function openTVAdmin(){
+
+    document.getElementById(
+      'tvAdminPopup'
+    ).style.display='flex';
+  }
+
+  function checkTVAdminPassword(){
+
+    const password =
+      document.getElementById(
+        'tvAdminPassword'
+      ).value;
+
+    if(password === 'Lull'){
+
+      document.getElementById(
+        'tvAdminPopup'
+      ).style.display='none';
+
+      document.getElementById(
+        'tvAdminPage'
+      ).style.display='block';
+
+      window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:'smooth'
+      });
+
+    }else{
+
+      alert('ACCESS DENIED');
+    }
+  }
+
+  /* CEO */
+
+  function checkCEOAccess(){
+
+    const password =
+      document.getElementById(
+        'ceoPassword'
+      ).value;
+
+    if(password === 'Mastermind'){
+
+      document.getElementById(
+        'bossFight'
+      ).style.display='block';
+
+      startBossFight();
+
+      window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:'smooth'
+      });
+
+    }else{
+
+      alert('EXECUTIVE ACCESS DENIED');
+    }
+  }
+
+  /* BOSS */
+
+  const bossCanvas =
+    document.getElementById(
+      'bossCanvas'
+    );
+
+  const bossCtx =
+    bossCanvas.getContext('2d');
+
+  let bossHealth = 100;
+
+  function drawBoss(){
+
+    bossCtx.clearRect(
+      0,
+      0,
+      bossCanvas.width,
+      bossCanvas.height
+    );
+
+    for(let i=0;i<300;i++){
+
+      bossCtx.fillStyle =
+      `rgba(255,255,255,${
+      Math.random()*0.2
+      })`;
+
+      bossCtx.fillRect(
+        Math.random()*900,
+        Math.random()*500,
+        2,
+        2
+      );
+    }
+
+    bossCtx.fillStyle='#1a1a1a';
+
+    bossCtx.beginPath();
+
+    bossCtx.arc(
+      450,
+      220,
+      120,
+      0,
+      Math.PI*2
+    );
+
+    bossCtx.fill();
+
+    for(let i=0;i<8;i++){
+
+      bossCtx.fillStyle='white';
+
+      bossCtx.beginPath();
+
+      bossCtx.arc(
+        380+(i*20),
+        200+Math.sin(i)*20,
+        8,
+        0,
+        Math.PI*2
+      );
+
+      bossCtx.fill();
+    }
+
+    bossCtx.strokeStyle='#d4c2ff';
+
+    bossCtx.lineWidth=5;
+
+    bossCtx.beginPath();
+
+    bossCtx.arc(
+      450,
+      250,
+      50,
+      0,
+      Math.PI
+    );
+
+    bossCtx.stroke();
+  }
+
+  function startBossFight(){
+
+    drawBoss();
+  }
+
+  function attackBoss(){
+
+    if(bossHealth <= 0){
+      return;
+    }
+
+    bossHealth -= 10;
+
+    document.getElementById(
+      'bossHealth'
+    ).textContent = bossHealth;
+
+    drawBoss();
+
+    if(bossHealth <= 0){
+
+      setTimeout(()=>{
+
+        alert(
+          'MR. LULL HAS BEEN SILENCED.'
+        );
+
+        document.getElementById(
+          'freedomSection'
+        ).style.display='block';
+
+      },500);
+    }
+  }
+
+  /* ENDING */
+
+  function playFreedomEnding(){
+
+    alert(
+      'THE CHILDREN HAVE BEEN FREED.'
+    );
+
+    document.body.style.background =
+    'linear-gradient(to bottom,#87b7ff,#dcecff)';
+
+    document.querySelector(
+      '.subtitle'
+    ).textContent =
+    'THE BROADCAST IS OVER';
+  }
+
+  /* FISHING GAME */
 
   const canvas =
     document.getElementById('gameCanvas');
@@ -738,7 +1269,6 @@
     fish.push({
       x:Math.random()*760,
       y:-20,
-      size:30,
       speed:2+Math.random()*2
     });
   }
@@ -783,16 +1313,6 @@
     );
 
     ctx.fill();
-
-    ctx.beginPath();
-
-    ctx.moveTo(f.x-20,f.y);
-
-    ctx.lineTo(f.x-35,f.y-10);
-
-    ctx.lineTo(f.x-35,f.y+10);
-
-    ctx.fill();
   }
 
   function updateGame(){
@@ -808,7 +1328,7 @@
 
     for(let i=fish.length-1;i>=0;i--){
 
-      const f = fish[i];
+      const f=fish[i];
 
       f.y += f.speed;
 
@@ -817,7 +1337,7 @@
       if(
         f.y > basket.y &&
         f.x > basket.x &&
-        f.x < basket.x + basket.width
+        f.x < basket.x+basket.width
       ){
 
         fish.splice(i,1);
