@@ -14,6 +14,10 @@
 
 <style>
 
+/* ======================================== */
+/* RESET */
+/* ======================================== */
+
 *{
   margin:0;
   padding:0;
@@ -24,34 +28,57 @@ html{
   scroll-behavior:smooth;
 }
 
+/* ======================================== */
+/* BODY */
+/* ======================================== */
+
 body{
-  background:linear-gradient(to bottom,#141a45,#050816);
+
+  background:
+  linear-gradient(
+    to bottom,
+    #141a45,
+    #050816
+  );
+
   color:white;
+
   font-family:'Fredoka',sans-serif;
+
   overflow-x:hidden;
 }
 
-/* ========================= */
+/* ======================================== */
 /* STARS */
-/* ========================= */
+/* ======================================== */
 
 .stars{
+
   position:fixed;
+
   inset:0;
+
   z-index:-1;
+
   overflow:hidden;
 }
 
 .star{
+
   position:absolute;
+
   width:2px;
   height:2px;
+
   background:white;
+
   border-radius:50%;
+
   animation:twinkle 4s infinite;
 }
 
 @keyframes twinkle{
+
   0%,100%{
     opacity:0.2;
   }
@@ -59,20 +86,25 @@ body{
   50%{
     opacity:1;
   }
+
 }
 
-/* ========================= */
+/* ======================================== */
 /* HEADER */
-/* ========================= */
+/* ======================================== */
 
 header{
+
   text-align:center;
+
   padding:90px 20px 50px;
 }
 
 .moon{
+
   width:140px;
   height:140px;
+
   border-radius:50%;
 
   background:
@@ -89,8 +121,11 @@ header{
 }
 
 .logo{
+
   font-size:72px;
+
   font-weight:600;
+
   color:#caa8ff;
 
   text-shadow:
@@ -99,93 +134,142 @@ header{
 }
 
 .subtitle{
+
   margin-top:18px;
+
   font-size:24px;
+
   color:#d6c6ff;
 }
 
-/* ========================= */
+/* ======================================== */
 /* NAVIGATION */
-/* ========================= */
+/* ======================================== */
 
 nav{
+
   display:flex;
+
   justify-content:center;
+
   gap:18px;
+
   flex-wrap:wrap;
+
   margin-bottom:60px;
 }
 
 nav a{
+
   text-decoration:none;
+
   color:white;
-  background:rgba(255,255,255,0.08);
+
+  background:
+  rgba(255,255,255,0.08);
+
   padding:12px 24px;
+
   border-radius:14px;
+
   transition:0.3s;
-  border:1px solid rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
 }
 
 nav a:hover{
-  background:rgba(255,255,255,0.18);
+
+  background:
+  rgba(255,255,255,0.18);
+
   transform:translateY(-3px);
 }
 
-/* ========================= */
+/* ======================================== */
 /* CONTENT */
-/* ========================= */
+/* ======================================== */
 
 .content{
+
   max-width:1200px;
+
   margin:auto;
+
   padding:20px 20px 100px;
+
   text-align:center;
 }
 
 .card{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
+
+  background:
+  rgba(255,255,255,0.06);
+
+  border:
+  1px solid rgba(255,255,255,0.1);
+
   border-radius:22px;
+
   padding:30px;
+
   margin-bottom:30px;
+
   backdrop-filter:blur(6px);
 }
 
 .card h2{
+
   margin-bottom:14px;
+
   color:#e4dcff;
+
   font-size:32px;
 }
 
-/* ========================= */
+/* ======================================== */
 /* EPISODES */
-/* ========================= */
+/* ======================================== */
 
 .episode-grid{
+
   display:grid;
 
   grid-template-columns:
   repeat(auto-fit,minmax(280px,1fr));
 
   gap:25px;
+
   margin-top:30px;
 }
 
 .episode{
-  background:rgba(255,255,255,0.08);
+
+  background:
+  rgba(255,255,255,0.08);
+
   border-radius:20px;
+
   overflow:hidden;
+
   transition:0.3s;
-  border:1px solid rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
 }
 
 .episode:hover{
+
   transform:translateY(-5px);
-  background:rgba(255,255,255,0.12);
+
+  background:
+  rgba(255,255,255,0.12);
 }
 
 .video-placeholder{
+
   width:100%;
+
   height:180px;
 
   background:
@@ -196,75 +280,107 @@ nav a:hover{
   );
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   font-size:20px;
+
   color:#d7dfff;
 }
 
 .episode-content{
+
   padding:20px;
 }
 
 .episode h3{
+
   margin-bottom:10px;
+
   color:#ece6ff;
 }
 
-/* ========================= */
+/* ======================================== */
 /* TAGS */
-/* ========================= */
+/* ======================================== */
 
 .tag{
+
   display:inline-block;
+
   margin-top:12px;
+
   padding:6px 12px;
+
   border-radius:999px;
+
   font-size:12px;
 }
 
 .available{
-  background:rgba(120,255,180,0.2);
+
+  background:
+  rgba(120,255,180,0.2);
+
   color:#cffff0;
 }
 
 .missing{
-  background:rgba(255,220,120,0.2);
+
+  background:
+  rgba(255,220,120,0.2);
+
   color:#ffe9b6;
 }
 
 .restricted{
-  background:rgba(255,120,120,0.2);
+
+  background:
+  rgba(255,120,120,0.2);
+
   color:#ffd2d2;
 }
 
-/* ========================= */
+/* ======================================== */
 /* BUTTONS */
-/* ========================= */
+/* ======================================== */
 
 .watch-btn{
+
   margin-top:16px;
+
   padding:10px 18px;
+
   border:none;
+
   border-radius:12px;
+
   background:#8f72ff;
+
   color:white;
+
   font-family:'Fredoka',sans-serif;
+
   cursor:pointer;
+
   transition:0.3s;
 }
 
 .watch-btn:hover{
+
   background:#a58cff;
+
   transform:scale(1.04);
 }
 
-/* ========================= */
+/* ======================================== */
 /* GAME */
-/* ========================= */
+/* ======================================== */
 
 #gameCanvas{
+
   background:
   linear-gradient(
     to bottom,
@@ -273,83 +389,137 @@ nav a:hover{
   );
 
   border-radius:20px;
-  border:3px solid rgba(255,255,255,0.1);
+
+  border:
+  3px solid rgba(255,255,255,0.1);
+
   margin-top:25px;
+
   max-width:100%;
 }
 
 .game-info{
+
   margin-top:15px;
+
   font-size:20px;
+
   color:#d7dfff;
 }
 
 .password-reveal{
+
   margin-top:20px;
+
   padding:20px;
+
   border-radius:20px;
-  background:rgba(255,255,255,0.08);
+
+  background:
+  rgba(255,255,255,0.08);
+
   display:none;
 }
 
-/* ========================= */
+/* ======================================== */
 /* POPUPS */
-/* ========================= */
+/* ======================================== */
 
 .popup{
+
   position:fixed;
+
   inset:0;
-  background:rgba(0,0,0,0.85);
+
+  background:
+  rgba(0,0,0,0.85);
+
   display:none;
+
   align-items:center;
+
   justify-content:center;
+
   z-index:999;
 }
 
 .popup-content{
+
   background:#11183f;
+
   padding:30px;
+
   border-radius:20px;
+
   width:90%;
+
   max-width:850px;
+
   text-align:center;
-  border:1px solid rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
 }
 
 iframe{
+
   width:100%;
+
   height:420px;
+
   border:none;
+
   border-radius:16px;
+
   margin-top:20px;
 }
 
+/* ======================================== */
+/* INPUTS */
+/* ======================================== */
+
 input{
+
   width:100%;
+
   padding:12px;
+
   margin-top:15px;
+
   border:none;
+
   border-radius:12px;
+
   background:#1c255e;
+
   color:white;
+
   font-family:'Fredoka',sans-serif;
 }
 
-/* ========================= */
+/* ======================================== */
 /* FOOTER */
-/* ========================= */
+/* ======================================== */
 
 footer{
+
   text-align:center;
+
   padding:40px;
+
   color:rgba(255,255,255,0.5);
+
   font-size:14px;
 }
 
 .hidden-message{
+
   opacity:0.02;
+
   font-size:12px;
+
   margin-top:40px;
+
   user-select:none;
 }
 
@@ -360,9 +530,9 @@ footer{
 
 <div class="stars" id="stars"></div>
 
-<!-- ========================= -->
+<!-- ======================================== -->
 <!-- HEADER -->
-<!-- ========================= -->
+<!-- ======================================== -->
 
 <header>
 
@@ -378,9 +548,9 @@ Sleep Tight, Little Stars.
 
 </header>
 
-<!-- ========================= -->
-<!-- NAVIGATION -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- NAV -->
+<!-- ======================================== -->
 
 <nav>
 
@@ -400,17 +570,17 @@ TV Admin
 
 </nav>
 
-<!-- ========================= -->
-<!-- MAIN CONTENT -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- CONTENT -->
+<!-- ======================================== -->
 
 <section class="content">
 
-<!-- WELCOME -->
-
 <div class="card">
 
-<h2>Welcome to the Club!</h2>
+<h2>
+Welcome to the Club!
+</h2>
 
 <p>
 Every night, Momo and friends help children across the world drift into peaceful dreams.
@@ -418,11 +588,11 @@ Every night, Momo and friends help children across the world drift into peaceful
 
 </div>
 
-<!-- REMINDER -->
-
 <div class="card">
 
-<h2>Tonight's Reminder</h2>
+<h2>
+Tonight's Reminder
+</h2>
 
 <p>
 Remember to stay in bed after the Quiet Hour begins.
@@ -430,19 +600,19 @@ Remember to stay in bed after the Quiet Hour begins.
 
 </div>
 
-<!-- ========================= -->
+<!-- ======================================== -->
 <!-- EPISODES -->
-<!-- ========================= -->
+<!-- ======================================== -->
 
 <div id="episodes" class="card">
 
-<h2>Episode Archive</h2>
+<h2>
+Episode Archive
+</h2>
 
 <div class="episode-grid">
 
-<!-- ========================= -->
 <!-- MOMO -->
-<!-- ========================= -->
 
 <div class="episode">
 
@@ -452,7 +622,9 @@ FULL BROADCAST
 
 <div class="episode-content">
 
-<h3>Momo Counts the Stars</h3>
+<h3>
+Momo Counts the Stars
+</h3>
 
 <p>
 Full broadcast available.
@@ -475,9 +647,7 @@ Watch Episode
 </div>
 </div>
 
-<!-- ========================= -->
 <!-- PIP -->
-<!-- ========================= -->
 
 <div class="episode">
 
@@ -487,7 +657,9 @@ CORRUPTED RECORDING
 
 <div class="episode-content">
 
-<h3>Pip's Midnight Song</h3>
+<h3>
+Pip's Midnight Song
+</h3>
 
 <p>
 Some tape segments are missing.
@@ -510,9 +682,7 @@ View Recording
 </div>
 </div>
 
-<!-- ========================= -->
 <!-- QUIET HOUR -->
-<!-- ========================= -->
 
 <div class="episode">
 
@@ -522,7 +692,9 @@ RESTRICTED FILE
 
 <div class="episode-content">
 
-<h3>Quiet Hour Special</h3>
+<h3>
+Quiet Hour Special
+</h3>
 
 <p>
 Network Admins Only.
@@ -548,13 +720,15 @@ Enter Password
 </div>
 </div>
 
-<!-- ========================= -->
+<!-- ======================================== -->
 <!-- GAME -->
-<!-- ========================= -->
+<!-- ======================================== -->
 
 <div id="games" class="card">
 
-<h2>Pip's Fishing Frenzy</h2>
+<h2>
+Pip's Fishing Frenzy
+</h2>
 
 <p>
 Catch fish to recover the hidden network password.
@@ -595,13 +769,15 @@ STLS
 
 </div>
 
-<!-- ========================= -->
+<!-- ======================================== -->
 <!-- FEATURED VIDEO -->
-<!-- ========================= -->
+<!-- ======================================== -->
 
 <div class="card">
 
-<h2>Featured Videos</h2>
+<h2>
+Featured Videos
+</h2>
 
 <p>
 Latest network teaser broadcast.
@@ -639,15 +815,17 @@ HE STILL SPEAKS THROUGH THE BROADCASTS.
 
 </section>
 
-<!-- ========================= -->
+<!-- ======================================== -->
 <!-- VIDEO POPUP -->
-<!-- ========================= -->
+<!-- ======================================== -->
 
 <div class="popup" id="videoPopup">
 
 <div class="popup-content">
 
-<h2>Broadcast Playback</h2>
+<h2>
+Broadcast Playback
+</h2>
 
 <iframe
 id="videoFrame"
@@ -668,15 +846,17 @@ Close
 </div>
 </div>
 
-<!-- ========================= -->
+<!-- ======================================== -->
 <!-- PASSWORD POPUP -->
-<!-- ========================= -->
+<!-- ======================================== -->
 
 <div class="popup" id="passwordPopup">
 
 <div class="popup-content">
 
-<h2>NETWORK ADMIN ACCESS</h2>
+<h2>
+NETWORK ADMIN ACCESS
+</h2>
 
 <p>
 This recording has been restricted.
@@ -698,19 +878,23 @@ Access Recording
 </div>
 </div>
 
+<!-- ======================================== -->
+<!-- FOOTER -->
+<!-- ======================================== -->
+
 <footer>
 © 2001 The Hushabye Club Network
 </footer>
 
-<!-- ========================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- SCRIPT -->
+<!-- ======================================== -->
 
 <script>
 
-/* ========================= */
+/* ======================================== */
 /* VIDEO LINKS */
-/* ========================= */
+/* ======================================== */
 
 const momoEpisode =
 'https://www.youtube.com/embed/YOUR_MOMO_VIDEO';
@@ -721,14 +905,14 @@ const pipEpisode =
 const restrictedEpisode =
 'https://www.youtube.com/embed/YOUR_RESTRICTED_VIDEO';
 
-/* ========================= */
+/* ======================================== */
 /* STARS */
-/* ========================= */
+/* ======================================== */
 
 const starsContainer =
 document.getElementById('stars');
 
-for(let i=0;i<120;i++){
+for(let i=0;i<140;i++){
 
 const star =
 document.createElement('div');
@@ -748,9 +932,9 @@ starsContainer.appendChild(star);
 
 }
 
-/* ========================= */
-/* VIDEO */
-/* ========================= */
+/* ======================================== */
+/* VIDEO SYSTEM */
+/* ======================================== */
 
 function openVideo(videoURL){
 
@@ -776,9 +960,9 @@ document.getElementById(
 
 }
 
-/* ========================= */
+/* ======================================== */
 /* PASSWORD */
-/* ========================= */
+/* ======================================== */
 
 function openRestricted(){
 
@@ -811,9 +995,9 @@ alert('ACCESS DENIED');
 
 }
 
-/* ========================= */
+/* ======================================== */
 /* FISHING GAME */
-/* ========================= */
+/* ======================================== */
 
 const canvas =
 document.getElementById('gameCanvas');
@@ -834,7 +1018,7 @@ height:35
 
 const fish = [];
 
-/* SPAWN FISH */
+/* SPAWN */
 
 function spawnFish(){
 
@@ -848,7 +1032,10 @@ speed:2+Math.random()*2
 
 }
 
-setInterval(spawnFish,1000);
+setInterval(
+spawnFish,
+1000
+);
 
 /* MOUSE */
 
@@ -885,24 +1072,30 @@ ctx.fill();
 
 }
 
-/* BETTER FISH */
+/* REAL FISH */
 
 function drawFish(f){
 
-/* BODY */
+ctx.fillStyle='#7fe4ff';
 
-ctx.fillStyle='#8fe3ff';
+/* BODY */
 
 ctx.beginPath();
 
-ctx.ellipse(
+ctx.moveTo(f.x - 25, f.y);
+
+ctx.quadraticCurveTo(
 f.x,
-f.y,
-22,
-12,
-0,
-0,
-Math.PI*2
+f.y - 18,
+f.x + 25,
+f.y
+);
+
+ctx.quadraticCurveTo(
+f.x,
+f.y + 18,
+f.x - 25,
+f.y
 );
 
 ctx.fill();
@@ -911,11 +1104,39 @@ ctx.fill();
 
 ctx.beginPath();
 
-ctx.moveTo(f.x-18,f.y);
+ctx.moveTo(f.x - 25, f.y);
 
-ctx.lineTo(f.x-35,f.y-10);
+ctx.lineTo(f.x - 45, f.y - 15);
 
-ctx.lineTo(f.x-35,f.y+10);
+ctx.lineTo(f.x - 45, f.y + 15);
+
+ctx.closePath();
+
+ctx.fill();
+
+/* TOP FIN */
+
+ctx.beginPath();
+
+ctx.moveTo(f.x - 5, f.y - 8);
+
+ctx.lineTo(f.x + 8, f.y - 24);
+
+ctx.lineTo(f.x + 16, f.y - 6);
+
+ctx.closePath();
+
+ctx.fill();
+
+/* BOTTOM FIN */
+
+ctx.beginPath();
+
+ctx.moveTo(f.x - 5, f.y + 8);
+
+ctx.lineTo(f.x + 10, f.y + 22);
+
+ctx.lineTo(f.x + 16, f.y + 6);
 
 ctx.closePath();
 
@@ -928,11 +1149,11 @@ ctx.fillStyle='white';
 ctx.beginPath();
 
 ctx.arc(
-f.x+10,
-f.y-2,
-3,
+f.x + 14,
+f.y - 3,
+4,
 0,
-Math.PI*2
+Math.PI * 2
 );
 
 ctx.fill();
@@ -944,18 +1165,36 @@ ctx.fillStyle='black';
 ctx.beginPath();
 
 ctx.arc(
-f.x+11,
-f.y-2,
-1.5,
+f.x + 15,
+f.y - 3,
+2,
 0,
-Math.PI*2
+Math.PI * 2
 );
 
 ctx.fill();
 
+/* MOUTH */
+
+ctx.strokeStyle='#003344';
+
+ctx.lineWidth=2;
+
+ctx.beginPath();
+
+ctx.arc(
+f.x + 20,
+f.y + 2,
+4,
+0.5,
+2
+);
+
+ctx.stroke();
+
 }
 
-/* GAME LOOP */
+/* LOOP */
 
 function updateGame(){
 
@@ -968,7 +1207,11 @@ canvas.height
 
 drawBasket();
 
-for(let i=fish.length-1;i>=0;i--){
+for(
+let i=fish.length-1;
+i>=0;
+i--
+){
 
 const f=fish[i];
 
@@ -1010,14 +1253,17 @@ fish.splice(i,1);
 
 }
 
-requestAnimationFrame(updateGame);
+requestAnimationFrame(
+updateGame
+);
 
 }
 
 updateGame();
 
-console.log('Quiet Hour initialized.');
-console.log('Fishing module online.');
+console.log(
+'Quiet Hour initialized.'
+);
 
 </script>
 
