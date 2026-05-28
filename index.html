@@ -7,532 +7,19 @@
 
 <title>The Hushabye Club</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-
-/* ======================================== */
-/* RESET */
-/* ======================================== */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-/* ======================================== */
-/* BODY */
-/* ======================================== */
-
-body{
-
-  background:
-  linear-gradient(
-    to bottom,
-    #141a45,
-    #050816
-  );
-
-  color:white;
-
-  font-family:'Fredoka',sans-serif;
-
-  overflow-x:hidden;
-}
-
-/* ======================================== */
-/* STARS */
-/* ======================================== */
-
-.stars{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:-1;
-
-  overflow:hidden;
-}
-
-.star{
-
-  position:absolute;
-
-  width:2px;
-  height:2px;
-
-  background:white;
-
-  border-radius:50%;
-
-  animation:twinkle 4s infinite;
-}
-
-@keyframes twinkle{
-
-  0%,100%{
-    opacity:0.2;
-  }
-
-  50%{
-    opacity:1;
-  }
-
-}
-
-/* ======================================== */
-/* HEADER */
-/* ======================================== */
-
-header{
-
-  text-align:center;
-
-  padding:90px 20px 50px;
-}
-
-.moon{
-
-  width:140px;
-  height:140px;
-
-  border-radius:50%;
-
-  background:
-  radial-gradient(
-    circle at top left,
-    #fff7b3,
-    #d1b75f
-  );
-
-  margin:0 auto 35px;
-
-  box-shadow:
-  0 0 40px rgba(255,255,180,0.5);
-}
-
-.logo{
-
-  font-size:72px;
-
-  font-weight:600;
-
-  color:#caa8ff;
-
-  text-shadow:
-    0 0 12px rgba(202,168,255,0.7),
-    0 0 30px rgba(202,168,255,0.4);
-}
-
-.subtitle{
-
-  margin-top:18px;
-
-  font-size:24px;
-
-  color:#d6c6ff;
-}
-
-/* ======================================== */
-/* NAVIGATION */
-/* ======================================== */
-
-nav{
-
-  display:flex;
-
-  justify-content:center;
-
-  gap:18px;
-
-  flex-wrap:wrap;
-
-  margin-bottom:60px;
-}
-
-nav a{
-
-  text-decoration:none;
-
-  color:white;
-
-  background:
-  rgba(255,255,255,0.08);
-
-  padding:12px 24px;
-
-  border-radius:14px;
-
-  transition:0.3s;
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-}
-
-nav a:hover{
-
-  background:
-  rgba(255,255,255,0.18);
-
-  transform:translateY(-3px);
-}
-
-/* ======================================== */
-/* CONTENT */
-/* ======================================== */
-
-.content{
-
-  max-width:1200px;
-
-  margin:auto;
-
-  padding:20px 20px 100px;
-
-  text-align:center;
-}
-
-.card{
-
-  background:
-  rgba(255,255,255,0.06);
-
-  border:
-  1px solid rgba(255,255,255,0.1);
-
-  border-radius:22px;
-
-  padding:30px;
-
-  margin-bottom:30px;
-
-  backdrop-filter:blur(6px);
-}
-
-.card h2{
-
-  margin-bottom:14px;
-
-  color:#e4dcff;
-
-  font-size:32px;
-}
-
-/* ======================================== */
-/* EPISODES */
-/* ======================================== */
-
-.episode-grid{
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr));
-
-  gap:25px;
-
-  margin-top:30px;
-}
-
-.episode{
-
-  background:
-  rgba(255,255,255,0.08);
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  transition:0.3s;
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-}
-
-.episode:hover{
-
-  transform:translateY(-5px);
-
-  background:
-  rgba(255,255,255,0.12);
-}
-
-.video-placeholder{
-
-  width:100%;
-
-  height:180px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #2d356f,
-    #1a214d
-  );
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:20px;
-
-  color:#d7dfff;
-}
-
-.episode-content{
-
-  padding:20px;
-}
-
-.episode h3{
-
-  margin-bottom:10px;
-
-  color:#ece6ff;
-}
-
-/* ======================================== */
-/* TAGS */
-/* ======================================== */
-
-.tag{
-
-  display:inline-block;
-
-  margin-top:12px;
-
-  padding:6px 12px;
-
-  border-radius:999px;
-
-  font-size:12px;
-}
-
-.available{
-
-  background:
-  rgba(120,255,180,0.2);
-
-  color:#cffff0;
-}
-
-.missing{
-
-  background:
-  rgba(255,220,120,0.2);
-
-  color:#ffe9b6;
-}
-
-.restricted{
-
-  background:
-  rgba(255,120,120,0.2);
-
-  color:#ffd2d2;
-}
-
-/* ======================================== */
-/* BUTTONS */
-/* ======================================== */
-
-.watch-btn{
-
-  margin-top:16px;
-
-  padding:10px 18px;
-
-  border:none;
-
-  border-radius:12px;
-
-  background:#8f72ff;
-
-  color:white;
-
-  font-family:'Fredoka',sans-serif;
-
-  cursor:pointer;
-
-  transition:0.3s;
-}
-
-.watch-btn:hover{
-
-  background:#a58cff;
-
-  transform:scale(1.04);
-}
-
-/* ======================================== */
-/* GAME */
-/* ======================================== */
-
-#gameCanvas{
-
-  background:
-  linear-gradient(
-    to bottom,
-    #4b78cf,
-    #11214f
-  );
-
-  border-radius:20px;
-
-  border:
-  3px solid rgba(255,255,255,0.1);
-
-  margin-top:25px;
-
-  max-width:100%;
-}
-
-.game-info{
-
-  margin-top:15px;
-
-  font-size:20px;
-
-  color:#d7dfff;
-}
-
-.password-reveal{
-
-  margin-top:20px;
-
-  padding:20px;
-
-  border-radius:20px;
-
-  background:
-  rgba(255,255,255,0.08);
-
-  display:none;
-}
-
-/* ======================================== */
-/* POPUPS */
-/* ======================================== */
-
-.popup{
-
-  position:fixed;
-
-  inset:0;
-
-  background:
-  rgba(0,0,0,0.85);
-
-  display:none;
-
-  align-items:center;
-
-  justify-content:center;
-
-  z-index:999;
-}
-
-.popup-content{
-
-  background:#11183f;
-
-  padding:30px;
-
-  border-radius:20px;
-
-  width:90%;
-
-  max-width:850px;
-
-  text-align:center;
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-}
-
-iframe{
-
-  width:100%;
-
-  height:420px;
-
-  border:none;
-
-  border-radius:16px;
-
-  margin-top:20px;
-}
-
-/* ======================================== */
-/* INPUTS */
-/* ======================================== */
-
-input{
-
-  width:100%;
-
-  padding:12px;
-
-  margin-top:15px;
-
-  border:none;
-
-  border-radius:12px;
-
-  background:#1c255e;
-
-  color:white;
-
-  font-family:'Fredoka',sans-serif;
-}
-
-/* ======================================== */
-/* FOOTER */
-/* ======================================== */
-
-footer{
-
-  text-align:center;
-
-  padding:40px;
-
-  color:rgba(255,255,255,0.5);
-
-  font-size:14px;
-}
-
-.hidden-message{
-
-  opacity:0.02;
-
-  font-size:12px;
-
-  margin-top:40px;
-
-  user-select:none;
-}
-
-</style>
 </head>
 
 <body>
 
+<!-- STARS -->
+
 <div class="stars" id="stars"></div>
 
-<!-- ======================================== -->
 <!-- HEADER -->
-<!-- ======================================== -->
 
 <header>
 
@@ -548,9 +35,7 @@ Sleep Tight, Little Stars.
 
 </header>
 
-<!-- ======================================== -->
-<!-- NAV -->
-<!-- ======================================== -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -570,11 +55,11 @@ TV Admin
 
 </nav>
 
-<!-- ======================================== -->
-<!-- CONTENT -->
-<!-- ======================================== -->
+<!-- MAIN CONTENT -->
 
 <section class="content">
+
+<!-- WELCOME -->
 
 <div class="card">
 
@@ -588,6 +73,8 @@ Every night, Momo and friends help children across the world drift into peaceful
 
 </div>
 
+<!-- REMINDER -->
+
 <div class="card">
 
 <h2>
@@ -600,11 +87,9 @@ Remember to stay in bed after the Quiet Hour begins.
 
 </div>
 
-<!-- ======================================== -->
 <!-- EPISODES -->
-<!-- ======================================== -->
 
-<div id="episodes" class="card">
+<div class="card" id="episodes">
 
 <h2>
 Episode Archive
@@ -627,7 +112,7 @@ Momo Counts the Stars
 </h3>
 
 <p>
-Full broadcast available.
+The original bedtime broadcast.
 </p>
 
 <span class="tag available">
@@ -662,7 +147,7 @@ Pip's Midnight Song
 </h3>
 
 <p>
-Some tape segments are missing.
+Some segments of the tape are missing.
 </p>
 
 <span class="tag missing">
@@ -682,7 +167,7 @@ View Recording
 </div>
 </div>
 
-<!-- QUIET HOUR -->
+<!-- RESTRICTED -->
 
 <div class="episode">
 
@@ -697,11 +182,11 @@ Quiet Hour Special
 </h3>
 
 <p>
-Network Admins Only.
+Restricted Network Archive.
 </p>
 
 <span class="tag restricted">
-RESTRICTED
+ADMIN ONLY
 </span>
 
 <br>
@@ -718,20 +203,19 @@ Enter Password
 </div>
 
 </div>
+
 </div>
 
-<!-- ======================================== -->
 <!-- GAME -->
-<!-- ======================================== -->
 
-<div id="games" class="card">
+<div class="card" id="games">
 
 <h2>
 Pip's Fishing Frenzy
 </h2>
 
 <p>
-Catch fish to recover the hidden network password.
+Catch 15 fish to recover the hidden admin password.
 </p>
 
 <canvas
@@ -769,45 +253,28 @@ STLS
 
 </div>
 
-<!-- ======================================== -->
 <!-- FEATURED VIDEO -->
-<!-- ======================================== -->
 
 <div class="card">
 
 <h2>
-Featured Videos
+Featured Video
 </h2>
 
 <p>
-Latest network teaser broadcast.
+Latest recovered teaser broadcast.
 </p>
 
 <br>
 
-<div style="
-position:relative;
-width:100%;
-padding-bottom:56.25%;
-border-radius:20px;
-overflow:hidden;
-">
-
 <iframe
 src="https://www.youtube.com/embed/7svauTetPjM"
-allowfullscreen
-style="
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-border:none;
-">
+allowfullscreen>
 </iframe>
 
 </div>
 
-</div>
+<!-- HIDDEN MESSAGE -->
 
 <p class="hidden-message">
 HE STILL SPEAKS THROUGH THE BROADCASTS.
@@ -815,9 +282,7 @@ HE STILL SPEAKS THROUGH THE BROADCASTS.
 
 </section>
 
-<!-- ======================================== -->
 <!-- VIDEO POPUP -->
-<!-- ======================================== -->
 
 <div class="popup" id="videoPopup">
 
@@ -844,11 +309,10 @@ Close
 </button>
 
 </div>
+
 </div>
 
-<!-- ======================================== -->
 <!-- PASSWORD POPUP -->
-<!-- ======================================== -->
 
 <div class="popup" id="passwordPopup">
 
@@ -876,396 +340,18 @@ Access Recording
 </button>
 
 </div>
+
 </div>
 
-<!-- ======================================== -->
 <!-- FOOTER -->
-<!-- ======================================== -->
 
 <footer>
 © 2001 The Hushabye Club Network
 </footer>
 
-<!-- ======================================== -->
 <!-- SCRIPT -->
-<!-- ======================================== -->
 
-<script>
-
-/* ======================================== */
-/* VIDEO LINKS */
-/* ======================================== */
-
-const momoEpisode =
-'https://www.youtube.com/embed/YOUR_MOMO_VIDEO';
-
-const pipEpisode =
-'https://www.youtube.com/embed/YOUR_PIP_VIDEO';
-
-const restrictedEpisode =
-'https://www.youtube.com/embed/YOUR_RESTRICTED_VIDEO';
-
-/* ======================================== */
-/* STARS */
-/* ======================================== */
-
-const starsContainer =
-document.getElementById('stars');
-
-for(let i=0;i<140;i++){
-
-const star =
-document.createElement('div');
-
-star.classList.add('star');
-
-star.style.left =
-Math.random()*100+'vw';
-
-star.style.top =
-Math.random()*100+'vh';
-
-star.style.animationDelay =
-Math.random()*5+'s';
-
-starsContainer.appendChild(star);
-
-}
-
-/* ======================================== */
-/* VIDEO SYSTEM */
-/* ======================================== */
-
-function openVideo(videoURL){
-
-document.getElementById(
-'videoPopup'
-).style.display='flex';
-
-document.getElementById(
-'videoFrame'
-).src=videoURL;
-
-}
-
-function closePopup(){
-
-document.getElementById(
-'videoPopup'
-).style.display='none';
-
-document.getElementById(
-'videoFrame'
-).src='';
-
-}
-
-/* ======================================== */
-/* PASSWORD */
-/* ======================================== */
-
-function openRestricted(){
-
-document.getElementById(
-'passwordPopup'
-).style.display='flex';
-
-}
-
-function checkPassword(){
-
-const password =
-document.getElementById(
-'passwordInput'
-).value;
-
-if(password === 'STLS'){
-
-openVideo(restrictedEpisode);
-
-document.getElementById(
-'passwordPopup'
-).style.display='none';
-
-}else{
-
-alert('ACCESS DENIED');
-
-}
-
-}
-
-/* ======================================== */
-/* FISHING GAME */
-/* ======================================== */
-
-const canvas =
-document.getElementById('gameCanvas');
-
-const ctx =
-canvas.getContext('2d');
-
-let score = 0;
-
-const basket = {
-
-x:350,
-y:390,
-width:120,
-height:35
-
-};
-
-const fish = [];
-
-/* SPAWN */
-
-function spawnFish(){
-
-fish.push({
-
-x:Math.random()*760,
-y:-20,
-speed:2+Math.random()*2
-
-});
-
-}
-
-setInterval(
-spawnFish,
-1000
-);
-
-/* MOUSE */
-
-document.addEventListener(
-'mousemove',
-(e)=>{
-
-const rect =
-canvas.getBoundingClientRect();
-
-basket.x =
-e.clientX - rect.left - 60;
-
-}
-);
-
-/* BASKET */
-
-function drawBasket(){
-
-ctx.fillStyle='#ffd27f';
-
-ctx.beginPath();
-
-ctx.roundRect(
-basket.x,
-basket.y,
-basket.width,
-basket.height,
-10
-);
-
-ctx.fill();
-
-}
-
-/* REAL FISH */
-
-function drawFish(f){
-
-ctx.fillStyle='#7fe4ff';
-
-/* BODY */
-
-ctx.beginPath();
-
-ctx.moveTo(f.x - 25, f.y);
-
-ctx.quadraticCurveTo(
-f.x,
-f.y - 18,
-f.x + 25,
-f.y
-);
-
-ctx.quadraticCurveTo(
-f.x,
-f.y + 18,
-f.x - 25,
-f.y
-);
-
-ctx.fill();
-
-/* TAIL */
-
-ctx.beginPath();
-
-ctx.moveTo(f.x - 25, f.y);
-
-ctx.lineTo(f.x - 45, f.y - 15);
-
-ctx.lineTo(f.x - 45, f.y + 15);
-
-ctx.closePath();
-
-ctx.fill();
-
-/* TOP FIN */
-
-ctx.beginPath();
-
-ctx.moveTo(f.x - 5, f.y - 8);
-
-ctx.lineTo(f.x + 8, f.y - 24);
-
-ctx.lineTo(f.x + 16, f.y - 6);
-
-ctx.closePath();
-
-ctx.fill();
-
-/* BOTTOM FIN */
-
-ctx.beginPath();
-
-ctx.moveTo(f.x - 5, f.y + 8);
-
-ctx.lineTo(f.x + 10, f.y + 22);
-
-ctx.lineTo(f.x + 16, f.y + 6);
-
-ctx.closePath();
-
-ctx.fill();
-
-/* EYE */
-
-ctx.fillStyle='white';
-
-ctx.beginPath();
-
-ctx.arc(
-f.x + 14,
-f.y - 3,
-4,
-0,
-Math.PI * 2
-);
-
-ctx.fill();
-
-/* PUPIL */
-
-ctx.fillStyle='black';
-
-ctx.beginPath();
-
-ctx.arc(
-f.x + 15,
-f.y - 3,
-2,
-0,
-Math.PI * 2
-);
-
-ctx.fill();
-
-/* MOUTH */
-
-ctx.strokeStyle='#003344';
-
-ctx.lineWidth=2;
-
-ctx.beginPath();
-
-ctx.arc(
-f.x + 20,
-f.y + 2,
-4,
-0.5,
-2
-);
-
-ctx.stroke();
-
-}
-
-/* LOOP */
-
-function updateGame(){
-
-ctx.clearRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-drawBasket();
-
-for(
-let i=fish.length-1;
-i>=0;
-i--
-){
-
-const f=fish[i];
-
-f.y += f.speed;
-
-drawFish(f);
-
-if(
-
-f.y > basket.y &&
-f.x > basket.x &&
-f.x < basket.x+basket.width
-
-){
-
-fish.splice(i,1);
-
-score++;
-
-document.getElementById(
-'score'
-).textContent = score;
-
-if(score >= 15){
-
-document.getElementById(
-'passwordReveal'
-).style.display='block';
-
-}
-
-}
-
-if(f.y > canvas.height){
-
-fish.splice(i,1);
-
-}
-
-}
-
-requestAnimationFrame(
-updateGame
-);
-
-}
-
-updateGame();
-
-console.log(
-'Quiet Hour initialized.'
-);
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
