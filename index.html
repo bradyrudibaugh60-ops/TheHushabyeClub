@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Hushabye Club</title>
 
-  <!-- CARTOONY FONT -->
+  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -88,7 +88,7 @@
       color:#d6c6ff;
     }
 
-    /* NAVIGATION */
+    /* NAV */
 
     nav{
       display:flex;
@@ -225,6 +225,30 @@
       transform:scale(1.04);
     }
 
+    /* GAME */
+
+    #gameCanvas{
+      background:linear-gradient(to bottom,#3d65b8,#11214f);
+      border-radius:20px;
+      border:3px solid rgba(255,255,255,0.1);
+      margin-top:25px;
+      max-width:100%;
+    }
+
+    .game-info{
+      margin-top:15px;
+      font-size:20px;
+      color:#d7dfff;
+    }
+
+    .password-reveal{
+      margin-top:20px;
+      padding:20px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.08);
+      display:none;
+    }
+
     /* POPUPS */
 
     .popup{
@@ -285,154 +309,144 @@
 
 <body>
 
-  <!-- STAR BACKGROUND -->
+<div class="stars" id="stars"></div>
 
-  <div class="stars" id="stars"></div>
+<header>
 
-  <!-- HEADER -->
+  <div class="moon"></div>
 
-  <header>
+  <h1 class="logo">The Hushabye Club</h1>
 
-    <div class="moon"></div>
+  <p class="subtitle">
+    Sleep Tight, Little Stars.
+  </p>
 
-    <h1 class="logo">The Hushabye Club</h1>
+</header>
 
-    <p class="subtitle">
-      Sleep Tight, Little Stars.
+<nav>
+  <a href="#">Home</a>
+  <a href="#episodes">Episodes</a>
+  <a href="#games">Games</a>
+</nav>
+
+<section class="content">
+
+  <!-- WELCOME -->
+
+  <div class="card">
+
+    <h2>Welcome to the Club!</h2>
+
+    <p>
+      Every night, Momo and friends help children across the world drift into peaceful dreams.
     </p>
 
-  </header>
+  </div>
 
-  <!-- NAVIGATION -->
+  <!-- REMINDER -->
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Characters</a>
-    <a href="#episodes">Episodes</a>
-    <a href="#">Bedtime Stories</a>
-    <a href="#">Games</a>
-  </nav>
+  <div class="card">
 
-  <!-- MAIN CONTENT -->
+    <h2>Tonight's Reminder</h2>
 
-  <section class="content">
+    <p>
+      Remember to stay in bed after the Quiet Hour begins.
+    </p>
 
-    <div class="card">
-      <h2>Welcome to the Club!</h2>
+  </div>
 
-      <p>
-        Every night, Momo and friends help children across the world drift into peaceful dreams.
-      </p>
-    </div>
+  <!-- EPISODES -->
 
-    <div class="card">
-      <h2>Tonight's Reminder</h2>
+  <div id="episodes" class="card">
 
-      <p>
-        Remember to stay in bed after the Quiet Hour begins.
-      </p>
-    </div>
+    <h2>Episode Archive</h2>
 
-    <!-- EPISODES -->
+    <div class="episode-grid">
 
-    <div id="episodes" class="card">
+      <!-- AVAILABLE -->
 
-      <h2>Episode Archive</h2>
+      <div class="episode">
 
-      <p>
-        Some recordings may be incomplete or restricted by network administration.
-      </p>
+        <div class="video-placeholder">
+          VIDEO PREVIEW
+        </div>
 
-      <div class="episode-grid">
+        <div class="episode-content">
 
-        <!-- AVAILABLE EPISODE -->
+          <h3>Momo Counts the Stars</h3>
 
-        <div class="episode">
+          <p>Full broadcast available.</p>
 
-          <div class="video-placeholder">
-            VIDEO PREVIEW
-          </div>
+          <span class="tag available">
+            AVAILABLE
+          </span>
 
-          <div class="episode-content">
+          <br>
 
-            <h3>Momo Counts the Stars</h3>
-
-            <p>Full broadcast available.</p>
-
-            <span class="tag available">
-              AVAILABLE
-            </span>
-
-            <br>
-
-            <button class="watch-btn"
-              onclick="openVideo(
-              'https://www.youtube.com/embed/7svauTetPjM'
-              )">
-              Watch Episode
-            </button>
-
-          </div>
+          <button class="watch-btn"
+            onclick="openVideo(
+            'https://www.youtube.com/embed/7svauTetPjM'
+            )">
+            Watch Episode
+          </button>
 
         </div>
 
-        <!-- MISSING SEGMENTS -->
+      </div>
 
-        <div class="episode">
+      <!-- MISSING SEGMENTS -->
 
-          <div class="video-placeholder">
-            VIDEO PREVIEW
-          </div>
+      <div class="episode">
 
-          <div class="episode-content">
+        <div class="video-placeholder">
+          CORRUPTED RECORDING
+        </div>
 
-            <h3>Pip's Midnight Song</h3>
+        <div class="episode-content">
 
-            <p>Some tape segments are missing.</p>
+          <h3>Pip's Midnight Song</h3>
 
-            <span class="tag missing">
-              MISSING SEGMENTS
-            </span>
+          <p>Some tape segments are missing.</p>
 
-            <br>
+          <span class="tag missing">
+            MISSING SEGMENTS
+          </span>
 
-            <button class="watch-btn"
-              onclick="openVideo(
-              'https://www.youtube.com/embed/7svauTetPjM'
-              )">
-              View Recording
-            </button>
+          <br>
 
-          </div>
+          <button class="watch-btn"
+            onclick="showMissingEpisode()">
+            View Recording
+          </button>
 
         </div>
 
-        <!-- RESTRICTED -->
+      </div>
 
-        <div class="episode">
+      <!-- RESTRICTED -->
 
-          <div class="video-placeholder">
-            RESTRICTED FILE
-          </div>
+      <div class="episode">
 
-          <div class="episode-content">
+        <div class="video-placeholder">
+          RESTRICTED FILE
+        </div>
 
-            <h3>Quiet Hour Special</h3>
+        <div class="episode-content">
 
-            <p>Network Admins Only.</p>
+          <h3>Quiet Hour Special</h3>
 
-            <span class="tag restricted">
-              RESTRICTED
-            </span>
+          <p>Network Admins Only.</p>
 
-            <br>
+          <span class="tag restricted">
+            RESTRICTED
+          </span>
 
-            <button class="watch-btn"
-              onclick="openRestricted()">
-              Enter Password
-            </button>
+          <br>
 
-          </div>
+          <button class="watch-btn"
+            onclick="openRestricted()">
+            Enter Password
+          </button>
 
         </div>
 
@@ -440,192 +454,390 @@
 
     </div>
 
-    <!-- HIDDEN MESSAGE -->
+  </div>
 
-    <p class="hidden-message">
-      HE STILL SPEAKS THROUGH THE BROADCASTS.
+  <!-- GAMES -->
+
+  <div id="games" class="card">
+
+    <h2>Pip's Fishing Frenzy</h2>
+
+    <p>
+      Help Pip catch fish before they escape!
     </p>
 
-    <!-- FEATURED VIDEOS -->
+    <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-    <div class="card">
+    <div class="game-info">
+      Score: <span id="score">0</span>
+    </div>
 
-      <h2>Featured Videos</h2>
+    <div class="password-reveal" id="passwordReveal">
+
+      <h2>NETWORK ARCHIVE RECOVERED</h2>
 
       <p>
-        Watch featured broadcasts from The Hushabye Club Network.
+        ADMIN PASSWORD:
       </p>
 
-      <br>
-
-      <div style="
-        position:relative;
-        width:100%;
-        padding-bottom:56.25%;
-        border-radius:20px;
-        overflow:hidden;
-        box-shadow:0 0 25px rgba(140,120,255,0.25);
-      ">
-
-        <iframe
-          src="https://www.youtube.com/embed/7svauTetPjM"
-          title="Featured Hushabye Club Video"
-          allowfullscreen
-          style="
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            border:none;
-          ">
-        </iframe>
-
-      </div>
+      <h1>STLS</h1>
 
     </div>
 
-  </section>
+  </div>
 
-  <!-- VIDEO POPUP -->
+  <!-- FEATURED VIDEO -->
 
-  <div class="popup" id="videoPopup">
+  <div class="card">
 
-    <div class="popup-content">
+    <h2>Featured Videos</h2>
 
-      <h2>Broadcast Playback</h2>
+    <div style="
+      position:relative;
+      width:100%;
+      padding-bottom:56.25%;
+      border-radius:20px;
+      overflow:hidden;
+    ">
 
       <iframe
-        id="videoFrame"
-        src=""
-        allowfullscreen>
+        src="https://www.youtube.com/embed/7svauTetPjM"
+        allowfullscreen
+        style="
+          position:absolute;
+          inset:0;
+          width:100%;
+          height:100%;
+          border:none;
+        ">
       </iframe>
 
-      <br><br>
-
-      <button class="watch-btn" onclick="closePopup()">
-        Close
-      </button>
-
     </div>
 
   </div>
 
-  <!-- PASSWORD POPUP -->
+  <p class="hidden-message">
+    HE STILL SPEAKS THROUGH THE BROADCASTS.
+  </p>
 
-  <div class="popup" id="passwordPopup">
+</section>
 
-    <div class="popup-content">
+<!-- VIDEO POPUP -->
 
-      <h2>NETWORK ADMIN ACCESS</h2>
+<div class="popup" id="videoPopup">
 
-      <p>
-        This recording has been restricted by The Hushabye Club Network.
-      </p>
+  <div class="popup-content">
 
-      <input
-        type="password"
-        id="passwordInput"
-        placeholder="Enter Access Password"
-      >
+    <h2>Broadcast Playback</h2>
 
-      <br>
+    <iframe
+      id="videoFrame"
+      src=""
+      allowfullscreen>
+    </iframe>
 
-      <button class="watch-btn" onclick="checkPassword()">
-        Access Recording
-      </button>
+    <br><br>
 
-      <br><br>
-
-      <button class="watch-btn" onclick="closePasswordPopup()">
-        Cancel
-      </button>
-
-    </div>
+    <button class="watch-btn"
+      onclick="closePopup()">
+      Close
+    </button>
 
   </div>
 
-  <!-- FOOTER -->
+</div>
 
-  <footer>
-    © 2001 The Hushabye Club Network
-  </footer>
+<!-- PASSWORD POPUP -->
 
-  <!-- JAVASCRIPT -->
+<div class="popup" id="passwordPopup">
 
-  <script>
+  <div class="popup-content">
 
-    /* STAR GENERATION */
+    <h2>NETWORK ADMIN ACCESS</h2>
 
-    const starsContainer = document.getElementById('stars');
+    <p>
+      This recording has been restricted.
+    </p>
 
-    for(let i=0;i<120;i++){
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Enter Password"
+    >
 
-      const star=document.createElement('div');
+    <button class="watch-btn"
+      onclick="checkPassword()">
+      Access Recording
+    </button>
 
-      star.classList.add('star');
+  </div>
 
-      star.style.left=Math.random()*100+'vw';
-      star.style.top=Math.random()*100+'vh';
+</div>
 
-      star.style.animationDelay=Math.random()*5+'s';
+<!-- MISSING POPUP -->
 
-      star.style.opacity=Math.random();
+<div class="popup" id="missingPopup">
 
-      starsContainer.appendChild(star);
+  <div class="popup-content">
+
+    <h2>Playback Error</h2>
+
+    <p>
+      Portions of this recording are missing or damaged.
+    </p>
+
+    <br>
+
+    <p style="opacity:0.6;">
+      ARCHIVE STATUS: INCOMPLETE
+    </p>
+
+    <br>
+
+    <button class="watch-btn"
+      onclick="closeMissingPopup()">
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2001 The Hushabye Club Network
+</footer>
+
+<script>
+
+  /* STARS */
+
+  const starsContainer =
+    document.getElementById('stars');
+
+  for(let i=0;i<120;i++){
+
+    const star=document.createElement('div');
+
+    star.classList.add('star');
+
+    star.style.left=Math.random()*100+'vw';
+
+    star.style.top=Math.random()*100+'vh';
+
+    star.style.animationDelay=Math.random()*5+'s';
+
+    starsContainer.appendChild(star);
+  }
+
+  /* VIDEO PLAYER */
+
+  function openVideo(videoURL){
+
+    document.getElementById(
+      'videoPopup'
+    ).style.display='flex';
+
+    document.getElementById(
+      'videoFrame'
+    ).src=videoURL;
+  }
+
+  function closePopup(){
+
+    document.getElementById(
+      'videoPopup'
+    ).style.display='none';
+
+    document.getElementById(
+      'videoFrame'
+    ).src='';
+  }
+
+  /* MISSING EPISODE */
+
+  function showMissingEpisode(){
+
+    document.getElementById(
+      'missingPopup'
+    ).style.display='flex';
+  }
+
+  function closeMissingPopup(){
+
+    document.getElementById(
+      'missingPopup'
+    ).style.display='none';
+  }
+
+  /* PASSWORD */
+
+  function openRestricted(){
+
+    document.getElementById(
+      'passwordPopup'
+    ).style.display='flex';
+  }
+
+  function checkPassword(){
+
+    const password =
+      document.getElementById(
+        'passwordInput'
+      ).value;
+
+    if(password === 'STLS'){
+
+      openVideo(
+        'https://www.youtube.com/embed/7svauTetPjM'
+      );
+
+      document.getElementById(
+        'passwordPopup'
+      ).style.display='none';
+
+    }else{
+
+      alert('ACCESS DENIED');
     }
+  }
 
-    /* VIDEO PLAYER */
+  /* GAME */
 
-    function openVideo(videoURL){
+  const canvas =
+    document.getElementById('gameCanvas');
 
-      document.getElementById('videoPopup').style.display='flex';
+  const ctx =
+    canvas.getContext('2d');
 
-      document.getElementById('videoFrame').src=videoURL;
-    }
+  let score = 0;
 
-    function closePopup(){
+  const basket = {
+    x:350,
+    y:390,
+    width:100,
+    height:30
+  };
 
-      document.getElementById('videoPopup').style.display='none';
+  const fish = [];
 
-      document.getElementById('videoFrame').src='';
-    }
+  function spawnFish(){
 
-    /* PASSWORD SYSTEM */
+    fish.push({
+      x:Math.random()*760,
+      y:-20,
+      size:30,
+      speed:2+Math.random()*2
+    });
+  }
 
-    function openRestricted(){
+  setInterval(spawnFish,1000);
 
-      document.getElementById('passwordPopup').style.display='flex';
-    }
+  document.addEventListener('mousemove',(e)=>{
 
-    function closePasswordPopup(){
+    const rect =
+      canvas.getBoundingClientRect();
 
-      document.getElementById('passwordPopup').style.display='none';
-    }
+    basket.x =
+      e.clientX - rect.left - 50;
+  });
 
-    function checkPassword(){
+  function drawBasket(){
 
-      const password =
-        document.getElementById('passwordInput').value;
+    ctx.fillStyle='#ffd27f';
 
-      if(password === 'STLS'){
+    ctx.fillRect(
+      basket.x,
+      basket.y,
+      basket.width,
+      basket.height
+    );
+  }
 
-        closePasswordPopup();
+  function drawFish(f){
 
-        openVideo(
-          'https://www.youtube.com/embed/7svauTetPjM'
-        );
+    ctx.fillStyle='#8fe3ff';
 
-      }else{
+    ctx.beginPath();
 
-        alert('ACCESS DENIED');
+    ctx.ellipse(
+      f.x,
+      f.y,
+      20,
+      12,
+      0,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.beginPath();
+
+    ctx.moveTo(f.x-20,f.y);
+
+    ctx.lineTo(f.x-35,f.y-10);
+
+    ctx.lineTo(f.x-35,f.y+10);
+
+    ctx.fill();
+  }
+
+  function updateGame(){
+
+    ctx.clearRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    drawBasket();
+
+    for(let i=fish.length-1;i>=0;i--){
+
+      const f = fish[i];
+
+      f.y += f.speed;
+
+      drawFish(f);
+
+      if(
+        f.y > basket.y &&
+        f.x > basket.x &&
+        f.x < basket.x + basket.width
+      ){
+
+        fish.splice(i,1);
+
+        score++;
+
+        document.getElementById(
+          'score'
+        ).textContent = score;
+
+        if(score >= 15){
+
+          document.getElementById(
+            'passwordReveal'
+          ).style.display='block';
+        }
+      }
+
+      if(f.y > canvas.height){
+
+        fish.splice(i,1);
       }
     }
 
-    console.log('Quiet Hour initialized.');
-    console.log('Broadcast archive online.');
+    requestAnimationFrame(updateGame);
+  }
 
-  </script>
+  updateGame();
+
+  console.log('Quiet Hour initialized.');
+  console.log('Fishing module online.');
+
+</script>
 
 </body>
 </html>
