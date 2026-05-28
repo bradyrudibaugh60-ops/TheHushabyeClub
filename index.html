@@ -363,12 +363,12 @@
 
     <div class="episode-grid">
 
-      <!-- AVAILABLE -->
+      <!-- MOMO COUNTS THE STARS -->
 
       <div class="episode">
 
         <div class="video-placeholder">
-          VIDEO PREVIEW
+          FULL BROADCAST
         </div>
 
         <div class="episode-content">
@@ -384,9 +384,7 @@
           <br>
 
           <button class="watch-btn"
-            onclick="openVideo(
-            'https://www.youtube.com/embed/7svauTetPjM'
-            )">
+            onclick="openVideo(momoEpisode)">
             Watch Episode
           </button>
 
@@ -394,7 +392,7 @@
 
       </div>
 
-      <!-- MISSING SEGMENTS -->
+      <!-- PIP MIDNIGHT SONG -->
 
       <div class="episode">
 
@@ -423,7 +421,7 @@
 
       </div>
 
-      <!-- RESTRICTED -->
+      <!-- QUIET HOUR -->
 
       <div class="episode">
 
@@ -456,7 +454,7 @@
 
   </div>
 
-  <!-- GAMES -->
+  <!-- GAME -->
 
   <div id="games" class="card">
 
@@ -491,6 +489,12 @@
   <div class="card">
 
     <h2>Featured Videos</h2>
+
+    <p>
+      Latest network teaser broadcast.
+    </p>
+
+    <br>
 
     <div style="
       position:relative;
@@ -609,6 +613,17 @@
 
 <script>
 
+  /* VIDEO LINKS */
+
+  const featuredTrailer =
+    'https://www.youtube.com/embed/7svauTetPjM';
+
+  const momoEpisode =
+    'https://www.youtube.com/embed/7svauTetPjM';
+
+  const restrictedEpisode =
+    'https://www.youtube.com/embed/dQw4w9WgXcQ';
+
   /* STARS */
 
   const starsContainer =
@@ -687,9 +702,7 @@
 
     if(password === 'STLS'){
 
-      openVideo(
-        'https://www.youtube.com/embed/7svauTetPjM'
-      );
+      openVideo(restrictedEpisode);
 
       document.getElementById(
         'passwordPopup'
