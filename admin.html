@@ -1,1 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hushabye Network Admin</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+  linear-gradient(
+    to bottom,
+    #090b16,
+    #02030a
+  );
+
+  color:white;
+  font-family:'Fredoka',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ========================= */
+/* STARS */
+/* ========================= */
+
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 4s infinite;
+}
+
+@keyframes twinkle{
+
+  0%,100%{
+    opacity:0.2;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+  text-align:center;
+  padding:80px 20px 40px;
+}
+
+.logo{
+  font-size:64px;
+  color:#bca7ff;
+
+  text-shadow:
+  0 0 20px rgba(188,167,255,0.5);
+}
+
+.subtitle{
+  margin-top:15px;
+  color:#9ea9ff;
+  font-size:22px;
+}
+
+/* ========================= */
+/* WARNING */
+/* ========================= */
+
+.warning{
+
+  width:90%;
+  max-width:900px;
+
+  margin:30px auto;
+
+  padding:25px;
+
+  border-radius:20px;
+
+  background:
+  rgba(255,80,80,0.08);
+
+  border:
+  1px solid rgba(255,80,80,0.2);
+
+  text-align:center;
+
+}
+
+.warning h2{
+  color:#ffb8b8;
+  margin-bottom:10px;
+}
+
+/* ========================= */
+/* MAIN CONTENT */
+/* ========================= */
+
+.content{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  padding-bottom:100px;
+}
+
+.card{
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:22px;
+
+  padding:30px;
+
+  margin-bottom:35px;
+
+  backdrop-filter:blur(6px);
+}
+
+.card h2{
+  margin-bottom:20px;
+  color:#ddd4ff;
+  font-size:34px;
+}
+
+/* ========================= */
+/* VIDEO GRID */
+/* ========================= */
+
+.video-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:25px;
+}
+
+.video-card{
+
+  background:
+  rgba(255,255,255,0.06);
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  transition:0.3s;
+}
+
+.video-card:hover{
+  transform:translateY(-4px);
+}
+
+.video-thumb{
+
+  height:170px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #242d68,
+    #10152e
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#cfd8ff;
+  font-size:20px;
+}
+
+.video-info{
+  padding:20px;
+}
+
+.video-info h3{
+  margin-bottom:10px;
+  color:#eee8ff;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.watch-btn{
+
+  margin-top:15px;
+
+  padding:10px 18px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#8d72ff;
+
+  color:white;
+
+  font-family:'Fredoka',sans-serif;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.watch-btn:hover{
+  background:#a38eff;
+  transform:scale(1.03);
+}
+
+/* ========================= */
+/* CEO */
+/* ========================= */
+
+.ceo-card{
+  text-align:center;
+}
+
+input{
+
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#1b2250;
+
+  color:white;
+
+  margin-top:20px;
+
+  font-family:'Fredoka',sans-serif;
+}
+
+/* ========================= */
+/* POPUP */
+/* ========================= */
+
+.popup{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.9);
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  z-index:999;
+}
+
+.popup-content{
+
+  width:90%;
+  max-width:900px;
+
+  background:#0e1433;
+
+  border-radius:20px;
+
+  padding:30px;
+
+  text-align:center;
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+}
+
+iframe{
+
+  width:100%;
+  height:450px;
+
+  border:none;
+
+  border-radius:16px;
+
+  margin-top:20px;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+
+  text-align:center;
+
+  padding:40px;
+
+  color:rgba(255,255,255,0.4);
+}
+
+.hidden{
+
+  opacity:0.03;
+
+  text-align:center;
+
+  margin-top:50px;
+
+  font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- STARS -->
+<!-- ========================= -->
+
+<div class="stars" id="stars"></div>
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+<h1 class="logo">
+Hushabye Network Archive
+</h1>
+
+<p class="subtitle">
+INTERNAL ADMINISTRATION TERMINAL
+</p>
+
+</header>
+
+<!-- ========================= -->
+<!-- WARNING -->
+<!-- ========================= -->
+
+<div class="warning">
+
+<h2>
+AUTHORIZED PERSONNEL ONLY
+</h2>
+
+<p>
+Recovered broadcasts may contain experimental Quiet Hour material.
+</p>
+
+</div>
+
+<!-- ========================= -->
+<!-- MAIN CONTENT -->
+<!-- ========================= -->
+
+<section class="content">
+
+<!-- ========================= -->
+<!-- UNRELEASED -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+Unreleased Episodes
+</h2>
+
+<div class="video-grid">
+
+<!-- STARBELL -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+UNRELEASED
+</div>
+
+<div class="video-info">
+
+<h3>
+Starbell Sleeps Alone
+</h3>
+
+<p>
+Episode removed before network release.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(starbellEpisode)">
+
+View Tape
+
+</button>
+
+</div>
+</div>
+
+<!-- LAST BEDTIME -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+UNRELEASED
+</div>
+
+<div class="video-info">
+
+<h3>
+The Last Bedtime
+</h3>
+
+<p>
+Recovered from storage archives.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(lastBedtimeEpisode)">
+
+View Tape
+
+</button>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ========================= -->
+<!-- FOUND FOOTAGE -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+Recovered Network Tapes
+</h2>
+
+<div class="video-grid">
+
+<!-- TAPE 1 -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+TAPE 01
+</div>
+
+<div class="video-info">
+
+<h3>
+Hallway Camera
+</h3>
+
+<p>
+2:13 AM hallway recording.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(tape1)">
+
+Play Tape
+
+</button>
+
+</div>
+</div>
+
+<!-- TAPE 2 -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+TAPE 02
+</div>
+
+<div class="video-info">
+
+<h3>
+Studio B Incident
+</h3>
+
+<p>
+Audio distortion detected.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(tape2)">
+
+Play Tape
+
+</button>
+
+</div>
+</div>
+
+<!-- TAPE 3 -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+TAPE 03
+</div>
+
+<div class="video-info">
+
+<h3>
+Quiet Hour Test
+</h3>
+
+<p>
+Experimental sleep footage.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(tape3)">
+
+Play Tape
+
+</button>
+
+</div>
+</div>
+
+<!-- TAPE 4 -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+TAPE 04
+</div>
+
+<div class="video-info">
+
+<h3>
+Mr. Lull Observation
+</h3>
+
+<p>
+Subject behaving abnormally.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(tape4)">
+
+Play Tape
+
+</button>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ========================= -->
+<!-- CEO ACCESS -->
+<!-- ========================= -->
+
+<div class="card ceo-card">
+
+<h2>
+CEO DASH ACCESS
+</h2>
+
+<p>
+Executive clearance required.
+</p>
+
+<input
+type="password"
+id="ceoPassword"
+placeholder="Enter Executive Password">
+
+<button
+class="watch-btn"
+onclick="checkCEO()">
+
+ACCESS CEO DASH
+
+</button>
+
+</div>
+
+<p class="hidden">
+HE IS INSIDE THE SIGNAL.
+</p>
+
+</section>
+
+<!-- ========================= -->
+<!-- VIDEO POPUP -->
+<!-- ========================= -->
+
+<div class="popup" id="videoPopup">
+
+<div class="popup-content">
+
+<h2>
+Tape Playback
+</h2>
+
+<iframe
+id="videoFrame"
+src=""
+allowfullscreen>
+</iframe>
+
+<br><br>
+
+<button
+class="watch-btn"
+onclick="closePopup()">
+
+Close
+
+</button>
+
+</div>
+</div>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+© 2001 Hushabye Network Archives
+</footer>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script>
+
+/* ========================= */
+/* VIDEO LINKS */
+/* ========================= */
+
+const starbellEpisode =
+'https://www.youtube.com/embed/YOUR_STARBELL_VIDEO';
+
+const lastBedtimeEpisode =
+'https://www.youtube.com/embed/YOUR_LASTBEDTIME_VIDEO';
+
+const tape1 =
+'https://www.youtube.com/embed/YOUR_TAPE1';
+
+const tape2 =
+'https://www.youtube.com/embed/YOUR_TAPE2';
+
+const tape3 =
+'https://www.youtube.com/embed/YOUR_TAPE3';
+
+const tape4 =
+'https://www.youtube.com/embed/YOUR_TAPE4';
+
+/* ========================= */
+/* VIDEO SYSTEM */
+/* ========================= */
+
+function openVideo(videoURL){
+
+document.getElementById(
+'videoPopup'
+).style.display='flex';
+
+document.getElementById(
+'videoFrame'
+).src=videoURL;
+
+}
+
+function closePopup(){
+
+document.getElementById(
+'videoPopup'
+).style.display='none';
+
+document.getElementById(
+'videoFrame'
+).src='';
+
+}
+
+/* ========================= */
+/* CEO PASSWORD */
+/* ========================= */
+
+function checkCEO(){
+
+const password =
+document.getElementById(
+'ceoPassword'
+).value;
+
+if(password === 'Mastermind'){
+
+window.location.href =
+'ceo.html';
+
+}else{
+
+alert('EXECUTIVE ACCESS DENIED');
+
+}
+
+}
+
+/* ========================= */
+/* STARS */
+/* ========================= */
+
+const starsContainer =
+document.getElementById('stars');
+
+for(let i=0;i<140;i++){
+
+const star =
+document.createElement('div');
+
+star.classList.add('star');
+
+star.style.left =
+Math.random()*100+'vw';
+
+star.style.top =
+Math.random()*100+'vh';
+
+star.style.animationDelay =
+Math.random()*5+'s';
+
+starsContainer.appendChild(star);
+
+}
+
+console.log(
+'Admin archive terminal online.'
+);
+
+</script>
+
+</body>
+</html>
