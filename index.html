@@ -1,1374 +1,1023 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Hushabye Club</title>
 
-  <!-- GOOGLE FONT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<title>The Hushabye Club</title>
 
-  <style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 
-    html{
-      scroll-behavior:smooth;
-    }
+<style>
 
-    body{
-      background:linear-gradient(to bottom,#141a45,#050816);
-      color:white;
-      font-family:'Fredoka',sans-serif;
-      overflow-x:hidden;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* STARS */
+html{
+  scroll-behavior:smooth;
+}
 
-    .stars{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      overflow:hidden;
-    }
+body{
+  background:linear-gradient(to bottom,#141a45,#050816);
+  color:white;
+  font-family:'Fredoka',sans-serif;
+  overflow-x:hidden;
+}
 
-    .star{
-      position:absolute;
-      width:2px;
-      height:2px;
-      background:white;
-      border-radius:50%;
-      animation:twinkle 4s infinite;
-    }
+/* ========================= */
+/* STARS */
+/* ========================= */
 
-    @keyframes twinkle{
-      0%,100%{
-        opacity:0.2;
-      }
-      50%{
-        opacity:1;
-      }
-    }
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+}
 
-    /* HEADER */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 4s infinite;
+}
 
-    header{
-      text-align:center;
-      padding:90px 20px 50px;
-    }
+@keyframes twinkle{
+  0%,100%{
+    opacity:0.2;
+  }
 
-    .moon{
-      width:140px;
-      height:140px;
-      border-radius:50%;
-      background:radial-gradient(circle at top left,#fff7b3,#d1b75f);
-      margin:0 auto 35px;
-      box-shadow:0 0 40px rgba(255,255,180,0.5);
-    }
+  50%{
+    opacity:1;
+  }
+}
 
-    /* CUSTOM LOGO IMAGE */
+/* ========================= */
+/* HEADER */
+/* ========================= */
 
-    .title-logo{
-      width:500px;
-      max-width:90%;
-      margin-bottom:20px;
-      filter:drop-shadow(0 0 18px rgba(190,160,255,0.5));
-    }
+header{
+  text-align:center;
+  padding:90px 20px 50px;
+}
 
-    .subtitle{
-      margin-top:18px;
-      font-size:24px;
-      color:#d6c6ff;
-    }
+.moon{
+  width:140px;
+  height:140px;
+  border-radius:50%;
 
-    /* NAV */
+  background:
+  radial-gradient(
+    circle at top left,
+    #fff7b3,
+    #d1b75f
+  );
 
-    nav{
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-bottom:60px;
-    }
+  margin:0 auto 35px;
 
-    nav a{
-      text-decoration:none;
-      color:white;
-      background:rgba(255,255,255,0.08);
-      padding:12px 24px;
-      border-radius:14px;
-      transition:0.3s;
-      border:1px solid rgba(255,255,255,0.08);
-    }
+  box-shadow:
+  0 0 40px rgba(255,255,180,0.5);
+}
 
-    nav a:hover{
-      background:rgba(255,255,255,0.18);
-      transform:translateY(-3px);
-    }
+.logo{
+  font-size:72px;
+  font-weight:600;
+  color:#caa8ff;
 
-    /* CONTENT */
+  text-shadow:
+    0 0 12px rgba(202,168,255,0.7),
+    0 0 30px rgba(202,168,255,0.4);
+}
 
-    .content{
-      max-width:1200px;
-      margin:auto;
-      padding:20px 20px 100px;
-      text-align:center;
-    }
+.subtitle{
+  margin-top:18px;
+  font-size:24px;
+  color:#d6c6ff;
+}
 
-    .card{
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.1);
-      border-radius:22px;
-      padding:30px;
-      margin-bottom:30px;
-      backdrop-filter:blur(6px);
-    }
+/* ========================= */
+/* NAVIGATION */
+/* ========================= */
 
-    .card h2{
-      margin-bottom:14px;
-      color:#e4dcff;
-      font-size:32px;
-    }
+nav{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:60px;
+}
 
-    /* EPISODES */
+nav a{
+  text-decoration:none;
+  color:white;
+  background:rgba(255,255,255,0.08);
+  padding:12px 24px;
+  border-radius:14px;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.08);
+}
 
-    .episode-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-      margin-top:30px;
-    }
+nav a:hover{
+  background:rgba(255,255,255,0.18);
+  transform:translateY(-3px);
+}
 
-    .episode{
-      background:rgba(255,255,255,0.08);
-      border-radius:20px;
-      overflow:hidden;
-      transition:0.3s;
-      border:1px solid rgba(255,255,255,0.08);
-    }
+/* ========================= */
+/* CONTENT */
+/* ========================= */
 
-    .episode:hover{
-      transform:translateY(-5px);
-      background:rgba(255,255,255,0.12);
-    }
+.content{
+  max-width:1200px;
+  margin:auto;
+  padding:20px 20px 100px;
+  text-align:center;
+}
 
-    .video-placeholder{
-      width:100%;
-      height:180px;
-      background:linear-gradient(
-        135deg,
-        #2d356f,
-        #1a214d
-      );
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      color:#d7dfff;
-    }
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:22px;
+  padding:30px;
+  margin-bottom:30px;
+  backdrop-filter:blur(6px);
+}
 
-    .episode-content{
-      padding:20px;
-    }
+.card h2{
+  margin-bottom:14px;
+  color:#e4dcff;
+  font-size:32px;
+}
 
-    .episode h3{
-      margin-bottom:10px;
-      color:#ece6ff;
-    }
+/* ========================= */
+/* EPISODES */
+/* ========================= */
 
-    /* TAGS */
+.episode-grid{
+  display:grid;
 
-    .tag{
-      display:inline-block;
-      margin-top:12px;
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:12px;
-    }
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
 
-    .available{
-      background:rgba(120,255,180,0.2);
-      color:#cffff0;
-    }
+  gap:25px;
+  margin-top:30px;
+}
 
-    .missing{
-      background:rgba(255,220,120,0.2);
-      color:#ffe9b6;
-    }
+.episode{
+  background:rgba(255,255,255,0.08);
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.08);
+}
 
-    .restricted{
-      background:rgba(255,120,120,0.2);
-      color:#ffd2d2;
-    }
+.episode:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,0.12);
+}
 
-    /* BUTTONS */
+.video-placeholder{
+  width:100%;
+  height:180px;
 
-    .watch-btn{
-      margin-top:16px;
-      padding:10px 18px;
-      border:none;
-      border-radius:12px;
-      background:#8f72ff;
-      color:white;
-      font-family:'Fredoka',sans-serif;
-      cursor:pointer;
-      transition:0.3s;
-    }
+  background:
+  linear-gradient(
+    135deg,
+    #2d356f,
+    #1a214d
+  );
 
-    .watch-btn:hover{
-      background:#a58cff;
-      transform:scale(1.04);
-    }
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-    /* GAME */
+  font-size:20px;
+  color:#d7dfff;
+}
 
-    #gameCanvas{
-      background:linear-gradient(to bottom,#3d65b8,#11214f);
-      border-radius:20px;
-      border:3px solid rgba(255,255,255,0.1);
-      margin-top:25px;
-      max-width:100%;
-    }
+.episode-content{
+  padding:20px;
+}
 
-    .game-info{
-      margin-top:15px;
-      font-size:20px;
-      color:#d7dfff;
-    }
+.episode h3{
+  margin-bottom:10px;
+  color:#ece6ff;
+}
 
-    .password-reveal{
-      margin-top:20px;
-      padding:20px;
-      border-radius:20px;
-      background:rgba(255,255,255,0.08);
-      display:none;
-    }
+/* ========================= */
+/* TAGS */
+/* ========================= */
 
-    /* POPUPS */
+.tag{
+  display:inline-block;
+  margin-top:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+}
 
-    .popup{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.85);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-    }
+.available{
+  background:rgba(120,255,180,0.2);
+  color:#cffff0;
+}
 
-    .popup-content{
-      background:#11183f;
-      padding:30px;
-      border-radius:20px;
-      width:90%;
-      max-width:850px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.08);
-    }
+.missing{
+  background:rgba(255,220,120,0.2);
+  color:#ffe9b6;
+}
 
-    iframe{
-      width:100%;
-      height:420px;
-      border:none;
-      border-radius:16px;
-      margin-top:20px;
-    }
+.restricted{
+  background:rgba(255,120,120,0.2);
+  color:#ffd2d2;
+}
 
-    input{
-      width:100%;
-      padding:12px;
-      margin-top:15px;
-      border:none;
-      border-radius:12px;
-      background:#1c255e;
-      color:white;
-      font-family:'Fredoka',sans-serif;
-    }
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
 
-    footer{
-      text-align:center;
-      padding:40px;
-      color:rgba(255,255,255,0.5);
-      font-size:14px;
-    }
+.watch-btn{
+  margin-top:16px;
+  padding:10px 18px;
+  border:none;
+  border-radius:12px;
+  background:#8f72ff;
+  color:white;
+  font-family:'Fredoka',sans-serif;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    .hidden-message{
-      opacity:0.02;
-      font-size:12px;
-      margin-top:40px;
-      user-select:none;
-    }
+.watch-btn:hover{
+  background:#a58cff;
+  transform:scale(1.04);
+}
 
-    /* BOSS */
+/* ========================= */
+/* GAME */
+/* ========================= */
 
-    #bossCanvas{
-      background:black;
-      border-radius:20px;
-      border:2px solid rgba(255,255,255,0.1);
-      max-width:100%;
-    }
+#gameCanvas{
+  background:
+  linear-gradient(
+    to bottom,
+    #4b78cf,
+    #11214f
+  );
 
-  </style>
+  border-radius:20px;
+  border:3px solid rgba(255,255,255,0.1);
+  margin-top:25px;
+  max-width:100%;
+}
+
+.game-info{
+  margin-top:15px;
+  font-size:20px;
+  color:#d7dfff;
+}
+
+.password-reveal{
+  margin-top:20px;
+  padding:20px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.08);
+  display:none;
+}
+
+/* ========================= */
+/* POPUPS */
+/* ========================= */
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.popup-content{
+  background:#11183f;
+  padding:30px;
+  border-radius:20px;
+  width:90%;
+  max-width:850px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+iframe{
+  width:100%;
+  height:420px;
+  border:none;
+  border-radius:16px;
+  margin-top:20px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:12px;
+  background:#1c255e;
+  color:white;
+  font-family:'Fredoka',sans-serif;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+  text-align:center;
+  padding:40px;
+  color:rgba(255,255,255,0.5);
+  font-size:14px;
+}
+
+.hidden-message{
+  opacity:0.02;
+  font-size:12px;
+  margin-top:40px;
+  user-select:none;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="stars" id="stars"></div>
 
+<!-- ========================= -->
 <!-- HEADER -->
+<!-- ========================= -->
 
 <header>
 
-  <div class="moon"></div>
+<div class="moon"></div>
 
-  <!-- REPLACE THIS IMAGE -->
+<h1 class="logo">
+The Hushabye Club
+</h1>
 
-  <img
-    src="YOUR_HUSHABYE_LOGO.png"
-    class="title-logo"
-    alt="The Hushabye Club"
-  >
-
-  <p class="subtitle">
-    Sleep Tight, Little Stars.
-  </p>
+<p class="subtitle">
+Sleep Tight, Little Stars.
+</p>
 
 </header>
 
+<!-- ========================= -->
 <!-- NAVIGATION -->
+<!-- ========================= -->
 
 <nav>
 
-  <a href="#">Home</a>
+<a href="#">Home</a>
 
-  <a href="#episodes">
-    Episodes
-  </a>
+<a href="#episodes">
+Episodes
+</a>
 
-  <a href="#games">
-    Games
-  </a>
+<a href="#games">
+Games
+</a>
 
-  <a href="javascript:void(0)"
-  onclick="openTVAdmin()">
-    TV Admin
-  </a>
+<a href="admin.html">
+TV Admin
+</a>
 
 </nav>
 
+<!-- ========================= -->
 <!-- MAIN CONTENT -->
+<!-- ========================= -->
 
 <section class="content">
 
-  <!-- WELCOME -->
+<!-- WELCOME -->
 
-  <div class="card">
+<div class="card">
 
-    <h2>Welcome to the Club!</h2>
+<h2>Welcome to the Club!</h2>
 
-    <p>
-      Every night, Momo and friends help children across the world drift into peaceful dreams.
-    </p>
+<p>
+Every night, Momo and friends help children across the world drift into peaceful dreams.
+</p>
 
-  </div>
+</div>
 
-  <!-- REMINDER -->
+<!-- REMINDER -->
 
-  <div class="card">
+<div class="card">
 
-    <h2>Tonight's Reminder</h2>
+<h2>Tonight's Reminder</h2>
 
-    <p>
-      Remember to stay in bed after the Quiet Hour begins.
-    </p>
+<p>
+Remember to stay in bed after the Quiet Hour begins.
+</p>
 
-  </div>
+</div>
 
-  <!-- EPISODES -->
+<!-- ========================= -->
+<!-- EPISODES -->
+<!-- ========================= -->
 
-  <div id="episodes" class="card">
+<div id="episodes" class="card">
 
-    <h2>Episode Archive</h2>
+<h2>Episode Archive</h2>
 
-    <div class="episode-grid">
+<div class="episode-grid">
 
-      <!-- MOMO -->
+<!-- ========================= -->
+<!-- MOMO -->
+<!-- ========================= -->
 
-      <div class="episode">
+<div class="episode">
 
-        <div class="video-placeholder">
-          FULL BROADCAST
-        </div>
+<div class="video-placeholder">
+FULL BROADCAST
+</div>
 
-        <div class="episode-content">
+<div class="episode-content">
 
-          <h3>Momo Counts the Stars</h3>
+<h3>Momo Counts the Stars</h3>
 
-          <p>
-            Full broadcast available.
-          </p>
+<p>
+Full broadcast available.
+</p>
 
-          <span class="tag available">
-            AVAILABLE
-          </span>
+<span class="tag available">
+AVAILABLE
+</span>
 
-          <br>
+<br>
 
-          <button class="watch-btn"
-          onclick="openVideo(momoEpisode)">
-            Watch Episode
-          </button>
+<button
+class="watch-btn"
+onclick="openVideo(momoEpisode)">
 
-        </div>
+Watch Episode
 
-      </div>
+</button>
 
-      <!-- PIP -->
+</div>
+</div>
 
-      <div class="episode">
+<!-- ========================= -->
+<!-- PIP -->
+<!-- ========================= -->
 
-        <div class="video-placeholder">
-          CORRUPTED RECORDING
-        </div>
+<div class="episode">
 
-        <div class="episode-content">
+<div class="video-placeholder">
+CORRUPTED RECORDING
+</div>
 
-          <h3>Pip's Midnight Song</h3>
+<div class="episode-content">
 
-          <p>
-            Some tape segments are missing.
-          </p>
+<h3>Pip's Midnight Song</h3>
 
-          <span class="tag missing">
-            MISSING SEGMENTS
-          </span>
+<p>
+Some tape segments are missing.
+</p>
 
-          <br>
+<span class="tag missing">
+MISSING SEGMENTS
+</span>
 
-          <button class="watch-btn"
-          onclick="showMissingEpisode()">
-            View Recording
-          </button>
+<br>
 
-        </div>
+<button
+class="watch-btn"
+onclick="openVideo(pipEpisode)">
 
-      </div>
+View Recording
 
-      <!-- QUIET HOUR -->
+</button>
 
-      <div class="episode">
+</div>
+</div>
 
-        <div class="video-placeholder">
-          RESTRICTED FILE
-        </div>
+<!-- ========================= -->
+<!-- QUIET HOUR -->
+<!-- ========================= -->
 
-        <div class="episode-content">
+<div class="episode">
 
-          <h3>Quiet Hour Special</h3>
+<div class="video-placeholder">
+RESTRICTED FILE
+</div>
 
-          <p>
-            Network Admins Only.
-          </p>
+<div class="episode-content">
 
-          <span class="tag restricted">
-            RESTRICTED
-          </span>
+<h3>Quiet Hour Special</h3>
 
-          <br>
+<p>
+Network Admins Only.
+</p>
 
-          <button class="watch-btn"
-          onclick="openRestricted()">
-            Enter Password
-          </button>
+<span class="tag restricted">
+RESTRICTED
+</span>
 
-        </div>
+<br>
 
-      </div>
+<button
+class="watch-btn"
+onclick="openRestricted()">
 
-    </div>
+Enter Password
 
-  </div>
+</button>
 
-  <!-- GAME -->
+</div>
+</div>
 
-  <div id="games" class="card">
+</div>
+</div>
 
-    <h2>Pip's Fishing Frenzy</h2>
+<!-- ========================= -->
+<!-- GAME -->
+<!-- ========================= -->
 
-    <p>
-      Catch fish to recover the hidden network password.
-    </p>
+<div id="games" class="card">
 
-    <canvas
-      id="gameCanvas"
-      width="800"
-      height="450">
-    </canvas>
+<h2>Pip's Fishing Frenzy</h2>
 
-    <div class="game-info">
-      Score:
-      <span id="score">
-        0
-      </span>
-    </div>
+<p>
+Catch fish to recover the hidden network password.
+</p>
 
-    <div
-      class="password-reveal"
-      id="passwordReveal">
+<canvas
+id="gameCanvas"
+width="800"
+height="450">
+</canvas>
 
-      <h2>
-        NETWORK ARCHIVE RECOVERED
-      </h2>
+<div class="game-info">
 
-      <p>
-        ADMIN PASSWORD:
-      </p>
+Score:
+<span id="score">
+0
+</span>
 
-      <h1>
-        STLS
-      </h1>
+</div>
 
-    </div>
+<div
+class="password-reveal"
+id="passwordReveal">
 
-  </div>
+<h2>
+NETWORK ARCHIVE RECOVERED
+</h2>
 
-  <!-- FEATURED VIDEO -->
+<p>
+ADMIN PASSWORD:
+</p>
 
-  <div class="card">
+<h1>
+STLS
+</h1>
 
-    <h2>Featured Videos</h2>
+</div>
 
-    <p>
-      Latest network teaser broadcast.
-    </p>
+</div>
 
-    <br>
+<!-- ========================= -->
+<!-- FEATURED VIDEO -->
+<!-- ========================= -->
 
-    <div style="
-    position:relative;
-    width:100%;
-    padding-bottom:56.25%;
-    border-radius:20px;
-    overflow:hidden;
-    ">
+<div class="card">
 
-      <iframe
-      src="https://www.youtube.com/embed/7svauTetPjM"
-      allowfullscreen
-      style="
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:none;
-      ">
-      </iframe>
+<h2>Featured Videos</h2>
 
-    </div>
+<p>
+Latest network teaser broadcast.
+</p>
 
-  </div>
+<br>
 
-  <p class="hidden-message">
-    HE STILL SPEAKS THROUGH THE BROADCASTS.
-  </p>
+<div style="
+position:relative;
+width:100%;
+padding-bottom:56.25%;
+border-radius:20px;
+overflow:hidden;
+">
+
+<iframe
+src="https://www.youtube.com/embed/7svauTetPjM"
+allowfullscreen
+style="
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+border:none;
+">
+</iframe>
+
+</div>
+
+</div>
+
+<p class="hidden-message">
+HE STILL SPEAKS THROUGH THE BROADCASTS.
+</p>
 
 </section>
 
-<!-- TV ADMIN PAGE -->
-
-<section
-id="tvAdminPage"
-class="content"
-style="display:none;">
-
-  <div class="card">
-
-    <h2>NETWORK ARCHIVE TERMINAL</h2>
-
-    <p>
-      INTERNAL USE ONLY
-    </p>
-
-  </div>
-
-  <!-- UNRELEASED -->
-
-  <div class="card">
-
-    <h2>Unreleased Episodes</h2>
-
-    <div class="episode-grid">
-
-      <div class="episode">
-
-        <div class="video-placeholder">
-          UNRELEASED
-        </div>
-
-        <div class="episode-content">
-
-          <h3>Starbell Sleeps Alone</h3>
-
-          <p>
-            Broadcast canceled before release.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="episode">
-
-        <div class="video-placeholder">
-          UNRELEASED
-        </div>
-
-        <div class="episode-content">
-
-          <h3>The Last Bedtime</h3>
-
-          <p>
-            Tape recovered from storage.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- FOOTAGE -->
-
-  <div class="card">
-
-    <h2>Recovered Network Tapes</h2>
-
-    <div class="episode-grid">
-
-      <div class="episode">
-
-        <div class="video-placeholder">
-          FOOTAGE #01
-        </div>
-
-        <div class="episode-content">
-
-          <h3>Hallway Camera</h3>
-
-          <p>
-            2:13 AM recording.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="episode">
-
-        <div class="video-placeholder">
-          FOOTAGE #02
-        </div>
-
-        <div class="episode-content">
-
-          <h3>Studio B</h3>
-
-          <p>
-            Audio distortions detected.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="episode">
-
-        <div class="video-placeholder">
-          FOOTAGE #03
-        </div>
-
-        <div class="episode-content">
-
-          <h3>Quiet Hour Test</h3>
-
-          <p>
-            Restricted experiment footage.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="episode">
-
-        <div class="video-placeholder">
-          FOOTAGE #04
-        </div>
-
-        <div class="episode-content">
-
-          <h3>Mr. Lull Observation</h3>
-
-          <p>
-            Subject no longer responding normally.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CEO DASH -->
-
-  <div class="card">
-
-    <h2>CEO'S DASH</h2>
-
-    <p>
-      Executive clearance required.
-    </p>
-
-    <input
-    type="password"
-    id="ceoPassword"
-    placeholder="Executive Password">
-
-    <button class="watch-btn"
-    onclick="checkCEOAccess()">
-      ACCESS DASH
-    </button>
-
-  </div>
-
-</section>
-
-<!-- BOSS FIGHT -->
-
-<section
-id="bossFight"
-class="content"
-style="display:none;">
-
-  <div class="card">
-
-    <h1 style="
-    font-size:60px;
-    color:#d3c1ff;
-    ">
-      MR. LULL
-    </h1>
-
-    <p>
-      THE QUIET KING
-    </p>
-
-    <br>
-
-    <canvas
-    id="bossCanvas"
-    width="900"
-    height="500">
-    </canvas>
-
-    <br><br>
-
-    <div class="game-info">
-
-      Boss Health:
-      <span id="bossHealth">
-        100
-      </span>
-
-    </div>
-
-    <br>
-
-    <button class="watch-btn"
-    onclick="attackBoss()">
-      THROW STARLIGHT
-    </button>
-
-  </div>
-
-</section>
-
-<!-- FREEDOM -->
-
-<section
-id="freedomSection"
-class="content"
-style="display:none;">
-
-  <div class="card">
-
-    <h1>Freedom</h1>
-
-    <p>
-      The broadcast can finally end.
-    </p>
-
-    <br>
-
-    <button class="watch-btn"
-    onclick="playFreedomEnding()">
-      END THE BROADCAST
-    </button>
-
-  </div>
-
-</section>
-
+<!-- ========================= -->
 <!-- VIDEO POPUP -->
+<!-- ========================= -->
 
 <div class="popup" id="videoPopup">
 
-  <div class="popup-content">
+<div class="popup-content">
 
-    <h2>Broadcast Playback</h2>
+<h2>Broadcast Playback</h2>
 
-    <iframe
-    id="videoFrame"
-    src=""
-    allowfullscreen>
-    </iframe>
+<iframe
+id="videoFrame"
+src=""
+allowfullscreen>
+</iframe>
 
-    <br><br>
+<br><br>
 
-    <button class="watch-btn"
-    onclick="closePopup()">
-      Close
-    </button>
+<button
+class="watch-btn"
+onclick="closePopup()">
 
-  </div>
+Close
+
+</button>
 
 </div>
+</div>
 
+<!-- ========================= -->
 <!-- PASSWORD POPUP -->
+<!-- ========================= -->
 
 <div class="popup" id="passwordPopup">
 
-  <div class="popup-content">
+<div class="popup-content">
 
-    <h2>NETWORK ADMIN ACCESS</h2>
+<h2>NETWORK ADMIN ACCESS</h2>
 
-    <p>
-      This recording has been restricted.
-    </p>
+<p>
+This recording has been restricted.
+</p>
 
-    <input
-    type="password"
-    id="passwordInput"
-    placeholder="Enter Password">
+<input
+type="password"
+id="passwordInput"
+placeholder="Enter Password">
 
-    <button class="watch-btn"
-    onclick="checkPassword()">
-      Access Recording
-    </button>
+<button
+class="watch-btn"
+onclick="checkPassword()">
 
-  </div>
+Access Recording
 
-</div>
-
-<!-- TV ADMIN POPUP -->
-
-<div class="popup" id="tvAdminPopup">
-
-  <div class="popup-content">
-
-    <h2>TV ADMIN TERMINAL</h2>
-
-    <p>
-      Enter network authorization password.
-    </p>
-
-    <input
-    type="password"
-    id="tvAdminPassword"
-    placeholder="Authorization Password">
-
-    <button class="watch-btn"
-    onclick="checkTVAdminPassword()">
-      ACCESS TERMINAL
-    </button>
-
-  </div>
+</button>
 
 </div>
-
-<!-- MISSING POPUP -->
-
-<div class="popup" id="missingPopup">
-
-  <div class="popup-content">
-
-    <h2>Playback Error</h2>
-
-    <p>
-      Portions of this recording are missing or damaged.
-    </p>
-
-    <br>
-
-    <p style="opacity:0.6;">
-      ARCHIVE STATUS: INCOMPLETE
-    </p>
-
-    <br>
-
-    <button class="watch-btn"
-    onclick="closeMissingPopup()">
-      Close
-    </button>
-
-  </div>
-
 </div>
 
 <footer>
-  © 2001 The Hushabye Club Network
+© 2001 The Hushabye Club Network
 </footer>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
 
 <script>
 
-  /* VIDEO LINKS */
+/* ========================= */
+/* VIDEO LINKS */
+/* ========================= */
 
-  const momoEpisode =
-    'https://www.youtube.com/embed/YOUR_MOMO_EPISODE';
+const momoEpisode =
+'https://www.youtube.com/embed/YOUR_MOMO_VIDEO';
 
-  const restrictedEpisode =
-    'https://www.youtube.com/embed/YOUR_RESTRICTED_EPISODE';
+const pipEpisode =
+'https://www.youtube.com/embed/YOUR_PIP_VIDEO';
 
-  /* STARS */
+const restrictedEpisode =
+'https://www.youtube.com/embed/YOUR_RESTRICTED_VIDEO';
 
-  const starsContainer =
-    document.getElementById('stars');
+/* ========================= */
+/* STARS */
+/* ========================= */
 
-  for(let i=0;i<120;i++){
+const starsContainer =
+document.getElementById('stars');
 
-    const star =
-      document.createElement('div');
+for(let i=0;i<120;i++){
 
-    star.classList.add('star');
+const star =
+document.createElement('div');
 
-    star.style.left =
-      Math.random()*100+'vw';
+star.classList.add('star');
 
-    star.style.top =
-      Math.random()*100+'vh';
+star.style.left =
+Math.random()*100+'vw';
 
-    star.style.animationDelay =
-      Math.random()*5+'s';
+star.style.top =
+Math.random()*100+'vh';
 
-    starsContainer.appendChild(star);
-  }
+star.style.animationDelay =
+Math.random()*5+'s';
 
-  /* VIDEO */
+starsContainer.appendChild(star);
 
-  function openVideo(videoURL){
+}
 
-    document.getElementById(
-      'videoPopup'
-    ).style.display='flex';
+/* ========================= */
+/* VIDEO */
+/* ========================= */
 
-    document.getElementById(
-      'videoFrame'
-    ).src=videoURL;
-  }
+function openVideo(videoURL){
 
-  function closePopup(){
+document.getElementById(
+'videoPopup'
+).style.display='flex';
 
-    document.getElementById(
-      'videoPopup'
-    ).style.display='none';
+document.getElementById(
+'videoFrame'
+).src=videoURL;
 
-    document.getElementById(
-      'videoFrame'
-    ).src='';
-  }
+}
 
-  /* MISSING */
+function closePopup(){
 
-  function showMissingEpisode(){
+document.getElementById(
+'videoPopup'
+).style.display='none';
 
-    document.getElementById(
-      'missingPopup'
-    ).style.display='flex';
-  }
+document.getElementById(
+'videoFrame'
+).src='';
 
-  function closeMissingPopup(){
+}
 
-    document.getElementById(
-      'missingPopup'
-    ).style.display='none';
-  }
+/* ========================= */
+/* PASSWORD */
+/* ========================= */
 
-  /* PASSWORD */
+function openRestricted(){
 
-  function openRestricted(){
+document.getElementById(
+'passwordPopup'
+).style.display='flex';
 
-    document.getElementById(
-      'passwordPopup'
-    ).style.display='flex';
-  }
+}
 
-  function checkPassword(){
+function checkPassword(){
 
-    const password =
-      document.getElementById(
-        'passwordInput'
-      ).value;
+const password =
+document.getElementById(
+'passwordInput'
+).value;
 
-    if(password === 'STLS'){
+if(password === 'STLS'){
 
-      openVideo(restrictedEpisode);
+openVideo(restrictedEpisode);
 
-      document.getElementById(
-        'passwordPopup'
-      ).style.display='none';
+document.getElementById(
+'passwordPopup'
+).style.display='none';
 
-    }else{
+}else{
 
-      alert('ACCESS DENIED');
-    }
-  }
+alert('ACCESS DENIED');
 
-  /* TV ADMIN */
+}
 
-  function openTVAdmin(){
+}
 
-    document.getElementById(
-      'tvAdminPopup'
-    ).style.display='flex';
-  }
+/* ========================= */
+/* FISHING GAME */
+/* ========================= */
 
-  function checkTVAdminPassword(){
+const canvas =
+document.getElementById('gameCanvas');
 
-    const password =
-      document.getElementById(
-        'tvAdminPassword'
-      ).value;
+const ctx =
+canvas.getContext('2d');
 
-    if(password === 'Lull'){
+let score = 0;
 
-      document.getElementById(
-        'tvAdminPopup'
-      ).style.display='none';
+const basket = {
 
-      document.getElementById(
-        'tvAdminPage'
-      ).style.display='block';
+x:350,
+y:390,
+width:120,
+height:35
 
-      window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:'smooth'
-      });
+};
 
-    }else{
+const fish = [];
 
-      alert('ACCESS DENIED');
-    }
-  }
+/* SPAWN FISH */
 
-  /* CEO */
+function spawnFish(){
 
-  function checkCEOAccess(){
+fish.push({
 
-    const password =
-      document.getElementById(
-        'ceoPassword'
-      ).value;
+x:Math.random()*760,
+y:-20,
+speed:2+Math.random()*2
 
-    if(password === 'Mastermind'){
+});
 
-      document.getElementById(
-        'bossFight'
-      ).style.display='block';
+}
 
-      startBossFight();
+setInterval(spawnFish,1000);
 
-      window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:'smooth'
-      });
+/* MOUSE */
 
-    }else{
+document.addEventListener(
+'mousemove',
+(e)=>{
 
-      alert('EXECUTIVE ACCESS DENIED');
-    }
-  }
+const rect =
+canvas.getBoundingClientRect();
 
-  /* BOSS */
+basket.x =
+e.clientX - rect.left - 60;
 
-  const bossCanvas =
-    document.getElementById(
-      'bossCanvas'
-    );
+}
+);
 
-  const bossCtx =
-    bossCanvas.getContext('2d');
+/* BASKET */
 
-  let bossHealth = 100;
+function drawBasket(){
 
-  function drawBoss(){
+ctx.fillStyle='#ffd27f';
 
-    bossCtx.clearRect(
-      0,
-      0,
-      bossCanvas.width,
-      bossCanvas.height
-    );
+ctx.beginPath();
 
-    for(let i=0;i<300;i++){
+ctx.roundRect(
+basket.x,
+basket.y,
+basket.width,
+basket.height,
+10
+);
 
-      bossCtx.fillStyle =
-      `rgba(255,255,255,${
-      Math.random()*0.2
-      })`;
+ctx.fill();
 
-      bossCtx.fillRect(
-        Math.random()*900,
-        Math.random()*500,
-        2,
-        2
-      );
-    }
+}
 
-    bossCtx.fillStyle='#1a1a1a';
+/* BETTER FISH */
 
-    bossCtx.beginPath();
+function drawFish(f){
 
-    bossCtx.arc(
-      450,
-      220,
-      120,
-      0,
-      Math.PI*2
-    );
+/* BODY */
 
-    bossCtx.fill();
+ctx.fillStyle='#8fe3ff';
 
-    for(let i=0;i<8;i++){
+ctx.beginPath();
 
-      bossCtx.fillStyle='white';
+ctx.ellipse(
+f.x,
+f.y,
+22,
+12,
+0,
+0,
+Math.PI*2
+);
 
-      bossCtx.beginPath();
+ctx.fill();
 
-      bossCtx.arc(
-        380+(i*20),
-        200+Math.sin(i)*20,
-        8,
-        0,
-        Math.PI*2
-      );
+/* TAIL */
 
-      bossCtx.fill();
-    }
+ctx.beginPath();
 
-    bossCtx.strokeStyle='#d4c2ff';
+ctx.moveTo(f.x-18,f.y);
 
-    bossCtx.lineWidth=5;
+ctx.lineTo(f.x-35,f.y-10);
 
-    bossCtx.beginPath();
+ctx.lineTo(f.x-35,f.y+10);
 
-    bossCtx.arc(
-      450,
-      250,
-      50,
-      0,
-      Math.PI
-    );
+ctx.closePath();
 
-    bossCtx.stroke();
-  }
+ctx.fill();
 
-  function startBossFight(){
+/* EYE */
 
-    drawBoss();
-  }
+ctx.fillStyle='white';
 
-  function attackBoss(){
+ctx.beginPath();
 
-    if(bossHealth <= 0){
-      return;
-    }
+ctx.arc(
+f.x+10,
+f.y-2,
+3,
+0,
+Math.PI*2
+);
 
-    bossHealth -= 10;
+ctx.fill();
 
-    document.getElementById(
-      'bossHealth'
-    ).textContent = bossHealth;
+/* PUPIL */
 
-    drawBoss();
+ctx.fillStyle='black';
 
-    if(bossHealth <= 0){
+ctx.beginPath();
 
-      setTimeout(()=>{
+ctx.arc(
+f.x+11,
+f.y-2,
+1.5,
+0,
+Math.PI*2
+);
 
-        alert(
-          'MR. LULL HAS BEEN SILENCED.'
-        );
+ctx.fill();
 
-        document.getElementById(
-          'freedomSection'
-        ).style.display='block';
+}
 
-      },500);
-    }
-  }
+/* GAME LOOP */
 
-  /* ENDING */
+function updateGame(){
 
-  function playFreedomEnding(){
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
 
-    alert(
-      'THE CHILDREN HAVE BEEN FREED.'
-    );
+drawBasket();
 
-    document.body.style.background =
-    'linear-gradient(to bottom,#87b7ff,#dcecff)';
+for(let i=fish.length-1;i>=0;i--){
 
-    document.querySelector(
-      '.subtitle'
-    ).textContent =
-    'THE BROADCAST IS OVER';
-  }
+const f=fish[i];
 
-  /* FISHING GAME */
+f.y += f.speed;
 
-  const canvas =
-    document.getElementById('gameCanvas');
+drawFish(f);
 
-  const ctx =
-    canvas.getContext('2d');
+if(
 
-  let score = 0;
+f.y > basket.y &&
+f.x > basket.x &&
+f.x < basket.x+basket.width
 
-  const basket = {
-    x:350,
-    y:390,
-    width:100,
-    height:30
-  };
+){
 
-  const fish = [];
+fish.splice(i,1);
 
-  function spawnFish(){
+score++;
 
-    fish.push({
-      x:Math.random()*760,
-      y:-20,
-      speed:2+Math.random()*2
-    });
-  }
+document.getElementById(
+'score'
+).textContent = score;
 
-  setInterval(spawnFish,1000);
+if(score >= 15){
 
-  document.addEventListener('mousemove',(e)=>{
+document.getElementById(
+'passwordReveal'
+).style.display='block';
 
-    const rect =
-      canvas.getBoundingClientRect();
+}
 
-    basket.x =
-      e.clientX - rect.left - 50;
-  });
+}
 
-  function drawBasket(){
+if(f.y > canvas.height){
 
-    ctx.fillStyle='#ffd27f';
+fish.splice(i,1);
 
-    ctx.fillRect(
-      basket.x,
-      basket.y,
-      basket.width,
-      basket.height
-    );
-  }
+}
 
-  function drawFish(f){
+}
 
-    ctx.fillStyle='#8fe3ff';
+requestAnimationFrame(updateGame);
 
-    ctx.beginPath();
+}
 
-    ctx.ellipse(
-      f.x,
-      f.y,
-      20,
-      12,
-      0,
-      0,
-      Math.PI*2
-    );
+updateGame();
 
-    ctx.fill();
-  }
-
-  function updateGame(){
-
-    ctx.clearRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-
-    drawBasket();
-
-    for(let i=fish.length-1;i>=0;i--){
-
-      const f=fish[i];
-
-      f.y += f.speed;
-
-      drawFish(f);
-
-      if(
-        f.y > basket.y &&
-        f.x > basket.x &&
-        f.x < basket.x+basket.width
-      ){
-
-        fish.splice(i,1);
-
-        score++;
-
-        document.getElementById(
-          'score'
-        ).textContent = score;
-
-        if(score >= 15){
-
-          document.getElementById(
-            'passwordReveal'
-          ).style.display='block';
-        }
-      }
-
-      if(f.y > canvas.height){
-
-        fish.splice(i,1);
-      }
-    }
-
-    requestAnimationFrame(updateGame);
-  }
-
-  updateGame();
-
-  console.log('Quiet Hour initialized.');
-  console.log('Fishing module online.');
+console.log('Quiet Hour initialized.');
+console.log('Fishing module online.');
 
 </script>
 
