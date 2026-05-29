@@ -11,30 +11,36 @@ console.log(
 /* ======================================== */
 
 const starsContainer =
-document.getElementById('stars');
+document.getElementById(
+'stars'
+);
 
 if(starsContainer){
 
 for(let i=0;i<140;i++){
 
-  const star =
-  document.createElement('div');
+const star =
+document.createElement('div');
 
-  star.classList.add('star');
+star.classList.add(
+'star'
+);
 
-  star.style.left =
-  Math.random()*100+'vw';
+star.style.left =
+Math.random()*100+'vw';
 
-  star.style.top =
-  Math.random()*100+'vh';
+star.style.top =
+Math.random()*100+'vh';
 
-  star.style.animationDelay =
-  Math.random()*5+'s';
+star.style.animationDelay =
+Math.random()*5+'s';
 
-  star.style.opacity =
-  Math.random();
+star.style.opacity =
+Math.random();
 
-  starsContainer.appendChild(star);
+starsContainer.appendChild(
+star
+);
 
 }
 
@@ -44,45 +50,14 @@ for(let i=0;i<140;i++){
 /* VIDEO LINKS */
 /* ======================================== */
 
-/* MOMO EPISODE */
-
 const momoEpisode =
 'https://www.youtube.com/embed/x83jTBFu4wQ';
-
-/* PIP EPISODE */
 
 const pipEpisode =
 'https://www.youtube.com/embed/YOUR_PIP_VIDEO';
 
-/* RESTRICTED */
-
 const restrictedEpisode =
 'https://www.youtube.com/embed/YOUR_RESTRICTED_VIDEO';
-
-/* ADMIN VIDEOS */
-
-const starbellEpisode =
-'https://www.youtube.com/embed/YOUR_STARBELL_VIDEO';
-
-const lastBedtimeEpisode =
-'https://www.youtube.com/embed/YOUR_LASTBEDTIME_VIDEO';
-
-const tape1 =
-'https://www.youtube.com/embed/YOUR_TAPE1';
-
-const tape2 =
-'https://www.youtube.com/embed/YOUR_TAPE2';
-
-const tape3 =
-'https://www.youtube.com/embed/YOUR_TAPE3';
-
-const tape4 =
-'https://www.youtube.com/embed/YOUR_TAPE4';
-
-/* CEO VIDEO */
-
-const quietKingVideo =
-'https://www.youtube.com/embed/YOUR_QUIET_KING_VIDEO';
 
 /* ======================================== */
 /* VIDEO SYSTEM */
@@ -102,9 +77,11 @@ document.getElementById(
 
 if(popup && frame){
 
-popup.style.display='flex';
+popup.style.display =
+'flex';
 
-frame.src = videoURL;
+frame.src =
+videoURL;
 
 }
 
@@ -124,7 +101,8 @@ document.getElementById(
 
 if(popup && frame){
 
-popup.style.display='none';
+popup.style.display =
+'none';
 
 frame.src='';
 
@@ -133,7 +111,7 @@ frame.src='';
 }
 
 /* ======================================== */
-/* PASSWORD SYSTEM */
+/* RESTRICTED EPISODE PASSWORD */
 /* ======================================== */
 
 function openRestricted(){
@@ -145,7 +123,8 @@ document.getElementById(
 
 if(popup){
 
-popup.style.display='flex';
+popup.style.display =
+'flex';
 
 }
 
@@ -161,22 +140,17 @@ document.getElementById(
 if(!input)return;
 
 const password =
-input.value;
+input.value.trim();
 
 if(password === 'STLS'){
 
-openVideo(restrictedEpisode);
-
-const popup =
-document.getElementById(
-'passwordPopup'
+openVideo(
+restrictedEpisode
 );
 
-if(popup){
-
-popup.style.display='none';
-
-}
+document.getElementById(
+'passwordPopup'
+).style.display='none';
 
 }else{
 
@@ -187,6 +161,7 @@ alert(
 }
 
 }
+
 /* ======================================== */
 /* TV ADMIN ACCESS */
 /* ======================================== */
@@ -201,7 +176,7 @@ document.getElementById(
 if(!input)return;
 
 const password =
-input.value;
+input.value.trim();
 
 if(password === 'Lull'){
 
@@ -212,36 +187,6 @@ window.location.href =
 
 alert(
 'ACCESS DENIED'
-);
-
-}
-
-}
-/* ======================================== */
-/* CEO ACCESS */
-/* ======================================== */
-
-function checkCEO(){
-
-const input =
-document.getElementById(
-'ceoPassword'
-);
-
-if(!input)return;
-
-const password =
-input.value;
-
-if(password === 'Mastermind'){
-
-window.location.href =
-'ceo.html';
-
-}else{
-
-alert(
-'EXECUTIVE ACCESS DENIED'
 );
 
 }
@@ -276,7 +221,7 @@ height:35
 
 const fish = [];
 
-/* SPAWN FISH */
+/* SPAWN */
 
 function spawnFish(){
 
@@ -316,11 +261,12 @@ rect.left -
 }
 );
 
-/* DRAW BASKET */
+/* BASKET */
 
 function drawBasket(){
 
-ctx.fillStyle='#ffd27f';
+ctx.fillStyle =
+'#ffd27f';
 
 ctx.beginPath();
 
@@ -340,17 +286,21 @@ ctx.fill();
 
 }
 
-/* DRAW FISH */
+/* FISH */
 
 function drawFish(f){
 
-ctx.fillStyle='#7fe4ff';
+ctx.fillStyle =
+'#7fe4ff';
 
 /* BODY */
 
 ctx.beginPath();
 
-ctx.moveTo(f.x - 25, f.y);
+ctx.moveTo(
+f.x - 25,
+f.y
+);
 
 ctx.quadraticCurveTo(
 f.x,
@@ -372,11 +322,20 @@ ctx.fill();
 
 ctx.beginPath();
 
-ctx.moveTo(f.x - 25, f.y);
+ctx.moveTo(
+f.x - 25,
+f.y
+);
 
-ctx.lineTo(f.x - 45, f.y - 15);
+ctx.lineTo(
+f.x - 45,
+f.y - 15
+);
 
-ctx.lineTo(f.x - 45, f.y + 15);
+ctx.lineTo(
+f.x - 45,
+f.y + 15
+);
 
 ctx.closePath();
 
@@ -386,11 +345,20 @@ ctx.fill();
 
 ctx.beginPath();
 
-ctx.moveTo(f.x - 5, f.y - 8);
+ctx.moveTo(
+f.x - 5,
+f.y - 8
+);
 
-ctx.lineTo(f.x + 8, f.y - 24);
+ctx.lineTo(
+f.x + 8,
+f.y - 24
+);
 
-ctx.lineTo(f.x + 16, f.y - 6);
+ctx.lineTo(
+f.x + 16,
+f.y - 6
+);
 
 ctx.closePath();
 
@@ -400,11 +368,20 @@ ctx.fill();
 
 ctx.beginPath();
 
-ctx.moveTo(f.x - 5, f.y + 8);
+ctx.moveTo(
+f.x - 5,
+f.y + 8
+);
 
-ctx.lineTo(f.x + 10, f.y + 22);
+ctx.lineTo(
+f.x + 10,
+f.y + 22
+);
 
-ctx.lineTo(f.x + 16, f.y + 6);
+ctx.lineTo(
+f.x + 16,
+f.y + 6
+);
 
 ctx.closePath();
 
@@ -412,7 +389,8 @@ ctx.fill();
 
 /* EYE */
 
-ctx.fillStyle='white';
+ctx.fillStyle =
+'white';
 
 ctx.beginPath();
 
@@ -428,7 +406,8 @@ ctx.fill();
 
 /* PUPIL */
 
-ctx.fillStyle='black';
+ctx.fillStyle =
+'black';
 
 ctx.beginPath();
 
@@ -444,7 +423,8 @@ ctx.fill();
 
 /* MOUTH */
 
-ctx.strokeStyle='#003344';
+ctx.strokeStyle =
+'#003344';
 
 ctx.lineWidth=2;
 
@@ -475,14 +455,10 @@ canvas.height
 
 drawBasket();
 
-/* LOOP FISH */
-
 for(
-
 let i=fish.length-1;
 i>=0;
 i--
-
 ){
 
 const f = fish[i];
@@ -509,33 +485,19 @@ fish.splice(i,1);
 
 score++;
 
-const scoreText =
 document.getElementById(
 'score'
-);
-
-if(scoreText){
-
-scoreText.textContent =
+).textContent =
 score;
 
-}
-
-/* PASSWORD REVEAL */
+/* PASSWORD */
 
 if(score >= 15){
 
-const reveal =
 document.getElementById(
 'passwordReveal'
-);
-
-if(reveal){
-
-reveal.style.display =
+).style.display =
 'block';
-
-}
 
 }
 
@@ -551,8 +513,6 @@ fish.splice(i,1);
 
 }
 
-/* LOOP */
-
 requestAnimationFrame(
 updateGame
 );
@@ -560,10 +520,6 @@ updateGame
 }
 
 updateGame();
-
-console.log(
-'Fishing Frenzy initialized.'
-);
 
 }
 
@@ -585,7 +541,7 @@ closePopup();
 );
 
 /* ======================================== */
-/* CLICK OUTSIDE CLOSE */
+/* CLICK OUTSIDE */
 /* ======================================== */
 
 window.addEventListener(
@@ -598,10 +554,8 @@ document.getElementById(
 );
 
 if(
-
 popup &&
 e.target === popup
-
 ){
 
 closePopup();
