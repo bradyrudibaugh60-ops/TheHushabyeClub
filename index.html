@@ -7,23 +7,41 @@
 
 <title>The Hushabye Club</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+<!-- ======================================== -->
 <!-- STARS -->
+<!-- ======================================== -->
 
 <div class="stars" id="stars"></div>
 
+<!-- ======================================== -->
+<!-- CRT OVERLAY -->
+<!-- ======================================== -->
+
+<div class="crt"></div>
+
+<!-- ======================================== -->
 <!-- HEADER -->
+<!-- ======================================== -->
 
 <header>
 
 <div class="moon"></div>
+
+<div class="sparkles">
+
+<span>✦</span>
+<span>✦</span>
+<span>✦</span>
+
+</div>
 
 <h1 class="logo">
 The Hushabye Club
@@ -33,63 +51,136 @@ The Hushabye Club
 Sleep Tight, Little Stars.
 </p>
 
+<div class="on-air">
+
+● NOW AIRING:
+Momo Counts the Stars
+
+</div>
+
 </header>
 
+<!-- ======================================== -->
 <!-- NAVIGATION -->
+<!-- ======================================== -->
 
 <nav>
 
-<a href="#">Home</a>
-
-<a href="#episodes">
-Episodes
+<a href="#">
+🏠 Home
 </a>
 
-<a href="#games">
-Games
+<a href="#episodes">
+📼 Episodes
+</a>
+
+<a href="games.html">
+🎮 Games
+</a>
+
+<a href="#featured">
+🌙 Tonight
 </a>
 
 <a href="#admin">
-TV Admin
+🔒 TV Admin
 </a>
 
 </nav>
 
+<!-- ======================================== -->
 <!-- MAIN CONTENT -->
+<!-- ======================================== -->
 
 <section class="content">
 
+<!-- ======================================== -->
 <!-- WELCOME -->
+<!-- ======================================== -->
 
-<div class="card">
+<div class="card welcome-card">
 
 <h2>
-Welcome to the Club!
+Welcome to the Clubhouse!
 </h2>
 
 <p>
-Every night, Momo and friends help children across the world drift into peaceful dreams.
+Every night, Momo and friends help children drift peacefully into dreamland with songs, stories, and magical nighttime adventures.
+</p>
+
+<p class="small-text">
+Broadcasting every evening since 2001.
 </p>
 
 </div>
 
+<!-- ======================================== -->
 <!-- REMINDER -->
+<!-- ======================================== -->
 
-<div class="card">
+<div class="card reminder-card">
 
 <h2>
 Tonight's Reminder
 </h2>
 
 <p>
-Remember to stay in bed after the Quiet Hour begins.
+Remember little stars...
 </p>
+
+<h3>
+Stay in bed after the Quiet Hour begins.
+</h3>
 
 </div>
 
-<!-- EPISODES -->
+<!-- ======================================== -->
+<!-- FEATURED BROADCAST -->
+<!-- ======================================== -->
 
-<div class="card" id="episodes">
+<div
+class="card featured-card"
+id="featured">
+
+<div class="featured-header">
+
+<h2>
+Tonight's Featured Broadcast
+</h2>
+
+<div class="live-dot"></div>
+
+</div>
+
+<div class="broadcast-box">
+
+<h1>
+Momo Counts the Stars
+</h1>
+
+<p>
+Join Momo on a sleepy nighttime adventure beneath the glowing stars.
+</p>
+
+<button
+class="watch-btn"
+onclick="openVideo(momoEpisode)">
+
+Watch Broadcast
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ======================================== -->
+<!-- EPISODES -->
+<!-- ======================================== -->
+
+<div
+class="card"
+id="episodes">
 
 <h2>
 Episode Archive
@@ -97,15 +188,13 @@ Episode Archive
 
 <div class="episode-grid">
 
-<!-- MOMO -->
+<!-- EPISODE 1 -->
 
 <div class="episode">
 
-<div class="video-placeholder">
+<div class="episode-banner">
 FULL BROADCAST
 </div>
-
-<div class="episode-content">
 
 <h3>
 Momo Counts the Stars
@@ -119,77 +208,65 @@ The original bedtime broadcast.
 AVAILABLE
 </span>
 
-<br>
-
 <button
 class="watch-btn"
 onclick="openVideo(momoEpisode)">
 
-Watch Episode
+Watch
 
 </button>
 
 </div>
-</div>
 
-<!-- PIP -->
+<!-- EPISODE 2 -->
 
 <div class="episode">
 
-<div class="video-placeholder">
+<div class="episode-banner corrupted">
 CORRUPTED RECORDING
 </div>
-
-<div class="episode-content">
 
 <h3>
 Pip's Midnight Song
 </h3>
 
 <p>
-Some segments of the tape are missing.
+Recovered from damaged network tapes.
 </p>
 
 <span class="tag missing">
 MISSING SEGMENTS
 </span>
 
-<br>
-
 <button
 class="watch-btn"
 onclick="openVideo(pipEpisode)">
 
-View Recording
+View Tape
 
 </button>
 
 </div>
-</div>
 
-<!-- RESTRICTED -->
+<!-- EPISODE 3 -->
 
 <div class="episode">
 
-<div class="video-placeholder">
+<div class="episode-banner restricted-banner">
 RESTRICTED FILE
 </div>
-
-<div class="episode-content">
 
 <h3>
 Quiet Hour Special
 </h3>
 
 <p>
-Restricted Network Archive.
+Network Admins Only.
 </p>
 
 <span class="tag restricted">
-ADMIN ONLY
+RESTRICTED
 </span>
-
-<br>
 
 <button
 class="watch-btn"
@@ -200,83 +277,18 @@ Enter Password
 </button>
 
 </div>
-</div>
 
 </div>
 
 </div>
 
-<!-- GAME -->
-
-<div class="card" id="games">
-
-<h2>
-Pip's Fishing Frenzy
-</h2>
-
-<p>
-Catch 15 fish to recover the hidden admin password.
-</p>
-
-<canvas
-id="gameCanvas"
-width="800"
-height="450">
-</canvas>
-
-<div class="game-info">
-
-Score:
-<span id="score">
-0
-</span>
-
-</div>
+<!-- ======================================== -->
+<!-- TV ADMIN -->
+<!-- ======================================== -->
 
 <div
-class="password-reveal"
-id="passwordReveal">
-
-<h2>
-NETWORK ARCHIVE RECOVERED
-</h2>
-
-<p>
-ADMIN PASSWORD:
-</p>
-
-<h1>
-STLS
-</h1>
-
-</div>
-
-</div>
-
-<!-- FEATURED VIDEO -->
-
-<div class="card">
-
-<h2>
-Featured Video
-</h2>
-
-<p>
-Latest recovered teaser broadcast.
-</p>
-
-<br>
-
-<iframe
-src="https://www.youtube.com/embed/7svauTetPjM"
-allowfullscreen>
-</iframe>
-
-</div>
-
-<!-- TV ADMIN -->
-
-<div class="card" id="admin">
+class="card admin-card"
+id="admin">
 
 <h2>
 TV Admin Access
@@ -286,14 +298,10 @@ TV Admin Access
 Authorized Network Staff Only.
 </p>
 
-<br>
-
 <input
 type="password"
 id="tvAdminPassword"
 placeholder="Enter Admin Password">
-
-<br><br>
 
 <button
 class="watch-btn"
@@ -305,7 +313,9 @@ Enter Admin Panel
 
 </div>
 
+<!-- ======================================== -->
 <!-- HIDDEN MESSAGE -->
+<!-- ======================================== -->
 
 <p class="hidden-message">
 HE STILL SPEAKS THROUGH THE BROADCASTS.
@@ -313,9 +323,13 @@ HE STILL SPEAKS THROUGH THE BROADCASTS.
 
 </section>
 
+<!-- ======================================== -->
 <!-- VIDEO POPUP -->
+<!-- ======================================== -->
 
-<div class="popup" id="videoPopup">
+<div
+class="popup"
+id="videoPopup">
 
 <div class="popup-content">
 
@@ -329,8 +343,6 @@ src=""
 allowfullscreen>
 </iframe>
 
-<br><br>
-
 <button
 class="watch-btn"
 onclick="closePopup()">
@@ -343,9 +355,13 @@ Close
 
 </div>
 
+<!-- ======================================== -->
 <!-- PASSWORD POPUP -->
+<!-- ======================================== -->
 
-<div class="popup" id="passwordPopup">
+<div
+class="popup"
+id="passwordPopup">
 
 <div class="popup-content">
 
@@ -354,7 +370,7 @@ NETWORK ADMIN ACCESS
 </h2>
 
 <p>
-This recording has been restricted.
+This broadcast has been restricted by the network.
 </p>
 
 <input
@@ -374,13 +390,25 @@ Access Recording
 
 </div>
 
+<!-- ======================================== -->
 <!-- FOOTER -->
+<!-- ======================================== -->
 
 <footer>
+
+<p>
 © 2001 The Hushabye Club Network
+</p>
+
+<p class="footer-small">
+Goodnight, little stars.
+</p>
+
 </footer>
 
+<!-- ======================================== -->
 <!-- SCRIPT -->
+<!-- ======================================== -->
 
 <script src="script.js"></script>
 
