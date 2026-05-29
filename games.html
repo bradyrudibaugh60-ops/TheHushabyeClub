@@ -64,6 +64,55 @@ padding-bottom:60px;
 }
 
 /* ======================================== */
+/* VHS EFFECT */
+/* ======================================== */
+
+body::after{
+
+content:'';
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background:
+repeating-linear-gradient(
+to bottom,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.02) 1px,
+transparent 1px,
+transparent 3px
+);
+
+mix-blend-mode:overlay;
+
+animation:vhsFlicker 0.12s infinite;
+
+}
+
+@keyframes vhsFlicker{
+
+0%{
+opacity:0.05;
+}
+
+50%{
+opacity:0.12;
+}
+
+100%{
+opacity:0.04;
+}
+
+}
+
+/* ======================================== */
 /* STARS */
 /* ======================================== */
 
@@ -129,13 +178,84 @@ text-shadow:
 
 }
 
-.subtitle{
+/* ======================================== */
+/* GLITCH */
+/* ======================================== */
 
-margin-top:15px;
+.glitch{
 
-font-size:22px;
+position:relative;
 
-color:#d8dbff;
+display:inline-block;
+
+animation:glitchMove 2s infinite;
+
+}
+
+.glitch::before,
+.glitch::after{
+
+content:attr(data-text);
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+}
+
+.glitch::before{
+
+left:2px;
+
+text-shadow:-2px 0 red;
+
+opacity:0.5;
+
+clip-path:inset(0 0 45% 0);
+
+}
+
+.glitch::after{
+
+left:-2px;
+
+text-shadow:2px 0 cyan;
+
+opacity:0.5;
+
+clip-path:inset(55% 0 0 0);
+
+}
+
+@keyframes glitchMove{
+
+0%{
+transform:translate(0);
+}
+
+20%{
+transform:translate(-1px,1px);
+}
+
+40%{
+transform:translate(1px,-1px);
+}
+
+60%{
+transform:translate(-1px,0px);
+}
+
+80%{
+transform:translate(1px,1px);
+}
+
+100%{
+transform:translate(0);
+}
 
 }
 
@@ -230,9 +350,6 @@ padding:35px;
 
 backdrop-filter:blur(10px);
 
-box-shadow:
-0 10px 40px rgba(0,0,0,0.25);
-
 }
 
 /* ======================================== */
@@ -286,8 +403,6 @@ border-radius:999px;
 
 font-size:17px;
 
-font-family:'Fredoka',sans-serif;
-
 cursor:pointer;
 
 color:white;
@@ -298,30 +413,6 @@ linear-gradient(
 #8b6dff,
 #5dc7ff
 );
-
-transition:0.3s;
-
-}
-
-.play-btn:hover{
-
-transform:
-translateY(-3px)
-scale(1.05);
-
-}
-
-/* ======================================== */
-/* SCORES */
-/* ======================================== */
-
-.score{
-
-margin-top:20px;
-
-font-size:24px;
-
-text-align:center;
 
 }
 
@@ -347,7 +438,66 @@ text-align:center;
 }
 
 /* ======================================== */
-/* FISHING GAME */
+/* ERROR POPUP */
+/* ======================================== */
+
+.error-popup{
+
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+width:320px;
+
+padding:20px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+135deg,
+#2b123f,
+#12081f
+);
+
+border:
+1px solid rgba(255,255,255,0.1);
+
+box-shadow:
+0 0 30px rgba(0,0,0,0.5);
+
+z-index:9999;
+
+display:none;
+
+}
+
+.corrupt-btn{
+
+margin-top:20px;
+
+padding:14px 24px;
+
+border:none;
+
+border-radius:999px;
+
+cursor:pointer;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#4a1f1f,
+#1a0000
+);
+
+}
+
+/* ======================================== */
+/* FISH GAME */
 /* ======================================== */
 
 .fishing-area{
@@ -355,13 +505,13 @@ text-align:center;
 margin-top:25px;
 
 width:100%;
-height:320px;
-
-border-radius:25px;
+height:300px;
 
 position:relative;
 
 overflow:hidden;
+
+border-radius:25px;
 
 background:
 linear-gradient(
@@ -426,303 +576,6 @@ border-radius:50%;
 
 }
 
-/* ======================================== */
-/* MOMO MAZE */
-/* ======================================== */
-
-.momo-game-area{
-
-margin-top:25px;
-
-width:100%;
-height:320px;
-
-border-radius:25px;
-
-position:relative;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-#283b7a,
-#121d47
-);
-
-}
-
-.maze-player{
-
-position:absolute;
-
-width:60px;
-height:60px;
-
-left:20px;
-top:20px;
-
-background:
-linear-gradient(
-135deg,
-#b8c7ff,
-#8ba7ff
-);
-
-border-radius:50%;
-
-}
-
-.maze-player::before,
-.maze-player::after{
-
-content:'';
-
-position:absolute;
-
-width:8px;
-height:8px;
-
-background:black;
-
-border-radius:50%;
-
-top:20px;
-
-}
-
-.maze-player::before{
-left:16px;
-}
-
-.maze-player::after{
-right:16px;
-}
-
-.moon-goal{
-
-position:absolute;
-
-right:25px;
-bottom:25px;
-
-width:70px;
-height:70px;
-
-border-radius:50%;
-
-background:
-radial-gradient(
-circle at top left,
-#fff6d6,
-#ffd98f,
-#d4b36c
-);
-
-}
-
-/* ======================================== */
-/* MEMORY */
-/* ======================================== */
-
-.memory-grid{
-
-margin-top:25px;
-
-display:grid;
-
-grid-template-columns:
-repeat(4,1fr);
-
-gap:15px;
-
-}
-
-.memory-card{
-
-height:90px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:34px;
-
-border-radius:20px;
-
-cursor:pointer;
-
-background:
-rgba(255,255,255,0.1);
-
-}
-
-.memory-card.matched{
-
-background:
-linear-gradient(
-135deg,
-#ffd6ff,
-#b8c7ff
-);
-
-color:#111;
-
-}
-
-/* ======================================== */
-/* TYPING */
-/* ======================================== */
-
-.typing-box{
-
-margin-top:20px;
-
-padding:20px;
-
-border-radius:20px;
-
-background:
-rgba(0,0,0,0.25);
-
-}
-
-.typing-box input{
-
-width:100%;
-
-margin-top:15px;
-
-padding:14px;
-
-border:none;
-
-border-radius:14px;
-
-font-size:16px;
-
-}
-
-/* ======================================== */
-/* STAR CLICKER */
-/* ======================================== */
-
-.star-game-area{
-
-margin-top:25px;
-
-width:100%;
-height:320px;
-
-border-radius:25px;
-
-position:relative;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-#0f1835,
-#050816
-);
-
-}
-
-.click-star{
-
-position:absolute;
-
-width:28px;
-height:28px;
-
-background:#fff0a8;
-
-clip-path:polygon(
-50% 0%,
-61% 35%,
-98% 35%,
-68% 57%,
-79% 91%,
-50% 70%,
-21% 91%,
-32% 57%,
-2% 35%,
-39% 35%
-);
-
-cursor:pointer;
-
-}
-
-/* ======================================== */
-/* DREAM STACKER */
-/* ======================================== */
-
-.dream-tower{
-
-margin-top:25px;
-
-height:320px;
-
-padding:15px;
-
-display:flex;
-
-flex-direction:column-reverse;
-
-align-items:center;
-
-overflow:hidden;
-
-border-radius:25px;
-
-background:
-linear-gradient(
-180deg,
-#1f2d5a,
-#0d1228
-);
-
-}
-
-.pillow{
-
-width:140px;
-height:34px;
-
-margin-top:4px;
-
-border-radius:16px;
-
-background:
-linear-gradient(
-135deg,
-#d8e4ff,
-#ffffff
-);
-
-}
-
-/* ======================================== */
-/* MOBILE */
-/* ======================================== */
-
-@media(max-width:768px){
-
-h1{
-font-size:52px;
-}
-
-.memory-grid{
-grid-template-columns:
-repeat(2,1fr);
-}
-
-}
-
 </style>
 
 </head>
@@ -733,13 +586,9 @@ repeat(2,1fr);
 
 <header>
 
-<h1>
+<h1 class="glitch" data-text="Hushabye Games">
 Hushabye Games
 </h1>
-
-<p class="subtitle">
-Fun nighttime adventures for little stars.
-</p>
 
 </header>
 
@@ -769,7 +618,9 @@ Clubhouse Games
 
 <div class="game-grid">
 
-<!-- PIP -->
+<!-- ======================================== -->
+<!-- FISH GAME -->
+<!-- ======================================== -->
 
 <div class="game">
 
@@ -777,88 +628,34 @@ Clubhouse Games
 Pip's Fishing Frenzy
 </h2>
 
-<button class="play-btn" onclick="startFishing()">
+<button
+class="play-btn"
+onclick="startFishing()">
+
 Start Fishing
+
 </button>
 
-<div class="fishing-area" id="fishingArea" style="display:none;"></div>
+<div
+class="fishing-area"
+id="fishingArea"
+style="display:none;">
 
-<div class="score" id="score">
-Fish Caught: 0
 </div>
 
-<div class="secret" id="secretMessage">
+<div
+class="secret"
+id="secretMessage">
+
 STLS
-</div>
 
-</div>
-
-<!-- MOMO -->
-
-<div class="game">
-
-<h2>
-Momo's Dream Maze
-</h2>
-
-<div class="momo-game-area">
-
-<div class="maze-player" id="mazePlayer"></div>
-
-<div class="moon-goal"></div>
-
-</div>
-
-<div style="margin-top:20px;">
-
-<button class="play-btn" onclick="movePlayer('up')">⬆</button>
-<button class="play-btn" onclick="movePlayer('left')">⬅</button>
-<button class="play-btn" onclick="movePlayer('down')">⬇</button>
-<button class="play-btn" onclick="movePlayer('right')">➡</button>
-
-</div>
-
-<div class="secret" id="momoSecret">
-THE QUIET KING WAITS
 </div>
 
 </div>
 
-<!-- STARBELL -->
-
-<div class="game">
-
-<h2>
-Starbell's Memory Match
-</h2>
-
-<div class="memory-grid">
-
-<div class="memory-card" onclick="flipCard(this,'🌙')">?</div>
-<div class="memory-card" onclick="flipCard(this,'🌙')">?</div>
-
-<div class="memory-card" onclick="flipCard(this,'⭐')">?</div>
-<div class="memory-card" onclick="flipCard(this,'⭐')">?</div>
-
-<div class="memory-card" onclick="flipCard(this,'☁')">?</div>
-<div class="memory-card" onclick="flipCard(this,'☁')">?</div>
-
-<div class="memory-card" onclick="flipCard(this,'💤')">?</div>
-<div class="memory-card" onclick="flipCard(this,'💤')">?</div>
-
-</div>
-
-<div class="score" id="memoryScore">
-Matches: 0 / 4
-</div>
-
-<div class="secret" id="starbellSecret">
-DO NOT TRUST THE BROADCAST
-</div>
-
-</div>
-
-<!-- TYPER -->
+<!-- ======================================== -->
+<!-- TYPING GAME -->
+<!-- ======================================== -->
 
 <div class="game">
 
@@ -866,16 +663,21 @@ DO NOT TRUST THE BROADCAST
 Lullaby Typer
 </h2>
 
-<div class="typing-box">
-
-<p id="typingText">
-Twinkle little sleepy star
+<p style="margin-top:12px;">
+Type the lullaby correctly.
 </p>
 
 <input
 type="text"
 id="typingInput"
-placeholder="Type here...">
+placeholder="Type here..."
+style="
+width:100%;
+margin-top:15px;
+padding:14px;
+border:none;
+border-radius:14px;
+">
 
 <button
 class="play-btn"
@@ -885,15 +687,19 @@ Submit Song
 
 </button>
 
-</div>
+<div
+class="secret"
+id="typingSecret">
 
-<div class="secret" id="typingSecret">
 HE IS LISTENING
-</div>
 
 </div>
 
-<!-- STAR CLICKER -->
+</div>
+
+<!-- ======================================== -->
+<!-- STAR GAME -->
+<!-- ======================================== -->
 
 <div class="game">
 
@@ -910,50 +716,30 @@ Start Star Hunt
 </button>
 
 <div
-class="star-game-area"
 id="starGameArea"
-style="display:none;">
+style="
+margin-top:25px;
+height:300px;
+border-radius:25px;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(
+180deg,
+#0f1835,
+#050816
+);
+display:none;
+">
 
 </div>
-
-<div class="score" id="starScore">
-Stars Collected: 0
-</div>
-
-<div class="secret" id="starSecret">
-CHANNEL 13 REMEMBERS
-</div>
-
-</div>
-
-<!-- DREAM STACKER -->
-
-<div class="game">
-
-<h2>
-Dream Stacker
-</h2>
-
-<button
-class="play-btn"
-onclick="stackDream()">
-
-Stack Pillow
-
-</button>
 
 <div
-class="dream-tower"
-id="dreamTower">
+class="secret"
+id="starSecret">
 
-</div>
+CHANNEL 13 REMEMBERS
 
-<div class="score" id="dreamScore">
-Pillows: 0
-</div>
-
-<div class="secret" id="dreamSecret">
-DO NOT FALL ASLEEP
 </div>
 
 </div>
@@ -964,19 +750,55 @@ DO NOT FALL ASLEEP
 
 </section>
 
+<!-- ======================================== -->
+<!-- ERROR POPUP -->
+<!-- ======================================== -->
+
+<div
+class="error-popup"
+id="errorPopup">
+
+<h3
+class="glitch"
+data-text="SIGNAL ERROR">
+
+SIGNAL ERROR
+
+</h3>
+
+<p style="margin-top:12px;">
+Broadcast instability detected.
+</p>
+
+<button
+class="corrupt-btn"
+onclick="closeError()">
+
+Silence Signal
+
+</button>
+
+</div>
+
 <script>
 
+/* ======================================== */
 /* STARS */
+/* ======================================== */
 
 const starsContainer =
-document.getElementById('stars');
+document.getElementById(
+'stars'
+);
 
 for(let i=0;i<160;i++){
 
 const star =
 document.createElement('div');
 
-star.classList.add('star');
+star.classList.add(
+'star'
+);
 
 star.style.left =
 Math.random()*100+'vw';
@@ -987,29 +809,34 @@ Math.random()*100+'vh';
 star.style.opacity =
 Math.random();
 
-starsContainer.appendChild(star);
+starsContainer.appendChild(
+star
+);
 
 }
 
+/* ======================================== */
 /* FISHING */
+/* ======================================== */
 
 let score = 0;
 
 function startFishing(){
 
-score = 0;
-
-document.getElementById('score').innerText =
-'Fish Caught: 0';
-
 const area =
-document.getElementById('fishingArea');
+document.getElementById(
+'fishingArea'
+);
 
 area.innerHTML = '';
-area.style.display = 'block';
+
+area.style.display =
+'block';
 
 for(let i=0;i<12;i++){
+
 spawnFish();
+
 }
 
 }
@@ -1019,10 +846,14 @@ function spawnFish(){
 const fish =
 document.createElement('div');
 
-fish.classList.add('fish');
+fish.classList.add(
+'fish'
+);
 
 const area =
-document.getElementById('fishingArea');
+document.getElementById(
+'fishingArea'
+);
 
 fish.style.left =
 Math.random()*85+'%';
@@ -1035,9 +866,6 @@ fish.onclick = function(){
 fish.remove();
 
 score++;
-
-document.getElementById('score').innerText =
-'Fish Caught: ' + score;
 
 if(score >= 10){
 
@@ -1056,122 +884,23 @@ area.appendChild(fish);
 
 }
 
-/* MAZE */
-
-let playerX = 20;
-let playerY = 20;
-
-function movePlayer(direction){
-
-const player =
-document.getElementById(
-'mazePlayer'
-);
-
-const step = 20;
-
-if(direction==='up') playerY -= step;
-if(direction==='down') playerY += step;
-if(direction==='left') playerX -= step;
-if(direction==='right') playerX += step;
-
-player.style.left = playerX+'px';
-player.style.top = playerY+'px';
-
-if(playerX >= 240 && playerY >= 240){
-
-document.getElementById(
-'momoSecret'
-).style.display =
-'block';
-
-}
-
-}
-
-/* MEMORY */
-
-let firstCard = null;
-let secondCard = null;
-let matches = 0;
-
-function flipCard(card,emoji){
-
-if(card.innerText !== '?') return;
-
-card.innerText = emoji;
-
-if(!firstCard){
-
-firstCard = {
-element:card,
-emoji:emoji
-};
-
-return;
-
-}
-
-secondCard = {
-element:card,
-emoji:emoji
-};
-
-if(firstCard.emoji === secondCard.emoji){
-
-firstCard.element.classList.add(
-'matched'
-);
-
-secondCard.element.classList.add(
-'matched'
-);
-
-matches++;
-
-document.getElementById(
-'memoryScore'
-).innerText =
-'Matches: '+matches+' / 4';
-
-if(matches >= 4){
-
-document.getElementById(
-'starbellSecret'
-).style.display =
-'block';
-
-}
-
-firstCard = null;
-secondCard = null;
-
-}else{
-
-setTimeout(()=>{
-
-firstCard.element.innerText='?';
-secondCard.element.innerText='?';
-
-firstCard = null;
-secondCard = null;
-
-},700);
-
-}
-
-}
-
-/* TYPING */
+/* ======================================== */
+/* TYPING GAME */
+/* ======================================== */
 
 function checkTypingGame(){
 
 const input =
 document.getElementById(
 'typingInput'
-).value.trim().toLowerCase();
+).value
+.trim()
+.toLowerCase();
 
-if(input === 'twinkle little sleepy star'){
+if(
+input ===
+'twinkle little sleepy star'
+){
 
 document.getElementById(
 'typingSecret'
@@ -1182,13 +911,13 @@ document.getElementById(
 
 }
 
-/* STAR CLICKER */
+/* ======================================== */
+/* STAR GAME */
+/* ======================================== */
 
 let starPoints = 0;
 
 function startStarGame(){
-
-starPoints = 0;
 
 const area =
 document.getElementById(
@@ -1196,7 +925,9 @@ document.getElementById(
 );
 
 area.innerHTML = '';
-area.style.display = 'block';
+
+area.style.display =
+'block';
 
 spawnClickStar();
 
@@ -1212,7 +943,23 @@ document.getElementById(
 const star =
 document.createElement('div');
 
-star.classList.add('click-star');
+star.style.position =
+'absolute';
+
+star.style.width =
+'28px';
+
+star.style.height =
+'28px';
+
+star.style.background =
+'#fff0a8';
+
+star.style.clipPath =
+'polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)';
+
+star.style.cursor =
+'pointer';
 
 star.style.left =
 Math.random()*90+'%';
@@ -1225,11 +972,6 @@ star.onclick = function(){
 star.remove();
 
 starPoints++;
-
-document.getElementById(
-'starScore'
-).innerText =
-'Stars Collected: '+starPoints;
 
 if(starPoints >= 15){
 
@@ -1250,38 +992,67 @@ area.appendChild(star);
 
 }
 
-/* DREAM STACKER */
+/* ======================================== */
+/* SIGNAL ERROR */
+/* ======================================== */
 
-let pillowCount = 0;
-
-function stackDream(){
-
-pillowCount++;
-
-const pillow =
-document.createElement('div');
-
-pillow.classList.add('pillow');
+setTimeout(()=>{
 
 document.getElementById(
-'dreamTower'
-).appendChild(pillow);
-
-document.getElementById(
-'dreamScore'
-).innerText =
-'Pillows: '+pillowCount;
-
-if(pillowCount >= 12){
-
-document.getElementById(
-'dreamSecret'
+'errorPopup'
 ).style.display =
 'block';
 
-}
+},25000);
+
+function closeError(){
+
+document.getElementById(
+'errorPopup'
+).style.display =
+'none';
 
 }
+
+/* ======================================== */
+/* RANDOM GLITCHES */
+/* ======================================== */
+
+setInterval(()=>{
+
+const titles =
+document.querySelectorAll('h2');
+
+const randomTitle =
+titles[
+Math.floor(
+Math.random()*titles.length
+)
+];
+
+const original =
+randomTitle.innerText;
+
+randomTitle.innerText =
+'██ SIGNAL LOST ██';
+
+setTimeout(()=>{
+
+randomTitle.innerText =
+original;
+
+},700);
+
+},18000);
+
+/* ======================================== */
+/* SECRET CONSOLE */
+/* ======================================== */
+
+console.log(
+'%cMR. LULL IS WATCHING.',
+'color:red;font-size:28px;font-weight:bold;'
+);
 
 </script>
 
