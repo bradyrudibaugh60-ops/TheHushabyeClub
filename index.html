@@ -49,7 +49,7 @@ Episodes
 Games
 </a>
 
-<a href="admin.html">
+<a href="#admin">
 TV Admin
 </a>
 
@@ -121,9 +121,9 @@ AVAILABLE
 
 <br>
 
-<button class="watch-btn" onclick="window.open('https://www.youtube.com/watch?v=x83jTBFu4wQ', '_blank')">
-  Watch Episode
-</button>
+<button
+class="watch-btn"
+onclick="openVideo(momoEpisode)">
 
 Watch Episode
 
@@ -274,6 +274,37 @@ allowfullscreen>
 
 </div>
 
+<!-- TV ADMIN -->
+
+<div class="card" id="admin">
+
+<h2>
+TV Admin Access
+</h2>
+
+<p>
+Authorized Network Staff Only.
+</p>
+
+<br>
+
+<input
+type="password"
+id="tvAdminPassword"
+placeholder="Enter Admin Password">
+
+<br><br>
+
+<button
+class="watch-btn"
+onclick="checkTVAdmin()">
+
+Enter Admin Panel
+
+</button>
+
+</div>
+
 <!-- HIDDEN MESSAGE -->
 
 <p class="hidden-message">
@@ -340,36 +371,6 @@ Access Recording
 </button>
 
 </div>
-
-</div>
-<!-- TV ADMIN PASSWORD -->
-
-<div class="card">
-
-<h2>
-TV Admin Access
-</h2>
-
-<p>
-Authorized Network Staff Only.
-</p>
-
-<br>
-
-<input
-type="password"
-id="tvAdminPassword"
-placeholder="Enter Admin Password">
-
-<br><br>
-
-<button
-class="watch-btn"
-onclick="checkTVAdmin()">
-
-Enter Admin Panel
-
-</button>
 
 </div>
 
