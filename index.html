@@ -7,41 +7,895 @@
 
 <title>The Hushabye Club</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap"
+rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+/* ======================================== */
+/* RESET */
+/* ======================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* ======================================== */
+/* BODY */
+/* ======================================== */
+
+body{
+
+font-family:'Fredoka',sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(111,92,255,0.22),
+transparent 35%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(77,192,255,0.12),
+transparent 30%
+),
+
+linear-gradient(
+180deg,
+#31245c 0%,
+#1f2d5a 35%,
+#13203f 70%,
+#070b1a 100%
+);
+
+min-height:100vh;
+
+position:relative;
+
+}
+
+/* ======================================== */
+/* CRT */
+/* ======================================== */
+
+.crt{
+
+position:fixed;
+inset:0;
+
+pointer-events:none;
+
+background:
+linear-gradient(
+rgba(255,255,255,0.02) 50%,
+rgba(0,0,0,0.02) 50%
+);
+
+background-size:100% 4px;
+
+opacity:0.2;
+
+z-index:999;
+
+}
+
+/* ======================================== */
+/* STARS */
+/* ======================================== */
+
+.stars{
+
+position:fixed;
+inset:0;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.star{
+
+position:absolute;
+
+width:2px;
+height:2px;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkle 4s infinite;
+
+}
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:0.2;
+}
+
+50%{
+opacity:1;
+}
+
+}
+
+/* ======================================== */
+/* HEADER */
+/* ======================================== */
+
+header{
+
+position:relative;
+
+padding:80px 20px 50px;
+
+text-align:center;
+
+overflow:hidden;
+
+}
+
+/* ======================================== */
+/* CLOUDS */
+/* ======================================== */
+
+.cloud{
+
+position:absolute;
+
+background:
+rgba(255,255,255,0.05);
+
+border-radius:100px;
+
+filter:blur(2px);
+
+}
+
+.cloud1{
+
+width:240px;
+height:80px;
+
+top:40px;
+left:-50px;
+
+}
+
+.cloud2{
+
+width:180px;
+height:60px;
+
+top:120px;
+right:-20px;
+
+}
+
+/* ======================================== */
+/* MOON */
+/* ======================================== */
+
+.moon{
+
+width:150px;
+height:150px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle at top left,
+#fff6d6,
+#ffd98f,
+#d4b36c
+);
+
+box-shadow:
+0 0 40px rgba(255,230,160,0.6),
+0 0 80px rgba(255,220,120,0.25);
+
+margin-bottom:30px;
+
+}
+
+/* ======================================== */
+/* LOGO */
+/* ======================================== */
+
+.logo{
+
+font-size:72px;
+
+font-weight:600;
+
+letter-spacing:2px;
+
+color:#f3e8ff;
+
+text-shadow:
+0 0 10px rgba(255,255,255,0.4),
+0 0 30px rgba(164,130,255,0.4);
+
+}
+
+/* ======================================== */
+/* SUBTITLE */
+/* ======================================== */
+
+.subtitle{
+
+margin-top:18px;
+
+font-size:24px;
+
+color:#d8dbff;
+
+}
+
+/* ======================================== */
+/* ON AIR */
+/* ======================================== */
+
+.on-air{
+
+margin:35px auto 0;
+
+width:fit-content;
+
+padding:12px 28px;
+
+border-radius:40px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,0.14),
+rgba(255,255,255,0.05)
+);
+
+border:
+1px solid rgba(255,255,255,0.1);
+
+backdrop-filter:blur(8px);
+
+font-size:18px;
+
+box-shadow:
+0 0 20px rgba(110,120,255,0.2);
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.03);
+}
+
+}
+
+/* ======================================== */
+/* NAV */
+/* ======================================== */
+
+nav{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+padding:20px;
+
+margin-bottom:40px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+padding:14px 26px;
+
+border-radius:999px;
+
+font-size:18px;
+
+background:
+linear-gradient(
+135deg,
+#8b6dff,
+#5dc7ff
+);
+
+box-shadow:
+0 6px 20px rgba(0,0,0,0.25);
+
+transition:0.3s;
+
+}
+
+nav a:hover{
+
+transform:
+translateY(-4px)
+scale(1.05);
+
+background:
+linear-gradient(
+135deg,
+#a786ff,
+#7ddcff
+);
+
+}
+
+/* ======================================== */
+/* CONTENT */
+/* ======================================== */
+
+.content{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:20px;
+
+display:grid;
+
+gap:30px;
+
+}
+
+/* ======================================== */
+/* CARDS */
+/* ======================================== */
+
+.card{
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.12),
+rgba(255,255,255,0.04)
+);
+
+border:
+1px solid rgba(255,255,255,0.1);
+
+border-radius:30px;
+
+padding:35px;
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.25);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card::before{
+
+content:'';
+
+position:absolute;
+
+top:-100px;
+right:-100px;
+
+width:220px;
+height:220px;
+
+background:
+radial-gradient(
+circle,
+rgba(255,255,255,0.06),
+transparent 70%
+);
+
+}
+
+/* ======================================== */
+/* ASCII */
+/* ======================================== */
+
+.ascii{
+
+text-align:center;
+
+white-space:pre;
+
+font-family:monospace;
+
+line-height:1.1;
+
+}
+
+/* MOMO */
+
+.momo-ascii{
+
+font-size:16px;
+
+margin-top:25px;
+
+color:#b8c7ff;
+
+text-shadow:
+0 0 10px rgba(160,180,255,0.35);
+
+animation:
+floatMomo 4s ease-in-out infinite;
+
+}
+
+@keyframes floatMomo{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-6px);
+}
+
+}
+
+/* PIP */
+
+.pip-ascii{
+
+font-size:15px;
+
+margin-top:25px;
+
+color:#ffe8a3;
+
+text-shadow:
+0 0 10px rgba(255,220,120,0.35);
+
+animation:
+floatPip 3s ease-in-out infinite;
+
+}
+
+@keyframes floatPip{
+
+0%,100%{
+transform:
+translateY(0px)
+rotate(0deg);
+}
+
+50%{
+transform:
+translateY(-5px)
+rotate(-2deg);
+}
+
+}
+
+/* STARBELL */
+
+.starbell-ascii{
+
+font-size:15px;
+
+margin-top:25px;
+
+color:#ffd6ff;
+
+text-shadow:
+0 0 12px rgba(255,180,255,0.35);
+
+animation:
+twinkleBell 2.5s infinite;
+
+}
+
+@keyframes twinkleBell{
+
+0%,100%{
+opacity:0.85;
+transform:scale(1);
+}
+
+50%{
+opacity:1;
+transform:scale(1.04);
+}
+
+}
+
+/* ======================================== */
+/* WELCOME */
+/* ======================================== */
+
+.welcome-card h2{
+
+font-size:40px;
+
+margin-bottom:18px;
+
+color:#f4e9ff;
+
+}
+
+.welcome-card p{
+
+font-size:20px;
+
+line-height:1.7;
+
+color:#d9e3ff;
+
+}
+
+/* ======================================== */
+/* FEATURED */
+/* ======================================== */
+
+.featured-card{
+
+background:
+radial-gradient(
+circle at top,
+rgba(140,120,255,0.35),
+rgba(20,25,60,0.95)
+);
+
+}
+
+.broadcast-box{
+
+padding:30px;
+
+border-radius:25px;
+
+background:
+rgba(0,0,0,0.25);
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+.broadcast-box h1{
+
+font-size:48px;
+
+margin-bottom:15px;
+
+}
+
+/* ======================================== */
+/* BUTTONS */
+/* ======================================== */
+
+.watch-btn{
+
+margin-top:20px;
+
+padding:14px 34px;
+
+border:none;
+
+border-radius:999px;
+
+font-size:18px;
+
+font-family:'Fredoka',sans-serif;
+
+cursor:pointer;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#8b6dff,
+#5dc7ff
+);
+
+transition:0.3s;
+
+}
+
+.watch-btn:hover{
+
+transform:
+translateY(-3px)
+scale(1.05);
+
+}
+
+/* ======================================== */
+/* EPISODES */
+/* ======================================== */
+
+.episode-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+margin-top:25px;
+
+}
+
+.episode{
+
+padding:25px;
+
+border-radius:25px;
+
+background:
+rgba(0,0,0,0.25);
+
+}
+
+.episode-banner{
+
+padding:10px;
+
+border-radius:15px;
+
+margin-bottom:18px;
+
+text-align:center;
+
+font-weight:bold;
+
+background:
+linear-gradient(
+135deg,
+#5dffb2,
+#45c7ff
+);
+
+color:#07223b;
+
+}
+
+.corrupted{
+
+background:
+linear-gradient(
+135deg,
+#ffb347,
+#ff5e7e
+);
+
+color:white;
+
+}
+
+.restricted-banner{
+
+background:
+linear-gradient(
+135deg,
+#ff4d4d,
+#8b0000
+);
+
+color:white;
+
+}
+
+/* ======================================== */
+/* TAGS */
+/* ======================================== */
+
+.tag{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:8px 16px;
+
+border-radius:999px;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+.available{
+background:#4dff9f;
+color:#042b1a;
+}
+
+.missing{
+background:#ffbd59;
+color:#3b2400;
+}
+
+.restricted{
+background:#ff5d5d;
+}
+
+/* ======================================== */
+/* INPUT */
+/* ======================================== */
+
+input{
+
+width:100%;
+
+margin-top:20px;
+
+padding:15px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:16px;
+
+font-family:'Fredoka',sans-serif;
+
+background:
+rgba(255,255,255,0.12);
+
+color:white;
+
+outline:none;
+
+}
+
+/* ======================================== */
+/* POPUPS */
+/* ======================================== */
+
+.popup{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(0,0,0,0.8);
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+z-index:1000;
+
+}
+
+.popup-content{
+
+width:90%;
+max-width:900px;
+
+padding:30px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+145deg,
+#1a2345,
+#10162f
+);
+
+text-align:center;
+
+}
+
+iframe{
+
+width:100%;
+height:500px;
+
+border:none;
+
+border-radius:20px;
+
+margin-top:20px;
+
+}
+
+/* ======================================== */
+/* FOOTER */
+/* ======================================== */
+
+footer{
+
+padding:50px 20px;
+
+text-align:center;
+
+color:
+rgba(255,255,255,0.65);
+
+}
+
+.hidden-message{
+
+opacity:0.03;
+
+font-size:12px;
+
+margin-top:30px;
+
+text-align:center;
+
+}
+
+/* ======================================== */
+/* MOBILE */
+/* ======================================== */
+
+@media(max-width:768px){
+
+.logo{
+font-size:52px;
+}
+
+.broadcast-box h1{
+font-size:34px;
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<!-- ======================================== -->
-<!-- STARS -->
-<!-- ======================================== -->
-
 <div class="stars" id="stars"></div>
-
-<!-- ======================================== -->
-<!-- CRT OVERLAY -->
-<!-- ======================================== -->
 
 <div class="crt"></div>
 
-<!-- ======================================== -->
-<!-- HEADER -->
-<!-- ======================================== -->
-
 <header>
 
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
 <div class="moon"></div>
-
-<div class="sparkles">
-
-<span>✦</span>
-<span>✦</span>
-<span>✦</span>
-
-</div>
 
 <h1 class="logo">
 The Hushabye Club
@@ -52,17 +906,10 @@ Sleep Tight, Little Stars.
 </p>
 
 <div class="on-air">
-
-● NOW AIRING:
-Momo Counts the Stars
-
+● NOW AIRING: Momo Counts the Stars
 </div>
 
 </header>
-
-<!-- ======================================== -->
-<!-- NAVIGATION -->
-<!-- ======================================== -->
 
 <nav>
 
@@ -88,15 +935,9 @@ Momo Counts the Stars
 
 </nav>
 
-<!-- ======================================== -->
-<!-- MAIN CONTENT -->
-<!-- ======================================== -->
-
 <section class="content">
 
-<!-- ======================================== -->
 <!-- WELCOME -->
-<!-- ======================================== -->
 
 <div class="card welcome-card">
 
@@ -105,52 +946,30 @@ Welcome to the Clubhouse!
 </h2>
 
 <p>
-Every night, Momo and friends help children drift peacefully into dreamland with songs, stories, and magical nighttime adventures.
+Every night, Momo and friends help little stars drift peacefully into dreamland with stories, songs, and magical adventures.
 </p>
 
-<p class="small-text">
-Broadcasting every evening since 2001.
-</p>
+<pre class="ascii momo-ascii">
+           /\   /\
+          /  '-'  \
+         |  ●   ●  |
+         |    ◡    |
+          \  ---  /
+         /|  ☾    |\
+        /_|_______|_\
+
+             MOMO
+</pre>
 
 </div>
 
-<!-- ======================================== -->
-<!-- REMINDER -->
-<!-- ======================================== -->
+<!-- FEATURED -->
 
-<div class="card reminder-card">
-
-<h2>
-Tonight's Reminder
-</h2>
-
-<p>
-Remember little stars...
-</p>
-
-<h3>
-Stay in bed after the Quiet Hour begins.
-</h3>
-
-</div>
-
-<!-- ======================================== -->
-<!-- FEATURED BROADCAST -->
-<!-- ======================================== -->
-
-<div
-class="card featured-card"
-id="featured">
-
-<div class="featured-header">
+<div class="card featured-card" id="featured">
 
 <h2>
 Tonight's Featured Broadcast
 </h2>
-
-<div class="live-dot"></div>
-
-</div>
 
 <div class="broadcast-box">
 
@@ -159,7 +978,7 @@ Momo Counts the Stars
 </h1>
 
 <p>
-Join Momo on a sleepy nighttime adventure beneath the glowing stars.
+Join Momo beneath the sleepy nighttime sky.
 </p>
 
 <button
@@ -174,21 +993,64 @@ Watch Broadcast
 
 </div>
 
-<!-- ======================================== -->
-<!-- EPISODES -->
-<!-- ======================================== -->
+<!-- CHARACTERS -->
 
-<div
-class="card"
-id="episodes">
+<div class="card">
+
+<h2>
+Meet the Friends!
+</h2>
+
+<div class="episode-grid">
+
+<div class="episode">
+
+<pre class="ascii pip-ascii">
+            __
+       __(o )>
+       \ <_. )
+        `---'
+
+          PIP
+</pre>
+
+<p>
+Pip loves songs, stories, and nighttime fishing adventures.
+</p>
+
+</div>
+
+<div class="episode">
+
+<pre class="ascii starbell-ascii">
+           .     .
+        .  |\-^-/|  .
+       /| } O   O { |\
+      / '`   ✦   `' \
+     /_/|       |\_\
+
+         STARBELL
+</pre>
+
+<p>
+Starbell watches over the stars while children sleep.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- EPISODES -->
+
+<div class="card" id="episodes">
 
 <h2>
 Episode Archive
 </h2>
 
 <div class="episode-grid">
-
-<!-- EPISODE 1 -->
 
 <div class="episode">
 
@@ -208,6 +1070,8 @@ The original bedtime broadcast.
 AVAILABLE
 </span>
 
+<br>
+
 <button
 class="watch-btn"
 onclick="openVideo(momoEpisode)">
@@ -217,8 +1081,6 @@ Watch
 </button>
 
 </div>
-
-<!-- EPISODE 2 -->
 
 <div class="episode">
 
@@ -238,6 +1100,8 @@ Recovered from damaged network tapes.
 MISSING SEGMENTS
 </span>
 
+<br>
+
 <button
 class="watch-btn"
 onclick="openVideo(pipEpisode)">
@@ -247,8 +1111,6 @@ View Tape
 </button>
 
 </div>
-
-<!-- EPISODE 3 -->
 
 <div class="episode">
 
@@ -268,6 +1130,8 @@ Network Admins Only.
 RESTRICTED
 </span>
 
+<br>
+
 <button
 class="watch-btn"
 onclick="openRestricted()">
@@ -282,13 +1146,9 @@ Enter Password
 
 </div>
 
-<!-- ======================================== -->
-<!-- TV ADMIN -->
-<!-- ======================================== -->
+<!-- ADMIN -->
 
-<div
-class="card admin-card"
-id="admin">
+<div class="card" id="admin">
 
 <h2>
 TV Admin Access
@@ -313,23 +1173,15 @@ Enter Admin Panel
 
 </div>
 
-<!-- ======================================== -->
-<!-- HIDDEN MESSAGE -->
-<!-- ======================================== -->
-
 <p class="hidden-message">
 HE STILL SPEAKS THROUGH THE BROADCASTS.
 </p>
 
 </section>
 
-<!-- ======================================== -->
 <!-- VIDEO POPUP -->
-<!-- ======================================== -->
 
-<div
-class="popup"
-id="videoPopup">
+<div class="popup" id="videoPopup">
 
 <div class="popup-content">
 
@@ -343,6 +1195,8 @@ src=""
 allowfullscreen>
 </iframe>
 
+<br><br>
+
 <button
 class="watch-btn"
 onclick="closePopup()">
@@ -355,13 +1209,9 @@ Close
 
 </div>
 
-<!-- ======================================== -->
 <!-- PASSWORD POPUP -->
-<!-- ======================================== -->
 
-<div
-class="popup"
-id="passwordPopup">
+<div class="popup" id="passwordPopup">
 
 <div class="popup-content">
 
@@ -370,7 +1220,7 @@ NETWORK ADMIN ACCESS
 </h2>
 
 <p>
-This broadcast has been restricted by the network.
+This recording has been restricted.
 </p>
 
 <input
@@ -390,27 +1240,51 @@ Access Recording
 
 </div>
 
-<!-- ======================================== -->
-<!-- FOOTER -->
-<!-- ======================================== -->
-
 <footer>
 
 <p>
 © 2001 The Hushabye Club Network
 </p>
 
-<p class="footer-small">
-Goodnight, little stars.
-</p>
-
 </footer>
 
-<!-- ======================================== -->
-<!-- SCRIPT -->
-<!-- ======================================== -->
-
 <script src="script.js"></script>
+
+<script>
+
+const starsContainer =
+document.getElementById(
+'stars'
+);
+
+for(let i=0;i<160;i++){
+
+const star =
+document.createElement('div');
+
+star.classList.add(
+'star'
+);
+
+star.style.left =
+Math.random()*100+'vw';
+
+star.style.top =
+Math.random()*100+'vh';
+
+star.style.animationDelay =
+Math.random()*5+'s';
+
+star.style.opacity =
+Math.random();
+
+starsContainer.appendChild(
+star
+);
+
+}
+
+</script>
 
 </body>
 </html>
