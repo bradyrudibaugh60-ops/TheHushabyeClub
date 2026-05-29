@@ -187,7 +187,36 @@ alert(
 }
 
 }
+/* ======================================== */
+/* TV ADMIN ACCESS */
+/* ======================================== */
 
+function checkTVAdmin(){
+
+const input =
+document.getElementById(
+'tvAdminPassword'
+);
+
+if(!input)return;
+
+const password =
+input.value;
+
+if(password === 'Lull'){
+
+window.location.href =
+'admin.html';
+
+}else{
+
+alert(
+'ACCESS DENIED'
+);
+
+}
+
+}
 /* ======================================== */
 /* CEO ACCESS */
 /* ======================================== */
