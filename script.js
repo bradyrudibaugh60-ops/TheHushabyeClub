@@ -44,18 +44,22 @@ for(let i=0;i<140;i++){
 /* VIDEO LINKS */
 /* ======================================== */
 
-/* INDEX */
+/* MOMO EPISODE */
 
 const momoEpisode =
-'https://www.youtube.com/embed/YOUR_MOMO_VIDEO';
+'https://www.youtube.com/embed/x83jTBFu4wQ';
+
+/* PIP EPISODE */
 
 const pipEpisode =
 'https://www.youtube.com/embed/YOUR_PIP_VIDEO';
 
+/* RESTRICTED */
+
 const restrictedEpisode =
 'https://www.youtube.com/embed/YOUR_RESTRICTED_VIDEO';
 
-/* ADMIN */
+/* ADMIN VIDEOS */
 
 const starbellEpisode =
 'https://www.youtube.com/embed/YOUR_STARBELL_VIDEO';
@@ -75,7 +79,7 @@ const tape3 =
 const tape4 =
 'https://www.youtube.com/embed/YOUR_TAPE4';
 
-/* CEO */
+/* CEO VIDEO */
 
 const quietKingVideo =
 'https://www.youtube.com/embed/YOUR_QUIET_KING_VIDEO';
@@ -311,24 +315,26 @@ ctx.fill();
 
 function drawFish(f){
 
-/* BODY */
+ctx.fillStyle='#7fe4ff';
 
-ctx.fillStyle='#8fe3ff';
+/* BODY */
 
 ctx.beginPath();
 
-ctx.ellipse(
+ctx.moveTo(f.x - 25, f.y);
 
+ctx.quadraticCurveTo(
 f.x,
-f.y,
+f.y - 18,
+f.x + 25,
+f.y
+);
 
-22,
-12,
-
-0,
-0,
-Math.PI*2
-
+ctx.quadraticCurveTo(
+f.x,
+f.y + 18,
+f.x - 25,
+f.y
 );
 
 ctx.fill();
@@ -337,20 +343,39 @@ ctx.fill();
 
 ctx.beginPath();
 
-ctx.moveTo(
-f.x-18,
-f.y
-);
+ctx.moveTo(f.x - 25, f.y);
 
-ctx.lineTo(
-f.x-35,
-f.y-10
-);
+ctx.lineTo(f.x - 45, f.y - 15);
 
-ctx.lineTo(
-f.x-35,
-f.y+10
-);
+ctx.lineTo(f.x - 45, f.y + 15);
+
+ctx.closePath();
+
+ctx.fill();
+
+/* TOP FIN */
+
+ctx.beginPath();
+
+ctx.moveTo(f.x - 5, f.y - 8);
+
+ctx.lineTo(f.x + 8, f.y - 24);
+
+ctx.lineTo(f.x + 16, f.y - 6);
+
+ctx.closePath();
+
+ctx.fill();
+
+/* BOTTOM FIN */
+
+ctx.beginPath();
+
+ctx.moveTo(f.x - 5, f.y + 8);
+
+ctx.lineTo(f.x + 10, f.y + 22);
+
+ctx.lineTo(f.x + 16, f.y + 6);
 
 ctx.closePath();
 
@@ -363,11 +388,11 @@ ctx.fillStyle='white';
 ctx.beginPath();
 
 ctx.arc(
-f.x+10,
-f.y-2,
-3,
+f.x + 14,
+f.y - 3,
+4,
 0,
-Math.PI*2
+Math.PI * 2
 );
 
 ctx.fill();
@@ -379,14 +404,32 @@ ctx.fillStyle='black';
 ctx.beginPath();
 
 ctx.arc(
-f.x+11,
-f.y-2,
-1.5,
+f.x + 15,
+f.y - 3,
+2,
 0,
-Math.PI*2
+Math.PI * 2
 );
 
 ctx.fill();
+
+/* MOUTH */
+
+ctx.strokeStyle='#003344';
+
+ctx.lineWidth=2;
+
+ctx.beginPath();
+
+ctx.arc(
+f.x + 20,
+f.y + 2,
+4,
+0.5,
+2
+);
+
+ctx.stroke();
 
 }
 
@@ -491,363 +534,6 @@ updateGame();
 
 console.log(
 'Fishing Frenzy initialized.'
-);
-
-}
-
-/* ======================================== */
-/* BOSS FIGHT */
-/* ======================================== */
-
-const bossCanvas =
-document.getElementById(
-'bossCanvas'
-);
-
-if(bossCanvas){
-
-const bossCtx =
-bossCanvas.getContext('2d');
-
-let bossHealth = 300;
-
-let phase = 1;
-
-/* START */
-
-function startBossFight(){
-
-const bossSection =
-document.getElementById(
-'bossSection'
-);
-
-if(bossSection){
-
-bossSection.style.display =
-'block';
-
-}
-
-drawBoss();
-
-window.scrollTo({
-
-top:
-document.body.scrollHeight,
-
-behavior:'smooth'
-
-});
-
-}
-
-window.startBossFight =
-startBossFight;
-
-/* DRAW */
-
-function drawBoss(){
-
-bossCtx.clearRect(
-0,
-0,
-bossCanvas.width,
-bossCanvas.height
-);
-
-/* BACKGROUND */
-
-for(let i=0;i<250;i++){
-
-bossCtx.fillStyle =
-`rgba(255,255,255,${
-Math.random()*0.12
-})`;
-
-bossCtx.fillRect(
-
-Math.random()*900,
-Math.random()*500,
-
-2,
-2
-
-);
-
-}
-
-/* BODY */
-
-bossCtx.fillStyle =
-'#090909';
-
-bossCtx.fillRect(
-380,
-180,
-140,
-200
-);
-
-/* ARMS */
-
-bossCtx.fillRect(
-250,
-220,
-130,
-25
-);
-
-bossCtx.fillRect(
-520,
-220,
-130,
-25
-);
-
-/* LEGS */
-
-bossCtx.fillRect(
-405,
-380,
-30,
-90
-);
-
-bossCtx.fillRect(
-465,
-380,
-30,
-90
-);
-
-/* HEAD */
-
-bossCtx.beginPath();
-
-bossCtx.arc(
-450,
-130,
-90,
-0,
-Math.PI*2
-);
-
-bossCtx.fill();
-
-/* EYES */
-
-bossCtx.fillStyle='white';
-
-bossCtx.beginPath();
-bossCtx.arc(
-420,
-115,
-10,
-0,
-Math.PI*2
-);
-bossCtx.fill();
-
-bossCtx.beginPath();
-bossCtx.arc(
-480,
-115,
-10,
-0,
-Math.PI*2
-);
-bossCtx.fill();
-
-/* SMILE */
-
-bossCtx.strokeStyle =
-'#d8c7ff';
-
-bossCtx.lineWidth = 5;
-
-bossCtx.beginPath();
-
-bossCtx.arc(
-450,
-150,
-35,
-0,
-Math.PI
-);
-
-bossCtx.stroke();
-
-/* EXTRA EYES */
-
-for(let i=0;i<6;i++){
-
-bossCtx.fillStyle='white';
-
-bossCtx.beginPath();
-
-bossCtx.arc(
-390 + (i*20),
-260,
-5,
-0,
-Math.PI*2
-);
-
-bossCtx.fill();
-
-}
-
-/* PHASE */
-
-bossCtx.fillStyle =
-'#bda9ff';
-
-bossCtx.font =
-'30px Fredoka';
-
-bossCtx.fillText(
-'PHASE ' + phase,
-30,
-50
-);
-
-}
-
-/* ATTACK */
-
-function attackBoss(){
-
-if(bossHealth <= 0){
-return;
-}
-
-bossHealth -= 10;
-
-const healthText =
-document.getElementById(
-'bossHealth'
-);
-
-if(healthText){
-
-healthText.textContent =
-bossHealth;
-
-}
-
-/* PHASES */
-
-if(bossHealth <= 200){
-
-phase = 2;
-
-}
-
-if(bossHealth <= 100){
-
-phase = 3;
-
-}
-
-/* VISUALS */
-
-if(phase === 2){
-
-document.body.style.background =
-'linear-gradient(to bottom,#12051f,#000000)';
-
-}
-
-if(phase === 3){
-
-document.body.style.background =
-'black';
-
-const logo =
-document.querySelector(
-'.logo'
-);
-
-if(logo){
-
-logo.textContent =
-'QUIET HOUR ACTIVE';
-
-}
-
-}
-
-/* REDRAW */
-
-drawBoss();
-
-/* WIN */
-
-if(bossHealth <= 0){
-
-setTimeout(()=>{
-
-const ending =
-document.getElementById(
-'endingSection'
-);
-
-if(ending){
-
-ending.style.display =
-'block';
-
-}
-
-alert(
-'THE SIGNAL HAS BEEN BROKEN.'
-);
-
-},500);
-
-}
-
-}
-
-window.attackBoss =
-attackBoss;
-
-/* ENDING */
-
-function playEnding(){
-
-document.body.style.background =
-'linear-gradient(to bottom,#8ec5ff,#f6f7ff)';
-
-document.body.style.color =
-'#111';
-
-const logo =
-document.querySelector(
-'.logo'
-);
-
-if(logo){
-
-logo.textContent =
-'THE BROADCAST IS OVER';
-
-}
-
-alert(
-'The children have finally been freed.'
-);
-
-}
-
-window.playEnding =
-playEnding;
-
-drawBoss();
-
-console.log(
-'Quiet King encounter loaded.'
 );
 
 }
